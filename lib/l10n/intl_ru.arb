@@ -1,3 +1,6 @@
 {
-    "habits" : "Habits"
+    "habits" : "Habits",
+    "new_habits" : "Добавить привычку",
+    "cancel" : "Назад",
+    "done" : "Ок"
 }

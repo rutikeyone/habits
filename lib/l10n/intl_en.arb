@@ -1,3 +1,6 @@
 {
-    "habits" : "Habits"
+    "habits" : "Habits",
+    "new_habits" : "New habit",
+    "cancel" : "Cancel",
+    "done" : "Done"
 }

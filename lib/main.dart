@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
           theme: light,
           darkTheme: dark,
           supportedLocales: S.delegate.supportedLocales,
-          home: const SafeArea(child: MainScreen()),
+          home: const MainScreen(),
         );
       },
     );

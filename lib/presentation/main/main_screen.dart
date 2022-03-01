@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:habits/presentation/main/components/main_app_bar.dart';
+import 'package:habits/presentation/main/view/main_loaded_view.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -11,19 +11,6 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Theme.of(context).backgroundColor,
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 30, bottom: 15),
-            child: MainAppBar(
-              listOnPressed: () {},
-              settingOnPressed: () {},
-            ),
-          ),
-        ],
-      ),
-    );
+    return const SafeArea(child: MainLoadedView());
   }
 }

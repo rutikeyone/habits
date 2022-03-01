@@ -15,32 +15,35 @@ class MainAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [
-        IconButton(
-          icon: const FaIcon(
-            FontAwesomeIcons.list,
+    return Padding(
+      padding: const EdgeInsets.only(top: 30, bottom: 15),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          IconButton(
+            icon: const FaIcon(
+              FontAwesomeIcons.list,
+            ),
+            iconSize: 26,
+            onPressed: listOnPressed,
+            color: Theme.of(context).textTheme.headline1!.color,
           ),
-          iconSize: 26,
-          onPressed: listOnPressed,
-          color: Theme.of(context).primaryColor,
-        ),
-        Text(
-          S.of(context).habits,
-          style: Theme.of(context).textTheme.headline1,
-        ),
-        IconButton(
-          icon: SvgPicture.asset(
-            "assets/icons/gear.svg",
-            width: 26,
-            height: 26,
-            color: Theme.of(context).primaryColor,
+          Text(
+            S.of(context).habits,
+            style: Theme.of(context).textTheme.headline1,
           ),
-          onPressed: settingOnPressed,
-          color: Theme.of(context).primaryColor,
-        ),
-      ],
+          IconButton(
+            icon: SvgPicture.asset(
+              "assets/icons/gear.svg",
+              width: 26,
+              height: 26,
+              color: Theme.of(context).textTheme.headline1!.color,
+            ),
+            onPressed: settingOnPressed,
+            color: Theme.of(context).textTheme.headline1!.color,
+          ),
+        ],
+      ),
     );
   }
 }
