@@ -17,8 +17,8 @@ class ColorItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       child: Container(
-        height: 45,
-        width: 45,
+        height: 50,
+        width: 50,
         decoration: BoxDecoration(
           color: color,
           borderRadius: BorderRadius.circular(50),

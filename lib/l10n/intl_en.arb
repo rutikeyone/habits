@@ -6,5 +6,7 @@
     "title" : "Title",
     "frequency" : "Frequency",
     "times_a_week" : "Times a week",
-    "reminder_text" : "Reminder text"
+    "reminder_text" : "Reminder text",
+    "reminder" : "Reminder",
+    "just_notification" : "Just notification"
 }

@@ -23,10 +23,6 @@ class NewHabitAppBar extends StatelessWidget {
             ),
             onTap: cancelOnPressed,
           ),
-          Text(
-            S.of(context).new_habits,
-            style: Theme.of(context).textTheme.headline2,
-          ),
           GestureDetector(
             child: Text(
               S.of(context).done,

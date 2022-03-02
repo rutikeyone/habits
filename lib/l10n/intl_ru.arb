@@ -2,9 +2,11 @@
     "habits" : "Habits",
     "new_habits" : "Добавить привычку",
     "cancel" : "Назад",
-    "done" : "Ок",
+    "done" : "Добавить",
     "title" : "Заголовок",
     "frequency" : "Повторяемость",
     "times_a_week" : "Количество дней в неделю",
-    "reminder_text" : "Текст напоминания"
+    "reminder_text" : "Текст напоминания",
+    "reminder" : "Напоминание",
+    "just_notification" : "Дата и время уведомления"
 }

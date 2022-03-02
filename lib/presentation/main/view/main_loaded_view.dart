@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:habits/domain/model/temporary_data.dart';
-import 'package:habits/presentation/main/components/habit_item.dart';
 import 'package:habits/presentation/main/components/main_app_bar.dart';
 import 'package:habits/presentation/main/components/main_bottom_app_bar.dart';
+import 'package:habits/presentation/main/widgets/habit_item.dart';
 import 'package:habits/presentation/new_habit/new_habit_screen.dart';
 
 class MainLoadedView extends StatelessWidget {

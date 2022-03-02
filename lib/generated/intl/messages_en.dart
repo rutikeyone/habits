@@ -26,7 +26,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "done": MessageLookupByLibrary.simpleMessage("Done"),
         "frequency": MessageLookupByLibrary.simpleMessage("Frequency"),
         "habits": MessageLookupByLibrary.simpleMessage("Habits"),
+        "just_notification":
+            MessageLookupByLibrary.simpleMessage("Just notification"),
         "new_habits": MessageLookupByLibrary.simpleMessage("New habit"),
+        "reminder": MessageLookupByLibrary.simpleMessage("Reminder"),
         "reminder_text": MessageLookupByLibrary.simpleMessage("Reminder text"),
         "times_a_week": MessageLookupByLibrary.simpleMessage("Times a week"),
         "title": MessageLookupByLibrary.simpleMessage("Title")

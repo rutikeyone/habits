@@ -46,7 +46,7 @@ class HabitItem extends StatelessWidget {
                 height: 20,
               ),
               SizedBox(
-                height: 65,
+                height: 70,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   shrinkWrap: false,

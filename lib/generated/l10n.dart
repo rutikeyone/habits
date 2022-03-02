@@ -129,6 +129,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Reminder`
+  String get reminder {
+    return Intl.message(
+      'Reminder',
+      name: 'reminder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Just notification`
+  String get just_notification {
+    return Intl.message(
+      'Just notification',
+      name: 'just_notification',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

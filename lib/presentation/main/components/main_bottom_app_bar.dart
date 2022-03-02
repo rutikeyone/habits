@@ -14,9 +14,9 @@ class MainBottomAppBar extends StatelessWidget {
   BottomAppBar build(BuildContext context) {
     return BottomAppBar(
       color: backgroundColor,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 30),
-        child: GestureDetector(
+      child: GestureDetector(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 30),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -34,8 +34,8 @@ class MainBottomAppBar extends StatelessWidget {
               ),
             ],
           ),
-          onTap: newHabitOnPressed,
         ),
+        onTap: newHabitOnPressed,
       ),
     );
   }

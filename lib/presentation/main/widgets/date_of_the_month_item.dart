@@ -24,7 +24,7 @@ class DateOfTheMonthItem extends StatelessWidget {
           height: 5,
         ),
         Container(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.all(12.5),
           decoration: BoxDecoration(
             color: backgroundColor,
             borderRadius: BorderRadius.circular(50),
