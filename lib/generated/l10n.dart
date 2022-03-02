@@ -89,6 +89,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Title`
+  String get title {
+    return Intl.message(
+      'Title',
+      name: 'title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Frequency`
+  String get frequency {
+    return Intl.message(
+      'Frequency',
+      name: 'frequency',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Times a week`
+  String get times_a_week {
+    return Intl.message(
+      'Times a week',
+      name: 'times_a_week',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reminder text`
+  String get reminder_text {
+    return Intl.message(
+      'Reminder text',
+      name: 'reminder_text',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

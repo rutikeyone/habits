@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 final dark = ThemeData(
   primaryColorDark: const Color(0xff1B1B1B),
   primaryColorLight: const Color(0xff292929),
+  inputDecorationTheme: const InputDecorationTheme(
+    fillColor: Color(0xff343434),
+  ),
   textTheme: const TextTheme(
     headline1: TextStyle(
       color: Color(0xffFFFFFF),

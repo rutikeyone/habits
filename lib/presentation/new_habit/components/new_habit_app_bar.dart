@@ -12,9 +12,9 @@ class NewHabitAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 30, bottom: 15),
+      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 25),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           GestureDetector(
             child: Text(

@@ -11,6 +11,6 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(child: MainLoadedView());
+    return SafeArea(child: MainLoadedView());
   }
 }

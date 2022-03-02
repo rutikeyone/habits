@@ -2,5 +2,9 @@
     "habits" : "Habits",
     "new_habits" : "New habit",
     "cancel" : "Cancel",
-    "done" : "Done"
+    "done" : "Done",
+    "title" : "Title",
+    "frequency" : "Frequency",
+    "times_a_week" : "Times a week",
+    "reminder_text" : "Reminder text"
 }
