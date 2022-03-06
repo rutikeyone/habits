@@ -3,7 +3,9 @@ import 'package:habits/generated/l10n.dart';
 import 'package:habits/presentation/new_habit/widgets/input_text_form_field.dart';
 
 class TitleInputTextField extends StatelessWidget {
-  const TitleInputTextField({Key? key}) : super(key: key);
+  final void Function(String) inputTextChanged;
+  const TitleInputTextField({Key? key, required this.inputTextChanged})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,6 +13,7 @@ class TitleInputTextField extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 25),
       child: InputTextFormField(
         autofocus: true,
+        textChanged: inputTextChanged,
         hintText: S.of(context).title,
       ),
     );

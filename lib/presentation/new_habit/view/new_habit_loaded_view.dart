@@ -6,7 +6,10 @@ import 'package:habits/presentation/new_habit/components/reminder.dart';
 import 'package:habits/presentation/new_habit/components/title_input_text_field.dart';
 
 class NewHabitLoadedView extends StatefulWidget {
-  const NewHabitLoadedView({Key? key}) : super(key: key);
+  final void Function(String) titleChanged;
+
+  const NewHabitLoadedView({Key? key, required this.titleChanged})
+      : super(key: key);
 
   @override
   State<NewHabitLoadedView> createState() => _NewHabitLoadedViewState();
@@ -24,7 +27,9 @@ class _NewHabitLoadedViewState extends State<NewHabitLoadedView> {
             NewHabitAppBar(
               cancelOnPressed: () => Navigator.of(context).pop(),
             ),
-            const TitleInputTextField(),
+            TitleInputTextField(
+              inputTextChanged: widget.titleChanged,
+            ),
             const SizedBox(height: 25),
             const ColorPickerBar(),
             const SizedBox(height: 25),

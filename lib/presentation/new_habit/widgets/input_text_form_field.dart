@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 class InputTextFormField extends StatelessWidget {
   final bool autofocus;
   final String hintText;
+  final void Function(String) textChanged;
   const InputTextFormField({
     Key? key,
     required this.autofocus,
     required this.hintText,
+    required this.textChanged,
   }) : super(key: key);
 
   @override
@@ -14,6 +16,7 @@ class InputTextFormField extends StatelessWidget {
     return SizedBox(
       child: TextFormField(
         autofocus: autofocus,
+        onChanged: textChanged,
         style: Theme.of(context).textTheme.headline2,
         textAlignVertical: TextAlignVertical.center,
         decoration: InputDecoration(

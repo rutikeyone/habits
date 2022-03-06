@@ -93,6 +93,7 @@ class _ReminderState extends State<Reminder> {
                   height: 42.5,
                   child: InputTextFormField(
                     autofocus: false,
+                    textChanged: (value) {},
                     hintText: S.of(context).reminder_text,
                   ),
                 ),

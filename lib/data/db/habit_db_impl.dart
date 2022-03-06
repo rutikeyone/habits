@@ -18,15 +18,13 @@ class HabitDatabaseImpl implements HabitDatabase {
   }
 
   Future _onCreate(Database db, int version) async {
-    return db.execute(
-      '''
-      CREATE TABLE habits(
+    return await db.execute('''
+      CREATE TABLE habits (
         id INTEGER PRIMARY KEY,
         title TEXT,
-        colorValue INTEGER,
+        colorValue INTEGER
       )
-      ''',
-    );
+      ''');
   }
 
   @override
