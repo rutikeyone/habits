@@ -22,7 +22,9 @@ class HabitDatabaseImpl implements HabitDatabase {
       CREATE TABLE habits (
         id INTEGER PRIMARY KEY,
         title TEXT,
-        colorValue INTEGER
+        colorValue INTEGER,
+        daysMilliSeconds TEXT,
+        selectedDaysMilliSeconds TEXT
       )
       ''');
   }

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:habits/generated/l10n.dart';
+import 'package:habits/presentation/state/new_habit/new_habit_bloc.dart';
+import 'package:habits/presentation/state/new_habit/new_habit_event.dart';
 
 class Frequency extends StatefulWidget {
   const Frequency({Key? key}) : super(key: key);
@@ -10,7 +13,27 @@ class Frequency extends StatefulWidget {
 }
 
 class _FrequencyState extends State<Frequency> {
-  int counter = 0;
+  int frequencyCounter = 0;
+
+  void addFrequency() {
+    if (frequencyCounter < 7) {
+      setState(() {
+        frequencyCounter++;
+      });
+      BlocProvider.of<NewHabitBloc>(context)
+          .add(FrequencyCounterChangedEvent(value: frequencyCounter));
+    }
+  }
+
+  void subtractFrequency() {
+    if (frequencyCounter > 0) {
+      setState(() {
+        frequencyCounter--;
+      });
+      BlocProvider.of<NewHabitBloc>(context)
+          .add(FrequencyCounterChangedEvent(value: frequencyCounter));
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,11 +71,7 @@ class _FrequencyState extends State<Frequency> {
                     shape: const CircleBorder(),
                     padding: const EdgeInsets.all(12),
                   ),
-                  onPressed: () {
-                    setState(() {
-                      counter--;
-                    });
-                  },
+                  onPressed: subtractFrequency,
                   child: const Icon(
                     FontAwesomeIcons.minus,
                     size: 20,
@@ -62,7 +81,7 @@ class _FrequencyState extends State<Frequency> {
                   width: 20,
                 ),
                 Text(
-                  counter.toString(),
+                  frequencyCounter.toString(),
                   style: Theme.of(context).textTheme.headline1,
                 ),
                 const SizedBox(
@@ -74,11 +93,7 @@ class _FrequencyState extends State<Frequency> {
                     shape: const CircleBorder(),
                     padding: const EdgeInsets.all(12),
                   ),
-                  onPressed: () {
-                    setState(() {
-                      counter++;
-                    });
-                  },
+                  onPressed: addFrequency,
                   child: const Icon(
                     FontAwesomeIcons.plus,
                     size: 20,

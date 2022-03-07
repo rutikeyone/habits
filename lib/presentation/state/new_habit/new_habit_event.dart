@@ -20,6 +20,12 @@ class ColorChangedEvent extends NewHabitEvent {
   const ColorChangedEvent({required this.color});
 }
 
+class FrequencyCounterChangedEvent extends NewHabitEvent {
+  final int value;
+
+  const FrequencyCounterChangedEvent({required this.value});
+}
+
 class AddEvent extends NewHabitEvent {}
 
 class ErrorEvent extends NewHabitEvent {

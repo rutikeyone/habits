@@ -3,7 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ColorItem extends StatelessWidget {
   final Color color;
-  final VoidCallback onTap;
+  final void Function() onTap;
   final bool isSelected;
 
   const ColorItem({

@@ -1,19 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:habits/generated/l10n.dart';
+import 'package:habits/presentation/new_habit/new_habit_screen.dart';
 
 class MainBottomAppBar extends StatelessWidget {
-  final VoidCallback newHabitOnPressed;
-  final Color? backgroundColor;
-
-  const MainBottomAppBar(
-      {Key? key, this.backgroundColor, required this.newHabitOnPressed})
-      : super(key: key);
+  const MainBottomAppBar({Key? key}) : super(key: key);
 
   @override
   BottomAppBar build(BuildContext context) {
     return BottomAppBar(
-      color: backgroundColor,
+      color: Theme.of(context).primaryColorDark,
       child: GestureDetector(
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 30),
@@ -35,7 +31,11 @@ class MainBottomAppBar extends StatelessWidget {
             ],
           ),
         ),
-        onTap: newHabitOnPressed,
+        onTap: () => Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (builder) => const NewHabitScreen(),
+          ),
+        ),
       ),
     );
   }

@@ -7,6 +7,12 @@ class HabitMapper {
       id: model.id,
       title: model.title,
       colorValue: model.colorValue,
+      days: model.daysMilliSeconds
+          .map((e) => DateTime.fromMillisecondsSinceEpoch(e))
+          .toList(),
+      selectedDays: model.selectedDaysMilliSeconds
+          .map((e) => DateTime.fromMillisecondsSinceEpoch(e))
+          .toList(),
     );
   }
 
@@ -15,6 +21,10 @@ class HabitMapper {
       id: habit.id,
       title: habit.title,
       colorValue: habit.colorValue,
+      daysMilliSeconds:
+          habit.days.map((e) => e.millisecondsSinceEpoch).toList(),
+      selectedDaysMilliSeconds:
+          habit.selectedDays.map((e) => e.millisecondsSinceEpoch).toList(),
     );
   }
 
@@ -25,6 +35,12 @@ class HabitMapper {
             id: model.id,
             title: model.title,
             colorValue: model.colorValue,
+            days: model.daysMilliSeconds
+                .map((e) => DateTime.fromMillisecondsSinceEpoch(e))
+                .toList(),
+            selectedDays: model.selectedDaysMilliSeconds
+                .map((e) => DateTime.fromMillisecondsSinceEpoch(e))
+                .toList(),
           ),
         )
         .toList();

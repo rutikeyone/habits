@@ -221,16 +221,7 @@ class MainLoadedView extends StatelessWidget {
           ),
         ],
       ),
-      bottomNavigationBar: MainBottomAppBar(
-        backgroundColor: Theme.of(context).primaryColorDark,
-        newHabitOnPressed: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (builder) => const NewHabitScreen(),
-            ),
-          );
-        },
-      ),
+      bottomNavigationBar: const MainBottomAppBar(),
     );
   }
 }
