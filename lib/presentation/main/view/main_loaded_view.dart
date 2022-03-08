@@ -6,7 +6,10 @@ import 'package:habits/presentation/main/widgets/habit_item.dart';
 
 class MainLoadedView extends StatelessWidget {
   final List<Habit> habits;
-  const MainLoadedView({Key? key, required this.habits}) : super(key: key);
+  const MainLoadedView({
+    Key? key,
+    required this.habits,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

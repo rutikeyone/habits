@@ -17,7 +17,9 @@ class LoadingState extends MainState {}
 class LoadedState extends MainState {
   final List<Habit> habits;
 
-  const LoadedState({required this.habits});
+  const LoadedState({
+    required this.habits,
+  });
 }
 
 class ErrorState extends MainState {

@@ -6,13 +6,14 @@ import 'package:habits/internal/db_di/db_controller.dart';
 import 'package:habits/internal/locator.dart';
 import 'package:habits/presentation/state/new_habit/new_habit_event.dart';
 import 'package:habits/presentation/state/new_habit/new_habit_state.dart';
+import 'package:habits/presentation/theme/auxilary_color.dart';
 
 class NewHabitBloc extends Bloc<NewHabitEvent, NewHabitState> {
   NewHabitBloc({
     required NewHabitState initialState,
   }) : super(initialState) {
     String? title;
-    Color? color;
+    Color? color = red;
     int frequencyCounter = 0;
 
     on(
