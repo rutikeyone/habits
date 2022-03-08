@@ -32,6 +32,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "reminder": MessageLookupByLibrary.simpleMessage("Reminder"),
         "reminder_text": MessageLookupByLibrary.simpleMessage("Reminder text"),
         "times_a_week": MessageLookupByLibrary.simpleMessage("Times a week"),
+        "times_a_week_1": MessageLookupByLibrary.simpleMessage("times a week"),
         "title": MessageLookupByLibrary.simpleMessage("Title")
       };
 }

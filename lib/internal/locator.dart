@@ -5,7 +5,8 @@ import 'package:habits/data/repository/date_repository_impl.dart';
 import 'package:habits/domain/repository/db_repository.dart';
 import 'package:habits/domain/repository/date_repository.dart';
 import 'package:habits/internal/db_di/db_controller.dart';
-import 'package:habits/internal/frequency_di/date_controller.dart';
+
+import 'date_di/date_controller.dart';
 
 final GetIt getIt = GetIt.instance;
 

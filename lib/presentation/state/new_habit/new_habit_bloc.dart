@@ -1,11 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:habits/data/repository/date_repository_impl.dart';
 import 'package:habits/domain/model/habit.dart';
+import 'package:habits/internal/date_di/date_controller.dart';
 import 'package:habits/internal/db_di/db_controller.dart';
-import 'package:habits/internal/frequency_di/date_controller.dart';
 import 'package:habits/internal/locator.dart';
-import 'package:habits/presentation/new_habit/components/frequency.dart';
 import 'package:habits/presentation/state/new_habit/new_habit_event.dart';
 import 'package:habits/presentation/state/new_habit/new_habit_state.dart';
 
@@ -35,12 +33,24 @@ class NewHabitBloc extends Bloc<NewHabitEvent, NewHabitState> {
           final habit = Habit(
               title: title!,
               colorValue: color!.value,
+              weekDaysName: frequencyCounter == 0
+                  ? []
+                  : getIt
+                      .get<DateController>()
+                      .chooseDates(frequencyCounter)
+                      .value3,
               days: frequencyCounter == 0
                   ? []
-                  : getIt.get<DateController>().getSevenDays(),
+                  : getIt
+                      .get<DateController>()
+                      .chooseDates(frequencyCounter)
+                      .value1,
               selectedDays: frequencyCounter == 0
                   ? []
-                  : getIt.get<DateController>().chooseDates(frequencyCounter));
+                  : getIt
+                      .get<DateController>()
+                      .chooseDates(frequencyCounter)
+                      .value2);
           await getIt.get<DbController>().add(habit);
         }
 

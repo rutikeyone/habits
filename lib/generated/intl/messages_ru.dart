@@ -34,6 +34,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Текст напоминания"),
         "times_a_week":
             MessageLookupByLibrary.simpleMessage("Количество дней в неделю"),
+        "times_a_week_1": MessageLookupByLibrary.simpleMessage("раза в неделю"),
         "title": MessageLookupByLibrary.simpleMessage("Заголовок")
       };
 }

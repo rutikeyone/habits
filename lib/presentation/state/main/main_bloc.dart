@@ -18,8 +18,6 @@ class MainBloc extends Bloc<MainEvent, MainState> {
           try {
             final _habits = await getIt.get<DbController>().getAll();
 
-            print(_habits.length);
-
             emit(LoadedState(habits: _habits));
           } catch (e) {
             emit(

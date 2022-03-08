@@ -23,6 +23,7 @@ class HabitDatabaseImpl implements HabitDatabase {
         id INTEGER PRIMARY KEY,
         title TEXT,
         colorValue INTEGER,
+        weekDaysName TEXT,
         daysMilliSeconds TEXT,
         selectedDaysMilliSeconds TEXT
       )

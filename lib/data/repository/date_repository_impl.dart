@@ -1,23 +1,28 @@
 import 'dart:math';
+import 'package:dartz/dartz.dart';
 import 'package:habits/domain/repository/date_repository.dart';
+import 'package:intl/intl.dart';
 
 class DateRepositoryImpl extends DateRepository {
   final DateTime _now = DateTime.now();
   late final int _weekDay = DateTime(_now.year).weekday;
   List<DateTime> _nextSevenDays = [];
   List<DateTime> _selectedDates = [];
+  List<String> _weekDaysName = [];
   List<int> _randomIndexs = [];
 
   @override
-  List<DateTime> chooseDates(int frequencyCounter) {
-    _nextSevenDays = getNextSevenDays();
+  Tuple3<List<DateTime>, List<DateTime>, List<String>> chooseDates(
+      int frequencyCounter) {
+    _nextSevenDays = _getNextSevenDays();
     _randomIndexs = _getRandomIndexs(frequencyCounter);
     _selectedDates = _getSelectedDates();
+    _weekDaysName = _getWeekDaysName();
 
-    return _selectedDates;
+    return Tuple3(_nextSevenDays, _selectedDates, _weekDaysName);
   }
 
-  List<DateTime> getNextSevenDays() {
+  List<DateTime> _getNextSevenDays() {
     final List<DateTime> result = [];
 
     for (int i = 1; i <= _weekDay; i++) {
@@ -50,5 +55,15 @@ class DateRepositoryImpl extends DateRepository {
     }
 
     return _selectedDates;
+  }
+
+  List<String> _getWeekDaysName() {
+    List<String> _weekDaysName = [];
+
+    for (DateTime day in _nextSevenDays) {
+      _weekDaysName.add(DateFormat('EEEE').format(day));
+    }
+
+    return _weekDaysName;
   }
 }

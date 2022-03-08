@@ -7,6 +7,7 @@ class HabitMapper {
       id: model.id,
       title: model.title,
       colorValue: model.colorValue,
+      weekDaysName: model.weekDaysName,
       days: model.daysMilliSeconds
           .map((e) => DateTime.fromMillisecondsSinceEpoch(e))
           .toList(),
@@ -20,6 +21,7 @@ class HabitMapper {
     return HabitModel(
       id: habit.id,
       title: habit.title,
+      weekDaysName: habit.weekDaysName,
       colorValue: habit.colorValue,
       daysMilliSeconds:
           habit.days.map((e) => e.millisecondsSinceEpoch).toList(),
@@ -35,6 +37,7 @@ class HabitMapper {
             id: model.id,
             title: model.title,
             colorValue: model.colorValue,
+            weekDaysName: model.weekDaysName,
             days: model.daysMilliSeconds
                 .map((e) => DateTime.fromMillisecondsSinceEpoch(e))
                 .toList(),

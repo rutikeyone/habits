@@ -22,7 +22,7 @@ class _MainScreenState extends State<MainScreen> {
         builder: (context, state) {
           if (state is LoadingState) {
             Future.delayed(
-              const Duration(milliseconds: 1500),
+              const Duration(milliseconds: 500),
               () => BlocProvider.of<MainBloc>(context).add(
                 LoadedEvent(),
               ),
@@ -31,7 +31,9 @@ class _MainScreenState extends State<MainScreen> {
           }
 
           if (state is LoadedState) {
-            return MainLoadedView();
+            return MainLoadedView(
+              habits: state.habits,
+            );
           }
 
           if (state is ErrorState) {

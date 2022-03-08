@@ -8,5 +8,6 @@
     "times_a_week" : "Times a week",
     "reminder_text" : "Reminder text",
     "reminder" : "Reminder",
-    "just_notification" : "Just notification"
+    "just_notification" : "Just notification",
+    "times_a_week_1" : "times a week" 
 }

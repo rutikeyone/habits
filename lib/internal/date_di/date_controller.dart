@@ -1,12 +1,10 @@
+import 'package:dartz/dartz.dart';
 import 'package:habits/domain/repository/date_repository.dart';
 import 'package:habits/internal/locator.dart';
 
 class DateController {
-  List<DateTime> chooseDates(int frequencyCounter) {
+  Tuple3<List<DateTime>, List<DateTime>, List<String>> chooseDates(
+      int frequencyCounter) {
     return getIt.get<DateRepository>().chooseDates(frequencyCounter);
-  }
-
-  List<DateTime> getSevenDays() {
-    return getIt.get<DateRepository>().getNextSevenDays();
   }
 }
