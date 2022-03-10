@@ -4,6 +4,7 @@ class HabitModel {
   int? id;
   String title;
   int colorValue;
+  String? timesAWeek;
   List<String> weekDaysName;
   List<int> daysMilliSeconds;
   List<int> selectedDaysMilliSeconds;
@@ -12,6 +13,7 @@ class HabitModel {
     this.id,
     required this.title,
     required this.colorValue,
+    required this.timesAWeek,
     required this.weekDaysName,
     required this.daysMilliSeconds,
     required this.selectedDaysMilliSeconds,
@@ -21,6 +23,7 @@ class HabitModel {
         id: json['id'],
         title: json['title'],
         colorValue: json['colorValue'],
+        timesAWeek: json['timesAWeek'],
         weekDaysName: jsonDecode(json['weekDaysName']).cast<String>(),
         daysMilliSeconds: jsonDecode(json['daysMilliSeconds']).cast<int>(),
         selectedDaysMilliSeconds:
@@ -29,9 +32,9 @@ class HabitModel {
 
   Map<String, dynamic> toMap() {
     return {
-      'id': id,
       'title': title,
       'colorValue': colorValue,
+      'timesAWeek': timesAWeek,
       'weekDaysName': jsonEncode(weekDaysName),
       'daysMilliSeconds': jsonEncode(daysMilliSeconds),
       'selectedDaysMilliSeconds': jsonEncode(selectedDaysMilliSeconds),

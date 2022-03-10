@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:habits/domain/model/habit.dart';
 import 'package:habits/generated/l10n.dart';
+import 'package:habits/presentation/theme/auxilary_color.dart';
 
 import 'date_of_the_month_item.dart';
 
@@ -26,29 +27,29 @@ class HabitItem extends StatelessWidget {
           padding: const EdgeInsets.all(15),
           child: Column(
             children: [
-              SingleChildScrollView(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Flexible(
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Flexible(
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
                       child: Text(
                         habit.title,
                         style: Theme.of(context).textTheme.headline2,
                       ),
                     ),
-                    habit.selectedDays.isNotEmpty
-                        ? Flexible(
-                            child: Text(
-                              habit.selectedDays.length.toString() +
-                                  " " +
-                                  S.of(context).times_a_week_1,
-                              style: Theme.of(context).textTheme.headline3,
-                            ),
-                          )
-                        : Container(),
-                  ],
-                ),
+                  ),
+                  habit.selectedDays.isNotEmpty
+                      ? Flexible(
+                          child: Text(
+                            habit.timesAWeek!,
+                            style: Theme.of(context).textTheme.headline3,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        )
+                      : Container(),
+                ],
               ),
               habit.selectedDays.isNotEmpty
                   ? Column(
@@ -70,7 +71,7 @@ class HabitItem extends StatelessWidget {
                                   backgroundColor: habit.selectedDays
                                           .contains(habit.days[index])
                                       ? Color(habit.colorValue)
-                                      : Color(0xff333333),
+                                      : baseHabitItemColor,
                                   dayWeekName: habit.weekDaysName[index],
                                   dayWeekNum: habit.days[index].day,
                                 ),

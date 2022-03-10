@@ -2,15 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:habits/generated/l10n.dart';
+import 'package:habits/presentation/settings/settings_screen.dart';
 
 class MainAppBar extends StatelessWidget {
-  final VoidCallback listOnPressed;
-  final VoidCallback settingOnPressed;
-
   const MainAppBar({
     Key? key,
-    required this.listOnPressed,
-    required this.settingOnPressed,
   }) : super(key: key);
 
   @override
@@ -25,7 +21,7 @@ class MainAppBar extends StatelessWidget {
               FontAwesomeIcons.list,
             ),
             iconSize: 26,
-            onPressed: listOnPressed,
+            onPressed: () {},
             color: Theme.of(context).textTheme.headline1!.color,
           ),
           Text(
@@ -39,7 +35,11 @@ class MainAppBar extends StatelessWidget {
               height: 26,
               color: Theme.of(context).textTheme.headline1!.color,
             ),
-            onPressed: settingOnPressed,
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => const SettingsScreen()),
+              );
+            },
             color: Theme.of(context).textTheme.headline1!.color,
           ),
         ],

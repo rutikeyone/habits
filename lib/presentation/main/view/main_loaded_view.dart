@@ -17,10 +17,7 @@ class MainLoadedView extends StatelessWidget {
       backgroundColor: Theme.of(context).primaryColorDark,
       body: Column(
         children: [
-          MainAppBar(
-            listOnPressed: () {},
-            settingOnPressed: () {},
-          ),
+          const MainAppBar(),
           Expanded(
             child: ListView.builder(
               scrollDirection: Axis.vertical,

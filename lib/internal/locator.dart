@@ -2,9 +2,12 @@ import 'package:get_it/get_it.dart';
 import 'package:habits/data/db/habit_db_impl.dart';
 import 'package:habits/data/repository/db_repository_impl.dart';
 import 'package:habits/data/repository/date_repository_impl.dart';
+import 'package:habits/data/repository/get_times_a_week_repository_impl.dart';
 import 'package:habits/domain/repository/db_repository.dart';
 import 'package:habits/domain/repository/date_repository.dart';
+import 'package:habits/domain/repository/get_times_a_week_repository.dart';
 import 'package:habits/internal/db_di/db_controller.dart';
+import 'package:habits/internal/get_times_a_week_di/get_times_a_week_controller.dart';
 
 import 'date_di/date_controller.dart';
 
@@ -22,4 +25,9 @@ Future<void> setup() async {
 
   getIt.registerLazySingleton<DateRepository>(() => DateRepositoryImpl());
   getIt.registerLazySingleton<DateController>(() => DateController());
+
+  getIt.registerLazySingleton<GetTimesAWeekRepository>(
+      () => GetTimesAWeekRepositoryImpl());
+  getIt.registerLazySingleton<GetTimesAWeekController>(
+      () => GetTimesAWeekController());
 }

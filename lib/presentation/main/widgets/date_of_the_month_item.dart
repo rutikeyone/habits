@@ -17,7 +17,7 @@ class DateOfTheMonthItem extends StatelessWidget {
     return Column(
       children: [
         Text(
-          dayWeekName.length > 3 ? dayWeekName.substring(0, 3) : dayWeekName,
+          dayWeekName,
           style: Theme.of(context).textTheme.headline3!.copyWith(fontSize: 16),
         ),
         const SizedBox(

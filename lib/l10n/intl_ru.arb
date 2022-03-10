@@ -9,5 +9,7 @@
     "reminder_text" : "Текст напоминания",
     "reminder" : "Напоминание",
     "just_notification" : "Дата и время уведомления",
-    "times_a_week_1" : "раза в неделю"
+    "times_a_week_1" : "раз в неделю",
+    "times_a_week_2" : "раза в неделю",
+    "everyday" : "Каждый день"
 }

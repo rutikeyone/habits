@@ -159,6 +159,26 @@ class S {
       args: [],
     );
   }
+
+  /// `times a week`
+  String get times_a_week_2 {
+    return Intl.message(
+      'times a week',
+      name: 'times_a_week_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Everyday`
+  String get everyday {
+    return Intl.message(
+      'Everyday',
+      name: 'everyday',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

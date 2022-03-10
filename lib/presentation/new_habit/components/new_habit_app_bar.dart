@@ -29,7 +29,8 @@ class NewHabitAppBar extends StatelessWidget {
               style: Theme.of(context).textTheme.headline3,
             ),
             onTap: () {
-              BlocProvider.of<NewHabitBloc>(context).add(AddEvent());
+              BlocProvider.of<NewHabitBloc>(context)
+                  .add(AddEvent(context: context));
               Navigator.of(context).pop();
             },
           ),

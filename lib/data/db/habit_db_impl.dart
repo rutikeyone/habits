@@ -1,4 +1,6 @@
+import 'package:flutter/rendering.dart';
 import 'package:habits/data/db/habit_db.dart';
+import 'package:habits/data/mapper/habit_mapper.dart';
 import 'package:habits/data/model/habit_model.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
@@ -20,9 +22,10 @@ class HabitDatabaseImpl implements HabitDatabase {
   Future _onCreate(Database db, int version) async {
     return await db.execute('''
       CREATE TABLE habits (
-        id INTEGER PRIMARY KEY,
-        title TEXT,
-        colorValue INTEGER,
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        title TEXT NOT NULL,
+        colorValue INTEGER NOT NULL,
+        timesAWeek TEXT,
         weekDaysName TEXT,
         daysMilliSeconds TEXT,
         selectedDaysMilliSeconds TEXT
@@ -55,7 +58,8 @@ class HabitDatabaseImpl implements HabitDatabase {
   @override
   Future<int> update(HabitModel habit) async {
     final db = await instance.database;
-    return db.update('habits', habit.toMap(),
+
+    return await db.update('habits', habit.toMap(),
         where: 'id = ?', whereArgs: [habit.id]);
   }
 }

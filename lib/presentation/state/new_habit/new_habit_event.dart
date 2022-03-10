@@ -26,7 +26,11 @@ class FrequencyCounterChangedEvent extends NewHabitEvent {
   const FrequencyCounterChangedEvent({required this.value});
 }
 
-class AddEvent extends NewHabitEvent {}
+class AddEvent extends NewHabitEvent {
+  final BuildContext context;
+
+  const AddEvent({required this.context});
+}
 
 class ErrorEvent extends NewHabitEvent {
   final String error;
