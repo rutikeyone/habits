@@ -6,13 +6,17 @@ class HabitMapper {
     return Habit(
       id: model.id,
       title: model.title,
-      colorValue: model.colorValue,
+      selectedColorValue: model.selectedColorValue,
+      unselectedColorValue: model.selectedColorValue,
       timesAWeek: model.timesAWeek,
       weekDaysName: model.weekDaysName,
       days: model.daysMilliSeconds
           .map((e) => DateTime.fromMillisecondsSinceEpoch(e))
           .toList(),
       selectedDays: model.selectedDaysMilliSeconds
+          .map((e) => DateTime.fromMillisecondsSinceEpoch(e))
+          .toList(),
+      completedDays: model.completedDaysMilliSeconds
           .map((e) => DateTime.fromMillisecondsSinceEpoch(e))
           .toList(),
     );
@@ -24,11 +28,14 @@ class HabitMapper {
       title: habit.title,
       weekDaysName: habit.weekDaysName,
       timesAWeek: habit.timesAWeek,
-      colorValue: habit.colorValue,
+      unselectedColorValue: habit.unselectedColorValue,
+      selectedColorValue: habit.selectedColorValue,
       daysMilliSeconds:
           habit.days.map((e) => e.millisecondsSinceEpoch).toList(),
       selectedDaysMilliSeconds:
           habit.selectedDays.map((e) => e.millisecondsSinceEpoch).toList(),
+      completedDaysMilliSeconds:
+          habit.completedDays.map((e) => e.millisecondsSinceEpoch).toList(),
     );
   }
 
@@ -38,13 +45,17 @@ class HabitMapper {
           (model) => Habit(
             id: model.id,
             title: model.title,
-            colorValue: model.colorValue,
+            unselectedColorValue: model.unselectedColorValue,
+            selectedColorValue: model.selectedColorValue,
             timesAWeek: model.timesAWeek,
             weekDaysName: model.weekDaysName,
             days: model.daysMilliSeconds
                 .map((e) => DateTime.fromMillisecondsSinceEpoch(e))
                 .toList(),
             selectedDays: model.selectedDaysMilliSeconds
+                .map((e) => DateTime.fromMillisecondsSinceEpoch(e))
+                .toList(),
+            completedDays: model.completedDaysMilliSeconds
                 .map((e) => DateTime.fromMillisecondsSinceEpoch(e))
                 .toList(),
           ),

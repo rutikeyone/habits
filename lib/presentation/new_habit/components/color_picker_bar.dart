@@ -15,15 +15,6 @@ class ColorPickerBar extends StatefulWidget {
 class _ColorPickerBarState extends State<ColorPickerBar> {
   int selectedIndex = 0;
 
-  final List<Color> colorItems = [
-    red,
-    yellow,
-    green,
-    blue,
-    purple,
-    brown,
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -37,13 +28,17 @@ class _ColorPickerBarState extends State<ColorPickerBar> {
             itemBuilder: (builder, index) => Padding(
               padding: const EdgeInsets.symmetric(horizontal: 5),
               child: ColorItem(
-                color: colorItems[index],
+                color: colorItems[index].value1,
                 onTap: () {
                   setState(() {
                     selectedIndex = index;
                   });
-                  BlocProvider.of<NewHabitBloc>(context)
-                      .add(ColorChangedEvent(color: colorItems[selectedIndex]));
+                  BlocProvider.of<NewHabitBloc>(context).add(
+                    ColorChangedEvent(
+                      unselectedColor: colorItems[selectedIndex].value1,
+                      selectedColor: colorItems[selectedIndex].value2,
+                    ),
+                  );
                 },
                 isSelected: selectedIndex == index,
               ),

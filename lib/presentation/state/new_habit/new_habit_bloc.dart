@@ -14,7 +14,8 @@ class NewHabitBloc extends Bloc<NewHabitEvent, NewHabitState> {
     required NewHabitState initialState,
   }) : super(initialState) {
     String? title;
-    Color? color = red;
+    Color unselectedColor = unselectedRed;
+    Color selectedColor = selectedRed;
     int frequencyCounter = 0;
 
     on(
@@ -24,7 +25,8 @@ class NewHabitBloc extends Bloc<NewHabitEvent, NewHabitState> {
         }
 
         if (event is ColorChangedEvent) {
-          color = event.color;
+          unselectedColor = event.unselectedColor;
+          selectedColor = event.selectedColor;
         }
 
         if (event is FrequencyCounterChangedEvent) {
@@ -32,29 +34,31 @@ class NewHabitBloc extends Bloc<NewHabitEvent, NewHabitState> {
         }
 
         if (event is AddEvent) {
+          List<DateTime>? _nextSevenDays;
+          List<DateTime>? _selectedDays;
+          List<String>? _nextSevenDaysName;
+
+          if (frequencyCounter != 0) {
+            _nextSevenDays = getIt.get<DateController>().getNextSevenDays();
+            _selectedDays = getIt
+                .get<DateController>()
+                .getSelectedDays(_nextSevenDays, frequencyCounter);
+            _nextSevenDaysName = getIt
+                .get<DateController>()
+                .getNextSevenDaysName(_nextSevenDays);
+          }
+
           final habit = Habit(
-              title: title!,
-              colorValue: color!.value,
-              timesAWeek: getIt.get<GetTimesAWeekController>().getTimesAWeek(
-                  frequencyCounter: frequencyCounter, context: event.context),
-              weekDaysName: frequencyCounter == 0
-                  ? []
-                  : getIt
-                      .get<DateController>()
-                      .chooseDates(frequencyCounter)
-                      .value3,
-              days: frequencyCounter == 0
-                  ? []
-                  : getIt
-                      .get<DateController>()
-                      .chooseDates(frequencyCounter)
-                      .value1,
-              selectedDays: frequencyCounter == 0
-                  ? []
-                  : getIt
-                      .get<DateController>()
-                      .chooseDates(frequencyCounter)
-                      .value2);
+            title: title!,
+            unselectedColorValue: unselectedColor.value,
+            selectedColorValue: selectedColor.value,
+            completedDays: [],
+            timesAWeek: getIt.get<GetTimesAWeekController>().getTimesAWeek(
+                frequencyCounter: frequencyCounter, context: event.context),
+            weekDaysName: _nextSevenDaysName ?? [],
+            days: _nextSevenDays ?? [],
+            selectedDays: _selectedDays ?? [],
+          );
           await getIt.get<DbController>().add(habit);
         }
 

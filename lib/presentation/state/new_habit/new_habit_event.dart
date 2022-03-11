@@ -15,9 +15,13 @@ class TitleChangedEvent extends NewHabitEvent {
 }
 
 class ColorChangedEvent extends NewHabitEvent {
-  final Color color;
+  final Color unselectedColor;
+  final Color selectedColor;
 
-  const ColorChangedEvent({required this.color});
+  const ColorChangedEvent({
+    required this.unselectedColor,
+    required this.selectedColor,
+  });
 }
 
 class FrequencyCounterChangedEvent extends NewHabitEvent {

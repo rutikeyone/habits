@@ -6,6 +6,8 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SettingsLoadedView();
+    return const SafeArea(
+      child: SettingsLoadedView(),
+    );
   }
 }

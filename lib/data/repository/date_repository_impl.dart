@@ -1,43 +1,50 @@
 import 'dart:math';
-import 'package:dartz/dartz.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:habits/domain/repository/date_repository.dart';
 import 'package:intl/intl.dart';
 
 class DateRepositoryImpl extends DateRepository {
   final DateTime _now = DateTime.now();
-  late final int _weekDay = DateTime(_now.year).weekday;
-  List<DateTime> _nextSevenDays = [];
-  List<DateTime> _selectedDates = [];
-  List<String> _weekDaysName = [];
-  List<int> _randomIndexs = [];
+  late final int _weekDays = 7;
 
   @override
-  Tuple3<List<DateTime>, List<DateTime>, List<String>> chooseDates(
-      int frequencyCounter) {
-    _nextSevenDays = _getNextSevenDays();
-    _randomIndexs = _getRandomIndexs(frequencyCounter);
-    _selectedDates = _getSelectedDates();
-    _weekDaysName = _getWeekDaysName();
-    return Tuple3(_nextSevenDays, _selectedDates, _weekDaysName);
-  }
-
-  List<DateTime> _getNextSevenDays() {
+  List<DateTime> getNextSevenDays() {
     final List<DateTime> result = [];
-    for (int i = 0; i <= _weekDay; i++) {
+    for (int i = 0; i <= _weekDays; i++) {
       result.add(DateTime(_now.year, _now.month, _now.day + i));
     }
     return result;
   }
 
-  List<int> _getRandomIndexs(int frequencyCounter) {
+  @override
+  List<DateTime> getSelectedDays(
+    List<DateTime> nextSevenDays,
+    int frequencyCounter,
+  ) {
+    List<int> _randomIndexs = _getRandomIndexs(frequencyCounter, _weekDays);
+    List<DateTime> _selectedDates = [];
+    for (int i = 0; i < _randomIndexs.length; i++) {
+      _selectedDates.add(nextSevenDays[_randomIndexs[i]]);
+    }
+    return _selectedDates;
+  }
+
+  @override
+  List<String> getNextSevenDaysName(List<DateTime> nextSevenDays) {
+    List<String> _weekDaysName = [];
+    for (DateTime day in nextSevenDays) {
+      _weekDaysName.add(DateFormat('EEE').format(day));
+    }
+    return _weekDaysName;
+  }
+
+  List<int> _getRandomIndexs(int frequencyCounter, int weekDay) {
     List<int> _randomIndexs = [];
 
     if (frequencyCounter != 7) {
       for (int i = 0; i < frequencyCounter; i++) {
-        int number = Random().nextInt(_weekDay);
+        int number = Random().nextInt(weekDay);
         while (_randomIndexs.contains(number)) {
-          number = Random().nextInt(_weekDay);
+          number = Random().nextInt(weekDay);
         }
         _randomIndexs.add(number);
       }
@@ -48,21 +55,5 @@ class DateRepositoryImpl extends DateRepository {
     }
     _randomIndexs.sort();
     return _randomIndexs;
-  }
-
-  List<DateTime> _getSelectedDates() {
-    List<DateTime> _selectedDates = [];
-    for (int i = 0; i < _randomIndexs.length; i++) {
-      _selectedDates.add(_nextSevenDays[_randomIndexs[i]]);
-    }
-    return _selectedDates;
-  }
-
-  List<String> _getWeekDaysName() {
-    List<String> _weekDaysName = [];
-    for (DateTime day in _nextSevenDays) {
-      _weekDaysName.add(DateFormat('EEE').format(day));
-    }
-    return _weekDaysName;
   }
 }

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:habits/domain/model/habit.dart';
-import 'package:habits/generated/l10n.dart';
+import 'package:habits/presentation/state/main/main_bloc.dart';
+import 'package:habits/presentation/state/main/main_event.dart';
 import 'package:habits/presentation/theme/auxilary_color.dart';
-
 import 'date_of_the_month_item.dart';
 
 class HabitItem extends StatelessWidget {
@@ -40,7 +41,8 @@ class HabitItem extends StatelessWidget {
                       ),
                     ),
                   ),
-                  habit.selectedDays.isNotEmpty
+                  habit.selectedDays.isNotEmpty ||
+                          habit.completedDays.isNotEmpty
                       ? Flexible(
                           child: Text(
                             habit.timesAWeek!,
@@ -51,7 +53,7 @@ class HabitItem extends StatelessWidget {
                       : Container(),
                 ],
               ),
-              habit.selectedDays.isNotEmpty
+              habit.selectedDays.isNotEmpty || habit.completedDays.isNotEmpty
                   ? Column(
                       children: [
                         const SizedBox(
@@ -68,12 +70,34 @@ class HabitItem extends StatelessWidget {
                                   const EdgeInsets.symmetric(horizontal: 5),
                               child: Container(
                                 child: DateOfTheMonthItem(
-                                  backgroundColor: habit.selectedDays
+                                  backgroundColor: habit.completedDays
                                           .contains(habit.days[index])
-                                      ? Color(habit.colorValue)
-                                      : baseHabitItemColor,
+                                      ? Color(habit.selectedColorValue)
+                                      : habit.selectedDays
+                                              .contains(habit.days[index])
+                                          ? Color(habit.unselectedColorValue)
+                                          : baseHabitItemColor,
                                   dayWeekName: habit.weekDaysName[index],
-                                  dayWeekNum: habit.days[index].day,
+                                  dayWeek: habit.days[index],
+                                  onTap: () {
+                                    if (habit.selectedDays
+                                        .contains(habit.days[index])) {
+                                      BlocProvider.of<MainBloc>(context).add(
+                                        CompletedDate(
+                                          habit: habit,
+                                          completedDate: habit.days[index],
+                                        ),
+                                      );
+                                    } else if (habit.completedDays
+                                        .contains(habit.days[index])) {
+                                      BlocProvider.of<MainBloc>(context).add(
+                                        UncompletedDate(
+                                          habit: habit,
+                                          completedDate: habit.days[index],
+                                        ),
+                                      );
+                                    }
+                                  },
                                 ),
                               ),
                             ),

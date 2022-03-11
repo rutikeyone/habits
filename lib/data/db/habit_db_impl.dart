@@ -24,11 +24,13 @@ class HabitDatabaseImpl implements HabitDatabase {
       CREATE TABLE habits (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         title TEXT NOT NULL,
-        colorValue INTEGER NOT NULL,
+        unselectedColorValue INTEGER NOT NULL,
+        selectedColorValue INTEGER NOT NULL,
         timesAWeek TEXT,
         weekDaysName TEXT,
         daysMilliSeconds TEXT,
-        selectedDaysMilliSeconds TEXT
+        selectedDaysMilliSeconds TEXT,
+        completedDaysMilliSeconds TEXT
       )
       ''');
   }
