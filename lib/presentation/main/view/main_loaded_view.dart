@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:habits/domain/model/habit.dart';
 import 'package:habits/presentation/main/components/main_app_bar.dart';
 import 'package:habits/presentation/main/components/main_bottom_app_bar.dart';
-import 'package:habits/presentation/main/widgets/habit_item.dart';
+import 'package:habits/presentation/widgets/habit_item.dart';
 
 class MainLoadedView extends StatelessWidget {
   final List<Habit> habits;

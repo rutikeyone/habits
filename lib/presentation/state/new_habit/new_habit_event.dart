@@ -36,6 +36,11 @@ class AddEvent extends NewHabitEvent {
   const AddEvent({required this.context});
 }
 
+class TimePicked extends NewHabitEvent {
+  final TimeOfDay timeOfDay;
+  const TimePicked({required this.timeOfDay});
+}
+
 class ErrorEvent extends NewHabitEvent {
   final String error;
 

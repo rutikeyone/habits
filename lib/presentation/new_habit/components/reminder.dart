@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:habits/generated/l10n.dart';
-import 'package:habits/presentation/new_habit/widgets/input_text_form_field.dart';
+import 'package:habits/presentation/state/new_habit/new_habit_bloc.dart';
+import 'package:habits/presentation/state/new_habit/new_habit_event.dart';
+import 'package:habits/presentation/widgets/input_text_form_field.dart';
 
 class Reminder extends StatefulWidget {
   const Reminder({Key? key}) : super(key: key);
@@ -13,6 +16,17 @@ class Reminder extends StatefulWidget {
 
 class _ReminderState extends State<Reminder> {
   bool _switchValue = true;
+  TimeOfDay _timeOfDay = const TimeOfDay(hour: 0, minute: 0);
+
+  Future<void> pickTime() async {
+    final _newTime =
+        await showTimePicker(context: context, initialTime: _timeOfDay);
+    if (_newTime != null && _newTime != _timeOfDay) {
+      setState(() {
+        _timeOfDay = _newTime;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,22 +79,30 @@ class _ReminderState extends State<Reminder> {
                       ),
                       padding: const EdgeInsets.symmetric(
                           horizontal: 20, vertical: 10)),
-                  onPressed: () {},
-                  child: Row(
-                    children: [
-                      Icon(
-                        FontAwesomeIcons.clock,
-                        size: 20,
-                        color: Theme.of(context).textTheme.headline3!.color,
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        "0:00",
-                        style: Theme.of(context).textTheme.headline2,
-                      ),
-                    ],
+                  onPressed: () => pickTime().then(
+                    (_) => BlocProvider.of<NewHabitBloc>(context).add(
+                      TimePicked(timeOfDay: _timeOfDay),
+                    ),
+                  ),
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          FontAwesomeIcons.clock,
+                          size: 20,
+                          color: Theme.of(context).textTheme.headline3!.color,
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          "${_timeOfDay.hour}:${_timeOfDay.minute}",
+                          style: Theme.of(context).textTheme.headline2,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),

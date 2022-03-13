@@ -25,6 +25,9 @@ dependencies:
   bloc: ^8.0.3
   flutter_bloc: ^8.0.1
   equatable: ^2.0.3
+  flutter_local_notifications: ^9.4.0
+  rxdart: ^0.27.3
+  flutter_native_timezone: ^2.0.0
 
 dev_dependencies:
   flutter_test:
