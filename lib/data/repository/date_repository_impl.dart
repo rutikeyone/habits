@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 
 class DateRepositoryImpl extends DateRepository {
   final DateTime _now = DateTime.now();
-  late final int _weekDays = 7;
+  late final int _weekDays = 6;
 
   @override
   List<DateTime> getNextSevenDays() {

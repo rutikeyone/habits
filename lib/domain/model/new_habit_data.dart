@@ -7,6 +7,8 @@ class NewHabitData {
   late Color _selectedColor;
   late int _frequencyCounter;
   late TimeOfDay _timeOfDay;
+  late bool _areNotificationEnabled;
+  late String _reminderText;
 
   String get title => _title;
   set title(String val) => _title = val;
@@ -23,11 +25,18 @@ class NewHabitData {
   TimeOfDay get timeOfDay => _timeOfDay;
   set timeOfDay(TimeOfDay val) => _timeOfDay = val;
 
+  bool get areNotificationEnabled => _areNotificationEnabled;
+  set areNotificationEnabled(bool val) => _areNotificationEnabled = val;
+
+  String get reminderText => _reminderText;
+  set reminderText(String val) => _reminderText = val;
+
   NewHabitData() {
     _title = "";
     _unselectedColor = unselectedRed;
     _selectedColor = selectedRed;
     _frequencyCounter = 0;
     _timeOfDay = const TimeOfDay(hour: 0, minute: 0);
+    _areNotificationEnabled = false;
   }
 }

@@ -1,8 +1,12 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_native_timezone/flutter_native_timezone.dart';
+import 'package:habits/domain/model/notice.dart';
 import 'package:habits/internal/locator.dart';
+import 'package:habits/internal/notification_di/notification_controller.dart';
 import 'package:habits/presentation/main/main_screen.dart';
 import 'package:habits/presentation/state/main/main_bloc.dart';
 import 'package:habits/presentation/state/main/main_event.dart';
@@ -11,12 +15,15 @@ import 'package:habits/presentation/state/new_habit/new_habit_bloc.dart';
 import 'package:habits/presentation/state/new_habit/new_habit_state.dart';
 import 'package:habits/presentation/theme/dark_theme.dart';
 import 'package:habits/presentation/theme/light_theme.dart';
-
 import 'generated/l10n.dart';
+
+import 'package:timezone/data/latest.dart' as tl;
+import 'package:timezone/timezone.dart' as tz;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  setup();
+  await setup();
+  await getIt.get<NotificationController>().init();
   runApp(const MyApp());
 }
 

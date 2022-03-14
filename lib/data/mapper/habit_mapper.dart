@@ -5,6 +5,7 @@ class HabitMapper {
   static Habit toHabit(HabitModel model) {
     return Habit(
       id: model.id,
+      notificationId: model.notificationId,
       title: model.title,
       selectedColorValue: model.selectedColorValue,
       unselectedColorValue: model.selectedColorValue,
@@ -26,6 +27,7 @@ class HabitMapper {
     return HabitModel(
       id: habit.id,
       title: habit.title,
+      notificationId: habit.notificationId,
       weekDaysName: habit.weekDaysName,
       timesAWeek: habit.timesAWeek,
       unselectedColorValue: habit.unselectedColorValue,
@@ -44,6 +46,7 @@ class HabitMapper {
         .map(
           (model) => Habit(
             id: model.id,
+            notificationId: model.notificationId,
             title: model.title,
             unselectedColorValue: model.unselectedColorValue,
             selectedColorValue: model.selectedColorValue,

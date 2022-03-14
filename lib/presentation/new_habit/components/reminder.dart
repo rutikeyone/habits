@@ -15,7 +15,7 @@ class Reminder extends StatefulWidget {
 }
 
 class _ReminderState extends State<Reminder> {
-  bool _switchValue = true;
+  bool _switchValue = false;
   TimeOfDay _timeOfDay = const TimeOfDay(hour: 0, minute: 0);
 
   Future<void> pickTime() async {
@@ -58,6 +58,10 @@ class _ReminderState extends State<Reminder> {
                   setState(() {
                     _switchValue = value;
                   });
+                  BlocProvider.of<NewHabitBloc>(context).add(
+                    NotificationChangedEvent(
+                        areNotificationEnabled: _switchValue),
+                  );
                 },
                 value: _switchValue,
               ),
@@ -81,7 +85,7 @@ class _ReminderState extends State<Reminder> {
                           horizontal: 20, vertical: 10)),
                   onPressed: () => pickTime().then(
                     (_) => BlocProvider.of<NewHabitBloc>(context).add(
-                      TimePicked(timeOfDay: _timeOfDay),
+                      TimePickedEvent(timeOfDay: _timeOfDay),
                     ),
                   ),
                   child: SingleChildScrollView(
@@ -115,7 +119,9 @@ class _ReminderState extends State<Reminder> {
                   height: 42.5,
                   child: InputTextFormField(
                     autofocus: false,
-                    textChanged: (value) {},
+                    textChanged: (value) =>
+                        BlocProvider.of<NewHabitBloc>(context)
+                            .add(ReminderTextChanged(reminderText: value)),
                     hintText: S.of(context).reminder_text,
                   ),
                 ),

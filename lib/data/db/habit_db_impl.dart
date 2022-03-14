@@ -30,7 +30,8 @@ class HabitDatabaseImpl implements HabitDatabase {
         weekDaysName TEXT,
         daysMilliSeconds TEXT,
         selectedDaysMilliSeconds TEXT,
-        completedDaysMilliSeconds TEXT
+        completedDaysMilliSeconds TEXT,
+        notificationId INTEGER
       )
       ''');
   }

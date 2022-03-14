@@ -1,7 +1,11 @@
-import 'package:habits/domain/model/notification.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:habits/domain/model/notice.dart';
 
 abstract class NotificationRepository {
-  Future init({bool iniScheluted = false});
+  Future<void> init({bool iniScheluted = false});
 
-  Future showScheduledNotification(Notice notification);
+  Future<void> showNotification(Notice notice);
+
+  Future<void> showScheduledNotification(
+      {required Notice notice, required Time time, required DateTime day});
 }

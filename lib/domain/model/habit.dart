@@ -8,9 +8,11 @@ class Habit {
   List<DateTime> selectedDays;
   List<String> weekDaysName;
   List<DateTime> completedDays;
+  int? notificationId;
 
   Habit(
       {this.id,
+      this.notificationId,
       required this.title,
       required this.unselectedColorValue,
       required this.selectedColorValue,
@@ -22,6 +24,7 @@ class Habit {
 
   Habit copyWith(
       {int? id,
+      int? notificationId,
       String? title,
       int? unselectedColorValue,
       int? selectedColorValue,
@@ -32,6 +35,7 @@ class Habit {
       List<DateTime>? completedDays}) {
     final _newElement = Habit(
         id: this.id,
+        notificationId: this.notificationId,
         title: title ?? this.title,
         unselectedColorValue: unselectedColorValue ?? this.unselectedColorValue,
         selectedColorValue: selectedColorValue ?? this.selectedColorValue,
