@@ -1,7 +1,7 @@
 class NoticeModel {
   int id;
-  String title;
   String body;
+  String title;
 
   NoticeModel({required this.id, required this.title, required this.body});
 

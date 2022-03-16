@@ -4,6 +4,7 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:habits/domain/model/habit.dart';
 import 'package:habits/domain/model/new_habit_data.dart';
 import 'package:habits/domain/model/notice.dart';
+import 'package:habits/domain/model/notification.dart';
 import 'package:habits/internal/date_di/date_controller.dart';
 import 'package:habits/internal/db_di/db_controller.dart';
 import 'package:habits/internal/get_times_a_week_di/get_times_a_week_controller.dart';
@@ -80,7 +81,8 @@ class NewHabitBloc extends Bloc<NewHabitEvent, NewHabitState> {
           }
 
           final habit = Habit(
-            notice: _notice,
+            notification:
+                _notice != null ? Notification(notice: _notice!) : null,
             title: _newHabitData.title,
             unselectedColorValue: _newHabitData.unselectedColor.value,
             selectedColorValue: _newHabitData.selectedColor.value,

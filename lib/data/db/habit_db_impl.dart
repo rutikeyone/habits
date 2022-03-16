@@ -31,7 +31,7 @@ class HabitDatabaseImpl implements HabitDatabase {
         daysMilliSeconds TEXT,
         selectedDaysMilliSeconds TEXT,
         completedDaysMilliSeconds TEXT,
-        notice TEXT
+        notification TEXT
       )
       ''');
   }

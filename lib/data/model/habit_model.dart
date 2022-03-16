@@ -1,5 +1,6 @@
 import 'dart:convert';
-import 'notice_model.dart';
+import 'package:dartz/dartz.dart';
+import 'package:habits/data/model/notification_model.dart';
 
 class HabitModel {
   int? id;
@@ -11,11 +12,11 @@ class HabitModel {
   List<int> daysMilliSeconds;
   List<int> selectedDaysMilliSeconds;
   List<int> completedDaysMilliSeconds;
-  NoticeModel? notice;
+  NotificationModel? notification;
 
   HabitModel(
       {this.id,
-      this.notice,
+      this.notification,
       required this.title,
       required this.unselectedColorValue,
       required this.selectedColorValue,
@@ -26,10 +27,12 @@ class HabitModel {
       required this.completedDaysMilliSeconds});
 
   factory HabitModel.fromMap(Map<String, dynamic> json) {
+    print(json['notification']);
+
     return HabitModel(
         id: json['id'],
-        notice: json['notice'] != null
-            ? NoticeModel.fromMap(jsonDecode(json["notice"]))
+        notification: json['notification'] != null
+            ? NotificationModel.fromMap((jsonDecode(json["notification"])))
             : null,
         title: json['title'],
         unselectedColorValue: json['unselectedColorValue'],
@@ -45,7 +48,8 @@ class HabitModel {
 
   Map<String, dynamic> toMap() {
     final _map = {
-      'notice': notice != null ? jsonEncode(notice!.toMap()) : null,
+      'notification':
+          notification != null ? jsonEncode(notification!.toMap()) : null,
       'title': title,
       'unselectedColorValue': unselectedColorValue,
       'selectedColorValue': selectedColorValue,

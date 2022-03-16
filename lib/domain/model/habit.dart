@@ -1,4 +1,4 @@
-import 'notice.dart';
+import 'package:habits/domain/model/notification.dart';
 
 class Habit {
   int? id;
@@ -10,11 +10,11 @@ class Habit {
   List<DateTime> selectedDays;
   List<String> weekDaysName;
   List<DateTime> completedDays;
-  Notice? notice;
+  Notification? notification;
 
   Habit(
       {this.id,
-      this.notice,
+      this.notification,
       required this.title,
       required this.unselectedColorValue,
       required this.selectedColorValue,
@@ -26,7 +26,7 @@ class Habit {
 
   Habit copyWith(
       {int? id,
-      Notice? notice,
+      Notification? notification,
       String? title,
       int? unselectedColorValue,
       int? selectedColorValue,
@@ -37,7 +37,7 @@ class Habit {
       List<DateTime>? completedDays}) {
     final _newElement = Habit(
         id: this.id,
-        notice: this.notice,
+        notification: this.notification,
         title: title ?? this.title,
         unselectedColorValue: unselectedColorValue ?? this.unselectedColorValue,
         selectedColorValue: selectedColorValue ?? this.selectedColorValue,
