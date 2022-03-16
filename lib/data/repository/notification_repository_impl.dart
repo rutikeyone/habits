@@ -86,4 +86,9 @@ class NotificationRepositoryImpl extends NotificationRepository {
         notice.body,
         _notificationDetails(),
       );
+
+  @override
+  Future<void> cancelById(int id) async {
+    return await _notification.cancel(id);
+  }
 }

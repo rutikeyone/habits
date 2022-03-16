@@ -8,4 +8,6 @@ abstract class NotificationRepository {
 
   Future<void> showScheduledNotification(
       {required Notice notice, required Time time, required DateTime day});
+
+  Future<void> cancelById(int id);
 }

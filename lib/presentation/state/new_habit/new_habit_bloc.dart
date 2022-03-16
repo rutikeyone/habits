@@ -42,10 +42,12 @@ class NewHabitBloc extends Bloc<NewHabitEvent, NewHabitState> {
           List<DateTime>? _nextSevenDays;
           List<DateTime>? _selectedDays;
           List<String>? _nextSevenDaysName;
-          int? _notificationId;
-          int max = 10000;
-          Notice? _notice;
           final _random = Random();
+          int max = 10000;
+          List<Notification>? _notifications = [];
+          Notice? _notice;
+          DateTime _nowDate;
+          Time? _time;
 
           if (_newHabitData.frequencyCounter != 0) {
             _nextSevenDays = getIt.get<DateController>().getNextSevenDays();
@@ -59,12 +61,21 @@ class NewHabitBloc extends Bloc<NewHabitEvent, NewHabitState> {
           if (_newHabitData.areNotificationEnabled &&
               _newHabitData.frequencyCounter != 0) {
             _selectedDays?.forEach((element) async {
-              _notificationId = _random.nextInt(max);
+              _nowDate = DateTime(element.year, element.month, element.day);
+              _time = Time(
+                _newHabitData.timeOfDay.hour,
+                _newHabitData.timeOfDay.minute,
+              );
               _notice = Notice(
-                id: _notificationId!,
+                id: _random.nextInt(max),
                 title: _newHabitData.title,
                 body: _newHabitData.reminderText,
               );
+              _notifications.add(Notification(
+                notice: _notice!,
+                date: _nowDate,
+                time: _time!,
+              ));
               await getIt
                   .get<NotificationController>()
                   .showScheduledNotification(
@@ -72,17 +83,13 @@ class NewHabitBloc extends Bloc<NewHabitEvent, NewHabitState> {
                           id: _notice!.id,
                           title: _notice!.title,
                           body: _notice!.body),
-                      time: Time(
-                        _newHabitData.timeOfDay.hour,
-                        _newHabitData.timeOfDay.minute,
-                      ),
-                      day: DateTime(element.year, element.month, element.day));
+                      time: _time!,
+                      day: _nowDate);
             });
           }
 
           final habit = Habit(
-            notification:
-                _notice != null ? Notification(notice: _notice!) : null,
+            notifications: _notifications,
             title: _newHabitData.title,
             unselectedColorValue: _newHabitData.unselectedColor.value,
             selectedColorValue: _newHabitData.selectedColor.value,

@@ -20,4 +20,8 @@ class NotificationController {
         .get<NotificationRepository>()
         .showScheduledNotification(notice: notice, time: time, day: day);
   }
+
+  Future<void> cancelById(int id) async {
+    return getIt.get<NotificationRepository>().cancelById(id);
+  }
 }

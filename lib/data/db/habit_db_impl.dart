@@ -1,6 +1,4 @@
-import 'package:flutter/rendering.dart';
 import 'package:habits/data/db/habit_db.dart';
-import 'package:habits/data/mapper/habit_mapper.dart';
 import 'package:habits/data/model/habit_model.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
@@ -31,7 +29,7 @@ class HabitDatabaseImpl implements HabitDatabase {
         daysMilliSeconds TEXT,
         selectedDaysMilliSeconds TEXT,
         completedDaysMilliSeconds TEXT,
-        notification TEXT
+        notifications TEXT
       )
       ''');
   }

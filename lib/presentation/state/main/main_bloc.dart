@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:habits/internal/db_di/db_controller.dart';
 import 'package:habits/internal/locator.dart';
+import 'package:habits/internal/notification_di/notification_controller.dart';
 import 'package:habits/internal/update_date_di/update_completed_date_controller.dart';
 import 'package:habits/internal/update_date_di/update_uncompleted_date_controller.dart';
 import 'package:habits/presentation/state/main/main_event.dart';
@@ -36,6 +37,16 @@ class MainBloc extends Bloc<MainEvent, MainState> {
         if (event is CompletedDate) {
           if (event.completedDate.day == _todayDay ||
               event.completedDate.day < _todayDay) {
+            final _notification = event.habit.notifications
+                ?.where((e) => e.date == event.completedDate)
+                .first;
+
+            if (_notification != null) {
+              await getIt
+                  .get<NotificationController>()
+                  .cancelById(_notification.notice.id);
+            }
+
             await getIt
                 .get<UpdateCompletedDateController>()
                 .updateCompletedDateController(
@@ -47,6 +58,19 @@ class MainBloc extends Bloc<MainEvent, MainState> {
         if (event is UncompletedDate) {
           if (event.completedDate.day == _todayDay ||
               event.completedDate.day < _todayDay) {
+            final _notification = event.habit.notifications
+                ?.where((e) => e.date == event.completedDate)
+                .first;
+
+            if (_notification != null) {
+              await getIt
+                  .get<NotificationController>()
+                  .showScheduledNotification(
+                      notice: _notification.notice,
+                      time: _notification.time,
+                      day: _notification.date);
+            }
+
             await getIt
                 .get<UpdateUncompletedDateController>()
                 .updateUncompletedDateController(

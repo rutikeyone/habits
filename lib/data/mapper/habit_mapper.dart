@@ -9,13 +9,18 @@ class HabitMapper {
   static Habit toHabit(HabitModel model) {
     return Habit(
       id: model.id,
-      notification: model.notification != null
-          ? Notification(
-              notice: Notice(
-                  id: model.notification!.notice.id,
-                  title: model.notification!.notice.title,
-                  body: model.notification!.notice.body),
-            )
+      notifications: model.notifications != null
+          ? model.notifications!
+              .map((e) => Notification(
+                    notice: Notice(
+                      id: e.notice.id,
+                      title: e.notice.title,
+                      body: e.notice.body,
+                    ),
+                    date: e.date,
+                    time: e.time,
+                  ))
+              .toList()
           : null,
       title: model.title,
       selectedColorValue: model.selectedColorValue,
@@ -38,14 +43,19 @@ class HabitMapper {
     return HabitModel(
       id: habit.id,
       title: habit.title,
-      notification: habit.notification != null
-          ? NotificationModel(
-              notice: NoticeModel(
-                id: habit.notification!.notice.id,
-                title: habit.notification!.notice.title,
-                body: habit.notification!.notice.body,
-              ),
-            )
+      notifications: habit.notifications != null
+          ? habit.notifications!
+              .map(
+                (e) => NotificationModel(
+                  notice: NoticeModel(
+                      id: e.notice.id,
+                      title: e.notice.title,
+                      body: e.notice.body),
+                  date: e.date,
+                  time: e.time,
+                ),
+              )
+              .toList()
           : null,
       weekDaysName: habit.weekDaysName,
       timesAWeek: habit.timesAWeek,
@@ -65,13 +75,20 @@ class HabitMapper {
         .map(
           (model) => Habit(
             id: model.id,
-            notification: model.notification != null
-                ? Notification(
-                    notice: Notice(
-                        id: model.notification!.notice.id,
-                        title: model.notification!.notice.title,
-                        body: model.notification!.notice.body),
-                  )
+            notifications: model.notifications != null
+                ? model.notifications!
+                    .map(
+                      (e) => Notification(
+                        notice: Notice(
+                          id: e.notice.id,
+                          title: e.notice.title,
+                          body: e.notice.body,
+                        ),
+                        date: e.date,
+                        time: e.time,
+                      ),
+                    )
+                    .toList()
                 : null,
             title: model.title,
             unselectedColorValue: model.unselectedColorValue,

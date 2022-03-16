@@ -12,11 +12,11 @@ class HabitModel {
   List<int> daysMilliSeconds;
   List<int> selectedDaysMilliSeconds;
   List<int> completedDaysMilliSeconds;
-  NotificationModel? notification;
+  List<NotificationModel>? notifications;
 
   HabitModel(
       {this.id,
-      this.notification,
+      this.notifications,
       required this.title,
       required this.unselectedColorValue,
       required this.selectedColorValue,
@@ -27,12 +27,12 @@ class HabitModel {
       required this.completedDaysMilliSeconds});
 
   factory HabitModel.fromMap(Map<String, dynamic> json) {
-    print(json['notification']);
-
     return HabitModel(
         id: json['id'],
-        notification: json['notification'] != null
-            ? NotificationModel.fromMap((jsonDecode(json["notification"])))
+        notifications: json['notifications'] != null
+            ? (jsonDecode(json["notifications"]) as List)
+                .map((data) => NotificationModel.fromMap(data))
+                .toList()
             : null,
         title: json['title'],
         unselectedColorValue: json['unselectedColorValue'],
@@ -48,8 +48,9 @@ class HabitModel {
 
   Map<String, dynamic> toMap() {
     final _map = {
-      'notification':
-          notification != null ? jsonEncode(notification!.toMap()) : null,
+      'notifications': notifications != null
+          ? jsonEncode(notifications!.map((e) => e.toMap()).toList())
+          : null,
       'title': title,
       'unselectedColorValue': unselectedColorValue,
       'selectedColorValue': selectedColorValue,
