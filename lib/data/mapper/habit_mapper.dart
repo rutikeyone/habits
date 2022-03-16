@@ -1,11 +1,18 @@
 import 'package:habits/data/model/habit_model.dart';
+import 'package:habits/data/model/notice_model.dart';
 import 'package:habits/domain/model/habit.dart';
+import 'package:habits/domain/model/notice.dart';
 
 class HabitMapper {
   static Habit toHabit(HabitModel model) {
     return Habit(
       id: model.id,
-      notificationId: model.notificationId,
+      notice: model.notice != null
+          ? Notice(
+              id: model.notice!.id,
+              title: model.notice!.title,
+              body: model.notice!.body)
+          : null,
       title: model.title,
       selectedColorValue: model.selectedColorValue,
       unselectedColorValue: model.selectedColorValue,
@@ -27,7 +34,13 @@ class HabitMapper {
     return HabitModel(
       id: habit.id,
       title: habit.title,
-      notificationId: habit.notificationId,
+      notice: habit.notice != null
+          ? NoticeModel(
+              id: habit.notice!.id,
+              title: habit.notice!.title,
+              body: habit.notice!.body,
+            )
+          : null,
       weekDaysName: habit.weekDaysName,
       timesAWeek: habit.timesAWeek,
       unselectedColorValue: habit.unselectedColorValue,
@@ -46,7 +59,12 @@ class HabitMapper {
         .map(
           (model) => Habit(
             id: model.id,
-            notificationId: model.notificationId,
+            notice: model.notice != null
+                ? Notice(
+                    id: model.notice!.id,
+                    title: model.notice!.title,
+                    body: model.notice!.body)
+                : null,
             title: model.title,
             unselectedColorValue: model.unselectedColorValue,
             selectedColorValue: model.selectedColorValue,

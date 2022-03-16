@@ -43,6 +43,8 @@ class NewHabitBloc extends Bloc<NewHabitEvent, NewHabitState> {
           List<String>? _nextSevenDaysName;
           int? _notificationId;
           int max = 10000;
+          Notice? _notice;
+          final _random = Random();
 
           if (_newHabitData.frequencyCounter != 0) {
             _nextSevenDays = getIt.get<DateController>().getNextSevenDays();
@@ -56,14 +58,19 @@ class NewHabitBloc extends Bloc<NewHabitEvent, NewHabitState> {
           if (_newHabitData.areNotificationEnabled &&
               _newHabitData.frequencyCounter != 0) {
             _selectedDays?.forEach((element) async {
-              _notificationId = Random().nextInt(max);
+              _notificationId = _random.nextInt(max);
+              _notice = Notice(
+                id: _notificationId!,
+                title: _newHabitData.title,
+                body: _newHabitData.reminderText,
+              );
               await getIt
                   .get<NotificationController>()
                   .showScheduledNotification(
                       notice: Notice(
-                          id: _notificationId!,
-                          title: _newHabitData.title,
-                          body: _newHabitData.reminderText),
+                          id: _notice!.id,
+                          title: _notice!.title,
+                          body: _notice!.body),
                       time: Time(
                         _newHabitData.timeOfDay.hour,
                         _newHabitData.timeOfDay.minute,
@@ -73,7 +80,7 @@ class NewHabitBloc extends Bloc<NewHabitEvent, NewHabitState> {
           }
 
           final habit = Habit(
-            notificationId: _notificationId,
+            notice: _notice,
             title: _newHabitData.title,
             unselectedColorValue: _newHabitData.unselectedColor.value,
             selectedColorValue: _newHabitData.selectedColor.value,

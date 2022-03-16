@@ -31,7 +31,7 @@ class HabitDatabaseImpl implements HabitDatabase {
         daysMilliSeconds TEXT,
         selectedDaysMilliSeconds TEXT,
         completedDaysMilliSeconds TEXT,
-        notificationId INTEGER
+        notice TEXT
       )
       ''');
   }
@@ -40,9 +40,11 @@ class HabitDatabaseImpl implements HabitDatabase {
   Future<List<HabitModel>> getHabits() async {
     final db = await instance.database;
     final habitsQuery = await db.query('habits');
+
     List<HabitModel> habits = habitsQuery.isNotEmpty
         ? habitsQuery.map((e) => HabitModel.fromMap(e)).toList()
         : [];
+
     return habits;
   }
 

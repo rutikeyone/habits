@@ -54,8 +54,6 @@ class NotificationRepositoryImpl extends NotificationRepository {
       time.second,
     );
 
-    print(_time);
-
     await _notification.zonedSchedule(
       notice.id,
       notice.title,

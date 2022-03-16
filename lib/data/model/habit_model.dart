@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'notice_model.dart';
 
 class HabitModel {
   int? id;
@@ -10,11 +11,11 @@ class HabitModel {
   List<int> daysMilliSeconds;
   List<int> selectedDaysMilliSeconds;
   List<int> completedDaysMilliSeconds;
-  int? notificationId;
+  NoticeModel? notice;
 
   HabitModel(
       {this.id,
-      this.notificationId,
+      this.notice,
       required this.title,
       required this.unselectedColorValue,
       required this.selectedColorValue,
@@ -24,9 +25,12 @@ class HabitModel {
       required this.selectedDaysMilliSeconds,
       required this.completedDaysMilliSeconds});
 
-  factory HabitModel.fromMap(Map<String, dynamic> json) => HabitModel(
+  factory HabitModel.fromMap(Map<String, dynamic> json) {
+    return HabitModel(
         id: json['id'],
-        notificationId: json['notificationId'],
+        notice: json['notice'] != null
+            ? NoticeModel.fromMap(jsonDecode(json["notice"]))
+            : null,
         title: json['title'],
         unselectedColorValue: json['unselectedColorValue'],
         selectedColorValue: json['selectedColorValue'],
@@ -36,12 +40,12 @@ class HabitModel {
         selectedDaysMilliSeconds:
             jsonDecode(json['selectedDaysMilliSeconds']).cast<int>(),
         completedDaysMilliSeconds:
-            jsonDecode(json['completedDaysMilliSeconds']).cast<int>(),
-      );
+            jsonDecode(json['completedDaysMilliSeconds']).cast<int>());
+  }
 
   Map<String, dynamic> toMap() {
-    return {
-      'notificationId': notificationId,
+    final _map = {
+      'notice': notice != null ? jsonEncode(notice!.toMap()) : null,
       'title': title,
       'unselectedColorValue': unselectedColorValue,
       'selectedColorValue': selectedColorValue,
@@ -49,7 +53,9 @@ class HabitModel {
       'weekDaysName': jsonEncode(weekDaysName),
       'daysMilliSeconds': jsonEncode(daysMilliSeconds),
       'selectedDaysMilliSeconds': jsonEncode(selectedDaysMilliSeconds),
-      'completedDaysMilliSeconds': jsonEncode(completedDaysMilliSeconds),
+      'completedDaysMilliSeconds': jsonEncode(completedDaysMilliSeconds)
     };
+
+    return _map;
   }
 }
