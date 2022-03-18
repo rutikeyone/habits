@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:habits/presentation/new_habit/components/color_picker_bar.dart';
 import 'package:habits/presentation/new_habit/components/frequency.dart';
 import 'package:habits/presentation/new_habit/components/new_habit_app_bar.dart';
 import 'package:habits/presentation/new_habit/components/reminder.dart';
 import 'package:habits/presentation/new_habit/components/title_input_text_field.dart';
-import 'package:habits/presentation/state/new_habit/new_habit_bloc.dart';
-import 'package:habits/presentation/state/new_habit/new_habit_event.dart';
 
 class NewHabitLoadedView extends StatefulWidget {
   const NewHabitLoadedView({Key? key}) : super(key: key);

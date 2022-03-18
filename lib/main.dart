@@ -8,6 +8,9 @@ import 'package:habits/domain/model/notice.dart';
 import 'package:habits/internal/locator.dart';
 import 'package:habits/internal/notification_di/notification_controller.dart';
 import 'package:habits/presentation/main/main_screen.dart';
+import 'package:habits/presentation/navigation/route.dart';
+import 'package:habits/presentation/new_habit/new_habit_screen.dart';
+import 'package:habits/presentation/settings/settings_screen.dart';
 import 'package:habits/presentation/state/main/main_bloc.dart';
 import 'package:habits/presentation/state/main/main_event.dart';
 import 'package:habits/presentation/state/main/main_state.dart';
@@ -61,7 +64,12 @@ class MyApp extends StatelessWidget {
             theme: light,
             darkTheme: dark,
             supportedLocales: S.delegate.supportedLocales,
-            home: const MainScreen(),
+            initialRoute: getIt.get<Main>().route,
+            routes: {
+              getIt.get<Main>().route: (context) => MainScreen(),
+              getIt.get<Settings>().route: (context) => const SettingsScreen(),
+              getIt.get<NewHabit>().route: (context) => NewHabitScreen(),
+            },
           );
         },
       ),

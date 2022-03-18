@@ -18,4 +18,8 @@ class DbController {
   Future<int> remove(int id) async {
     return await getIt.get<DbRepository>().remove(id);
   }
+
+  Future<void> updateDates() async {
+    return await getIt.get<DbRepository>().updateDates();
+  }
 }

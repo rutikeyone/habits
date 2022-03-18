@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:habits/domain/inherit/new_habit_widget_provider.dart';
 import 'package:habits/generated/l10n.dart';
-import 'package:habits/presentation/state/new_habit/new_habit_bloc.dart';
-import 'package:habits/presentation/state/new_habit/new_habit_event.dart';
 import 'package:habits/presentation/widgets/input_text_form_field.dart';
 
 class TitleInputTextField extends StatelessWidget {
@@ -14,10 +12,9 @@ class TitleInputTextField extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 25),
       child: InputTextFormField(
         autofocus: true,
-        textChanged: (value) {
-          BlocProvider.of<NewHabitBloc>(context)
-              .add(TitleChangedEvent(value: value));
-        },
+        textChanged: (value) => NewHabitWidgetProvider.of(context)
+            ?.model
+            .onTitleChanged(value, context),
         hintText: S.of(context).title,
       ),
     );

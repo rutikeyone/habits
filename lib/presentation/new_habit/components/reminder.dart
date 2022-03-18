@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:habits/domain/inherit/new_habit_widget_provider.dart';
 import 'package:habits/generated/l10n.dart';
 import 'package:habits/presentation/state/new_habit/new_habit_bloc.dart';
 import 'package:habits/presentation/state/new_habit/new_habit_event.dart';
@@ -58,10 +59,9 @@ class _ReminderState extends State<Reminder> {
                   setState(() {
                     _switchValue = value;
                   });
-                  BlocProvider.of<NewHabitBloc>(context).add(
-                    NotificationChangedEvent(
-                        areNotificationEnabled: _switchValue),
-                  );
+                  NewHabitWidgetProvider.of(context)
+                      ?.model
+                      .onNotificationChanged(_switchValue, context);
                 },
                 value: _switchValue,
               ),
@@ -84,9 +84,9 @@ class _ReminderState extends State<Reminder> {
                       padding: const EdgeInsets.symmetric(
                           horizontal: 20, vertical: 10)),
                   onPressed: () => pickTime().then(
-                    (_) => BlocProvider.of<NewHabitBloc>(context).add(
-                      TimePickedEvent(timeOfDay: _timeOfDay),
-                    ),
+                    (_) => NewHabitWidgetProvider.of(context)
+                        ?.model
+                        .onTimeChanged(_timeOfDay, context),
                   ),
                   child: SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
@@ -119,9 +119,9 @@ class _ReminderState extends State<Reminder> {
                   height: 42.5,
                   child: InputTextFormField(
                     autofocus: false,
-                    textChanged: (value) =>
-                        BlocProvider.of<NewHabitBloc>(context)
-                            .add(ReminderTextChanged(reminderText: value)),
+                    textChanged: (value) => NewHabitWidgetProvider.of(context)
+                        ?.model
+                        .onReminderTextChanged(value, context),
                     hintText: S.of(context).reminder_text,
                   ),
                 ),

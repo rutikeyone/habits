@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:habits/domain/inherit/new_habit_widget_provider.dart';
 import 'package:habits/presentation/state/new_habit/new_habit_bloc.dart';
 import 'package:habits/presentation/state/new_habit/new_habit_event.dart';
 import 'package:habits/presentation/theme/auxilary_color.dart';
@@ -33,12 +34,10 @@ class _ColorPickerBarState extends State<ColorPickerBar> {
                   setState(() {
                     selectedIndex = index;
                   });
-                  BlocProvider.of<NewHabitBloc>(context).add(
-                    ColorChangedEvent(
+                  NewHabitWidgetProvider.of(context)?.model.onColorChanged(
+                      context: context,
                       unselectedColor: colorItems[selectedIndex].value1,
-                      selectedColor: colorItems[selectedIndex].value2,
-                    ),
-                  );
+                      selectedColor: colorItems[selectedIndex].value2);
                 },
                 isSelected: selectedIndex == index,
               ),

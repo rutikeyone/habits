@@ -1,4 +1,5 @@
 import 'package:habits/domain/model/habit.dart';
+import 'package:habits/domain/model/notification.dart';
 import 'package:habits/domain/repository/update_date_repository.dart';
 import 'package:habits/internal/db_di/db_controller.dart';
 import 'package:habits/internal/locator.dart';
@@ -11,9 +12,19 @@ class UpdateUncompletedDateRepositoryImpl extends UpdateDateRepository {
     _updatedSelectedDays.add(date);
     final _updatedCompletedDays = habit.completedDays;
     _updatedCompletedDays.remove(date);
+    final _updatedNotifications = habit.notifications;
+
+    if (_updatedNotifications != null) {
+      _updatedNotifications.add(Notification(
+          date: date,
+          notice: _updatedNotifications.first.notice,
+          time: _updatedNotifications.first.time));
+    }
+
     await getIt.get<DbController>().update(habit.copyWith(
           completedDays: _updatedCompletedDays,
           selectedDays: _updatedSelectedDays,
+          notifications: _updatedNotifications,
         ));
   }
 }

@@ -37,7 +37,7 @@ class Habit {
       List<DateTime>? completedDays}) {
     final _newElement = Habit(
         id: this.id,
-        notifications: this.notifications,
+        notifications: notifications,
         title: title ?? this.title,
         unselectedColorValue: unselectedColorValue ?? this.unselectedColorValue,
         selectedColorValue: selectedColorValue ?? this.selectedColorValue,

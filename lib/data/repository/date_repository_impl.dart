@@ -3,11 +3,11 @@ import 'package:habits/domain/repository/date_repository.dart';
 import 'package:intl/intl.dart';
 
 class DateRepositoryImpl extends DateRepository {
-  final DateTime _now = DateTime.now();
   late final int _weekDays = 6;
 
   @override
   List<DateTime> getNextSevenDays() {
+    final DateTime _now = DateTime.now();
     final List<DateTime> result = [];
     for (int i = 0; i <= _weekDays; i++) {
       result.add(DateTime(_now.year, _now.month, _now.day + i));

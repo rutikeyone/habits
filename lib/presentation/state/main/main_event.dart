@@ -34,6 +34,8 @@ class UncompletedDate extends MainEvent {
   });
 }
 
+class onResume extends MainEvent {}
+
 class ErrorEvent extends MainEvent {
   final String error;
   const ErrorEvent({required this.error});

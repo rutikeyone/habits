@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:habits/domain/model/habit.dart';
 import 'package:habits/internal/db_di/db_controller.dart';
 import 'package:habits/internal/locator.dart';
 import 'package:habits/internal/notification_di/notification_controller.dart';
@@ -13,14 +14,17 @@ class MainBloc extends Bloc<MainEvent, MainState> {
   }) : super(initialState) {
     on<MainEvent>(
       (event, emit) async {
-        final int _todayDay = DateTime.now().day;
-
         if (event is InitialEvent) {
+          emit(LoadingState());
+        }
+
+        if (event is onResume) {
           emit(LoadingState());
         }
 
         if (event is LoadedEvent) {
           try {
+            await getIt.get<DbController>().updateDates();
             final _habits = await getIt.get<DbController>().getAll();
             emit(LoadedState(
               habits: _habits,
@@ -35,11 +39,11 @@ class MainBloc extends Bloc<MainEvent, MainState> {
         }
 
         if (event is CompletedDate) {
-          if (event.completedDate.day == _todayDay ||
-              event.completedDate.day < _todayDay) {
-            final _notification = event.habit.notifications
-                ?.where((e) => e.date == event.completedDate)
-                .first;
+          final DateTime _todayDay = DateTime.now();
+
+          if (_todayDay.difference(event.completedDate).inHours > 0) {
+            final _notification = event.habit.notifications?.firstWhere(
+                (element) => element.date.day == event.completedDate.day);
 
             if (_notification != null) {
               await getIt
@@ -51,16 +55,15 @@ class MainBloc extends Bloc<MainEvent, MainState> {
                 .get<UpdateCompletedDateController>()
                 .updateCompletedDateController(
                     habit: event.habit, date: event.completedDate);
+
             emit(LoadingState());
           }
         }
 
         if (event is UncompletedDate) {
-          if (event.completedDate.day == _todayDay ||
-              event.completedDate.day < _todayDay) {
-            final _notification = event.habit.notifications
-                ?.where((e) => e.date == event.completedDate)
-                .first;
+          final DateTime _todayDay = DateTime.now();
+          if (_todayDay.difference(event.completedDate).inHours > 0) {
+            final _notification = event.habit.notifications?.first;
 
             if (_notification != null) {
               await getIt
@@ -68,7 +71,7 @@ class MainBloc extends Bloc<MainEvent, MainState> {
                   .showScheduledNotification(
                       notice: _notification.notice,
                       time: _notification.time,
-                      day: _notification.date);
+                      day: event.completedDate);
             }
 
             await getIt

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:habits/domain/inherit/main_widget_provider.dart';
 import 'package:habits/generated/l10n.dart';
 import 'package:habits/presentation/settings/settings_screen.dart';
 
@@ -35,11 +36,9 @@ class MainAppBar extends StatelessWidget {
               height: 26,
               color: Theme.of(context).textTheme.headline1!.color,
             ),
-            onPressed: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => const SettingsScreen()),
-              );
-            },
+            onPressed: () => MainWidgetProvider.of(context)
+                ?.model
+                .settingsOnPressed(context),
             color: Theme.of(context).textTheme.headline1!.color,
           ),
         ],

@@ -8,4 +8,6 @@ abstract class DbRepository {
   Future remove(int id);
 
   Future update(Habit habit);
+
+  Future<void> updateDates();
 }

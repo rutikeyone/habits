@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:habits/domain/inherit/new_habit_widget_provider.dart';
 import 'package:habits/generated/l10n.dart';
 import 'package:habits/presentation/state/new_habit/new_habit_bloc.dart';
 import 'package:habits/presentation/state/new_habit/new_habit_event.dart';
@@ -20,8 +21,9 @@ class _FrequencyState extends State<Frequency> {
       setState(() {
         frequencyCounter++;
       });
-      BlocProvider.of<NewHabitBloc>(context)
-          .add(FrequencyCounterChangedEvent(value: frequencyCounter));
+      NewHabitWidgetProvider.of(context)
+          ?.model
+          .frequencyCounterChanged(frequencyCounter, context);
     }
   }
 
@@ -30,8 +32,9 @@ class _FrequencyState extends State<Frequency> {
       setState(() {
         frequencyCounter--;
       });
-      BlocProvider.of<NewHabitBloc>(context)
-          .add(FrequencyCounterChangedEvent(value: frequencyCounter));
+      NewHabitWidgetProvider.of(context)
+          ?.model
+          .frequencyCounterChanged(frequencyCounter, context);
     }
   }
 

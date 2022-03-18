@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:habits/domain/inherit/main_widget_provider.dart';
 import 'package:habits/domain/model/habit.dart';
 import 'package:habits/presentation/state/main/main_bloc.dart';
 import 'package:habits/presentation/state/main/main_event.dart';
@@ -8,12 +9,10 @@ import 'date_of_the_month_item.dart';
 
 class HabitItem extends StatelessWidget {
   final Habit habit;
-  final VoidCallback habitItemOnPressed;
 
   const HabitItem({
     Key? key,
     required this.habit,
-    required this.habitItemOnPressed,
   }) : super(key: key);
 
   @override
@@ -82,20 +81,20 @@ class HabitItem extends StatelessWidget {
                                   onTap: () {
                                     if (habit.selectedDays
                                         .contains(habit.days[index])) {
-                                      BlocProvider.of<MainBloc>(context).add(
-                                        CompletedDate(
-                                          habit: habit,
-                                          completedDate: habit.days[index],
-                                        ),
-                                      );
+                                      MainWidgetProvider.of(context)
+                                          ?.model
+                                          .onSelectCompletedDay(
+                                              context: context,
+                                              habit: habit,
+                                              date: habit.days[index]);
                                     } else if (habit.completedDays
                                         .contains(habit.days[index])) {
-                                      BlocProvider.of<MainBloc>(context).add(
-                                        UncompletedDate(
-                                          habit: habit,
-                                          completedDate: habit.days[index],
-                                        ),
-                                      );
+                                      MainWidgetProvider.of(context)
+                                          ?.model
+                                          .onSelectUnCompletedDay(
+                                              context: context,
+                                              habit: habit,
+                                              date: habit.days[index]);
                                     }
                                   },
                                 ),
@@ -110,7 +109,7 @@ class HabitItem extends StatelessWidget {
           ),
         ),
       ),
-      onTap: habitItemOnPressed,
+      onTap: MainWidgetProvider.of(context)?.model.habitItemOnPressed,
     );
   }
 }

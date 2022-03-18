@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:dartz/dartz.dart';
 import 'package:habits/data/model/notification_model.dart';
 
 class HabitModel {
