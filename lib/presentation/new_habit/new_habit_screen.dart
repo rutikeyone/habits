@@ -14,10 +14,10 @@ class NewHabitScreen extends StatelessWidget {
       BlocProvider.of<NewHabitBloc>(context).add(AddEvent(context: context));
       Navigator.of(context).pop();
     },
-    onTitleChanged: (value, context) =>
-        BlocProvider.of<NewHabitBloc>(context).add(
-      TitleChangedEvent(value: value),
-    ),
+    // onTitleChanged: (value, context) =>
+    //     BlocProvider.of<NewHabitBloc>(context).add(
+    //   TitleChangedEvent(value: value),
+    // ),
     onColorChanged: ({
       required context,
       required unselectedColor,

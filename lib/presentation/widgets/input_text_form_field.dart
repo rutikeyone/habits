@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:habits/domain/inherit/new_habit_widget_provider.dart';
 
 class InputTextFormField extends StatelessWidget {
+  final GlobalKey<FormState> formKey;
   final bool autofocus;
   final String hintText;
   final void Function(String) textChanged;
   const InputTextFormField({
     Key? key,
+    required this.formKey,
     required this.autofocus,
     required this.hintText,
     required this.textChanged,
@@ -16,6 +18,7 @@ class InputTextFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       child: Form(
+        key: formKey,
         child: TextFormField(
           autofocus: autofocus,
           onChanged: textChanged,

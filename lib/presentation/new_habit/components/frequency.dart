@@ -1,40 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:habits/domain/inherit/new_habit_widget_provider.dart';
 import 'package:habits/generated/l10n.dart';
-import 'package:habits/presentation/state/new_habit/new_habit_bloc.dart';
-import 'package:habits/presentation/state/new_habit/new_habit_event.dart';
 
-class Frequency extends StatefulWidget {
+class Frequency extends StatelessWidget {
   const Frequency({Key? key}) : super(key: key);
 
-  @override
-  State<Frequency> createState() => _FrequencyState();
-}
-
-class _FrequencyState extends State<Frequency> {
-  int frequencyCounter = 0;
-
-  void addFrequency() {
-    if (frequencyCounter < 7) {
-      setState(() {
-        frequencyCounter++;
-      });
-      NewHabitWidgetProvider.of(context)
-          ?.model
-          .frequencyCounterChanged(frequencyCounter, context);
+  void addFrequency(BuildContext context) {
+    if ((NewHabitWidgetProvider.of(context) != null
+            ? NewHabitWidgetProvider.of(context)!.frequencyCounter
+            : 0) <
+        7) {
+      NewHabitWidgetProvider.of(context)?.frequencyCounter++;
+      ;
     }
   }
 
-  void subtractFrequency() {
-    if (frequencyCounter > 0) {
-      setState(() {
-        frequencyCounter--;
-      });
-      NewHabitWidgetProvider.of(context)
-          ?.model
-          .frequencyCounterChanged(frequencyCounter, context);
+  void subtractFrequency(BuildContext context) {
+    if ((NewHabitWidgetProvider.of(context) != null
+            ? NewHabitWidgetProvider.of(context)!.frequencyCounter
+            : 0) >
+        0) {
+      NewHabitWidgetProvider.of(context)?.frequencyCounter--;
     }
   }
 
@@ -74,7 +61,7 @@ class _FrequencyState extends State<Frequency> {
                     shape: const CircleBorder(),
                     padding: const EdgeInsets.all(12),
                   ),
-                  onPressed: subtractFrequency,
+                  onPressed: () => subtractFrequency(context),
                   child: const Icon(
                     FontAwesomeIcons.minus,
                     size: 20,
@@ -84,7 +71,11 @@ class _FrequencyState extends State<Frequency> {
                   width: 20,
                 ),
                 Text(
-                  frequencyCounter.toString(),
+                  NewHabitWidgetProvider.of(context) != null
+                      ? NewHabitWidgetProvider.of(context)!
+                          .frequencyCounter
+                          .toString()
+                      : 0.toString(),
                   style: Theme.of(context).textTheme.headline1,
                 ),
                 const SizedBox(
@@ -96,7 +87,7 @@ class _FrequencyState extends State<Frequency> {
                     shape: const CircleBorder(),
                     padding: const EdgeInsets.all(12),
                   ),
-                  onPressed: addFrequency,
+                  onPressed: () => addFrequency(context),
                   child: const Icon(
                     FontAwesomeIcons.plus,
                     size: 20,

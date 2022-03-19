@@ -22,18 +22,18 @@ class NewHabitAppBar extends StatelessWidget {
               S.of(context).cancel,
               style: Theme.of(context).textTheme.headline3,
             ),
-            onTap: () => NewHabitWidgetProvider.of(context)
-                ?.model
-                .onBackPressed(context),
+            onTap: () =>
+                NewHabitWidgetProvider.of(context)!.onBackPressed(context),
           ),
           GestureDetector(
             child: Text(
               S.of(context).done,
               style: Theme.of(context).textTheme.headline3,
             ),
-            onTap: () => NewHabitWidgetProvider.of(context)
-                ?.model
-                .onDonePressed(context),
+            onTap: () => NewHabitWidgetProvider.of(context)!
+                .formTitleKey
+                .currentState!
+                .validate(),
           ),
         ],
       ),

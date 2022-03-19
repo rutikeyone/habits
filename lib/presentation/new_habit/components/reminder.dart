@@ -1,11 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:habits/domain/inherit/new_habit_widget_provider.dart';
 import 'package:habits/generated/l10n.dart';
-import 'package:habits/presentation/state/new_habit/new_habit_bloc.dart';
-import 'package:habits/presentation/state/new_habit/new_habit_event.dart';
+
 import 'package:habits/presentation/widgets/input_text_form_field.dart';
 
 class Reminder extends StatefulWidget {
@@ -16,7 +14,6 @@ class Reminder extends StatefulWidget {
 }
 
 class _ReminderState extends State<Reminder> {
-  bool _switchValue = false;
   TimeOfDay _timeOfDay = const TimeOfDay(hour: 0, minute: 0);
 
   Future<void> pickTime() async {
@@ -56,14 +53,12 @@ class _ReminderState extends State<Reminder> {
               ),
               CupertinoSwitch(
                 onChanged: (bool value) {
-                  setState(() {
-                    _switchValue = value;
-                  });
-                  NewHabitWidgetProvider.of(context)
-                      ?.model
-                      .onNotificationChanged(_switchValue, context);
+                  NewHabitWidgetProvider.of(context)!.areNotificationEnabled =
+                      value;
                 },
-                value: _switchValue,
+                value: NewHabitWidgetProvider.of(context) != null
+                    ? NewHabitWidgetProvider.of(context)!.areNotificationEnabled
+                    : false,
               ),
             ],
           ),
@@ -84,8 +79,7 @@ class _ReminderState extends State<Reminder> {
                       padding: const EdgeInsets.symmetric(
                           horizontal: 20, vertical: 10)),
                   onPressed: () => pickTime().then(
-                    (_) => NewHabitWidgetProvider.of(context)
-                        ?.model
+                    (_) => NewHabitWidgetProvider.of(context)!
                         .onTimeChanged(_timeOfDay, context),
                   ),
                   child: SingleChildScrollView(
@@ -118,9 +112,10 @@ class _ReminderState extends State<Reminder> {
                 child: SizedBox(
                   height: 42.5,
                   child: InputTextFormField(
+                    formKey:
+                        NewHabitWidgetProvider.of(context)!.formReminderKey,
                     autofocus: false,
-                    textChanged: (value) => NewHabitWidgetProvider.of(context)
-                        ?.model
+                    textChanged: (value) => NewHabitWidgetProvider.of(context)!
                         .onReminderTextChanged(value, context),
                     hintText: S.of(context).reminder_text,
                   ),

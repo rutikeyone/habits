@@ -34,10 +34,10 @@ class _ColorPickerBarState extends State<ColorPickerBar> {
                   setState(() {
                     selectedIndex = index;
                   });
-                  NewHabitWidgetProvider.of(context)?.model.onColorChanged(
-                      context: context,
-                      unselectedColor: colorItems[selectedIndex].value1,
-                      selectedColor: colorItems[selectedIndex].value2);
+                  NewHabitWidgetProvider.of(context)?.unselectedColor =
+                      colorItems[selectedIndex].value1;
+                  NewHabitWidgetProvider.of(context)?.selectedColor =
+                      colorItems[selectedIndex].value2;
                 },
                 isSelected: selectedIndex == index,
               ),

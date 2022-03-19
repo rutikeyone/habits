@@ -12,9 +12,12 @@ class TitleInputTextField extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 25),
       child: InputTextFormField(
         autofocus: true,
-        textChanged: (value) => NewHabitWidgetProvider.of(context)
-            ?.model
-            .onTitleChanged(value, context),
+        formKey: NewHabitWidgetProvider.of(context) != null
+            ? NewHabitWidgetProvider.of(context)!.formTitleKey
+            : GlobalKey<FormState>(),
+        textChanged: (value) => NewHabitWidgetProvider.of(context) != null
+            ? NewHabitWidgetProvider.of(context)?.title = value
+            : null,
         hintText: S.of(context).title,
       ),
     );

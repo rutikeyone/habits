@@ -24,7 +24,7 @@ class _NewHabitLoadedViewState extends State<NewHabitLoadedView> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const NewHabitAppBar(),
-            const TitleInputTextField(),
+            TitleInputTextField(),
             const SizedBox(height: 25),
             const ColorPickerBar(),
             const SizedBox(height: 25),
@@ -56,7 +56,7 @@ class _NewHabitLoadedViewState extends State<NewHabitLoadedView> {
             const SizedBox(
               height: 25,
             ),
-            const Reminder(),
+            Reminder(),
             const SizedBox(
               height: 25,
             ),
