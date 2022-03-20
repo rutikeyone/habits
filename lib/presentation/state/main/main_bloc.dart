@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:habits/domain/model/habit.dart';
 import 'package:habits/internal/db_di/db_controller.dart';
 import 'package:habits/internal/locator.dart';
 import 'package:habits/internal/notification_di/notification_controller.dart';
@@ -42,13 +41,17 @@ class MainBloc extends Bloc<MainEvent, MainState> {
           final DateTime _todayDay = DateTime.now();
 
           if (_todayDay.difference(event.completedDate).inHours > 0) {
-            final _notification = event.habit.notifications?.firstWhere(
-                (element) => element.date.day == event.completedDate.day);
+            if (event.habit.notifications != null) {
+              if (event.habit.notifications!.isNotEmpty) {
+                final _notification = event.habit.notifications?.firstWhere(
+                    (element) => element.date.day == event.completedDate.day);
 
-            if (_notification != null) {
-              await getIt
-                  .get<NotificationController>()
-                  .cancelById(_notification.notice.id);
+                if (_notification != null) {
+                  await getIt
+                      .get<NotificationController>()
+                      .cancelById(_notification.notice.id);
+                }
+              }
             }
 
             await getIt
@@ -63,15 +66,19 @@ class MainBloc extends Bloc<MainEvent, MainState> {
         if (event is UncompletedDate) {
           final DateTime _todayDay = DateTime.now();
           if (_todayDay.difference(event.completedDate).inHours > 0) {
-            final _notification = event.habit.notifications?.first;
+            if (event.habit.notifications != null) {
+              if (event.habit.notifications!.isNotEmpty) {
+                final _notification = event.habit.notifications?.first;
 
-            if (_notification != null) {
-              await getIt
-                  .get<NotificationController>()
-                  .showScheduledNotification(
-                      notice: _notification.notice,
-                      time: _notification.time,
-                      day: event.completedDate);
+                if (_notification != null) {
+                  await getIt
+                      .get<NotificationController>()
+                      .showScheduledNotification(
+                          notice: _notification.notice,
+                          time: _notification.time,
+                          day: event.completedDate);
+                }
+              }
             }
 
             await getIt

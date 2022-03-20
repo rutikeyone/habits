@@ -6,25 +6,8 @@ import 'package:habits/generated/l10n.dart';
 
 import 'package:habits/presentation/widgets/input_text_form_field.dart';
 
-class Reminder extends StatefulWidget {
+class Reminder extends StatelessWidget {
   const Reminder({Key? key}) : super(key: key);
-
-  @override
-  State<Reminder> createState() => _ReminderState();
-}
-
-class _ReminderState extends State<Reminder> {
-  TimeOfDay _timeOfDay = const TimeOfDay(hour: 0, minute: 0);
-
-  Future<void> pickTime() async {
-    final _newTime =
-        await showTimePicker(context: context, initialTime: _timeOfDay);
-    if (_newTime != null && _newTime != _timeOfDay) {
-      setState(() {
-        _timeOfDay = _newTime;
-      });
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -66,6 +49,7 @@ class _ReminderState extends State<Reminder> {
             height: 15,
           ),
           Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Flexible(
@@ -74,14 +58,13 @@ class _ReminderState extends State<Reminder> {
                   style: ElevatedButton.styleFrom(
                       primary: Theme.of(context).inputDecorationTheme.fillColor,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
+                        borderRadius: BorderRadius.circular(10),
                       ),
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 20, vertical: 10)),
-                  onPressed: () => pickTime().then(
-                    (_) => NewHabitWidgetProvider.of(context)!
-                        .onTimeChanged(_timeOfDay, context),
-                  ),
+                          horizontal: 20, vertical: 12.5)),
+                  onPressed: () => NewHabitWidgetProvider.of(context) != null
+                      ? NewHabitWidgetProvider.of(context)!.pickTime(context)
+                      : null,
                   child: SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
@@ -96,7 +79,12 @@ class _ReminderState extends State<Reminder> {
                           width: 10,
                         ),
                         Text(
-                          "${_timeOfDay.hour}:${_timeOfDay.minute}",
+                          NewHabitWidgetProvider.of(context) != null
+                              ? NewHabitWidgetProvider.of(context)!
+                                  .timeOfDay
+                                  .format(context)
+                              : const TimeOfDay(hour: 0, minute: 0)
+                                  .format(context),
                           style: Theme.of(context).textTheme.headline2,
                         ),
                       ],
@@ -109,16 +97,18 @@ class _ReminderState extends State<Reminder> {
               ),
               Flexible(
                 flex: 5,
-                child: SizedBox(
-                  height: 42.5,
-                  child: InputTextFormField(
-                    formKey:
-                        NewHabitWidgetProvider.of(context)!.formReminderKey,
-                    autofocus: false,
-                    textChanged: (value) => NewHabitWidgetProvider.of(context)!
-                        .onReminderTextChanged(value, context),
-                    hintText: S.of(context).reminder_text,
-                  ),
+                child: InputTextFormField(
+                  formKey: NewHabitWidgetProvider.of(context) != null
+                      ? NewHabitWidgetProvider.of(context)!.formReminderKey
+                      : GlobalKey<FormState>(),
+                  autofocus: false,
+                  textChanged: (value) => NewHabitWidgetProvider.of(context) !=
+                          null
+                      ? NewHabitWidgetProvider.of(context)?.reminderText = value
+                      : null,
+                  hintText: S.of(context).reminder_text,
+                  validator:
+                      NewHabitWidgetProvider.of(context)?.reminderValidator,
                 ),
               ),
             ],

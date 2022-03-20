@@ -8,43 +8,7 @@ import 'package:habits/presentation/state/new_habit/new_habit_event.dart';
 import 'package:habits/presentation/state/new_habit/new_habit_state.dart';
 
 class NewHabitScreen extends StatelessWidget {
-  final _model = NewHabitWidgetModel(
-    onBackPressed: (context) => Navigator.pop(context),
-    onDonePressed: (context) {
-      BlocProvider.of<NewHabitBloc>(context).add(AddEvent(context: context));
-      Navigator.of(context).pop();
-    },
-    // onTitleChanged: (value, context) =>
-    //     BlocProvider.of<NewHabitBloc>(context).add(
-    //   TitleChangedEvent(value: value),
-    // ),
-    onColorChanged: ({
-      required context,
-      required unselectedColor,
-      required selectedColor,
-    }) =>
-        BlocProvider.of<NewHabitBloc>(context).add(
-      ColorChangedEvent(
-        unselectedColor: unselectedColor,
-        selectedColor: selectedColor,
-      ),
-    ),
-    frequencyCounterChanged: (value, context) =>
-        BlocProvider.of<NewHabitBloc>(context)
-            .add(FrequencyCounterChangedEvent(value: value)),
-    onNotificationChanged: (areNotificationEnabled, context) =>
-        BlocProvider.of<NewHabitBloc>(context).add(
-      NotificationChangedEvent(areNotificationEnabled: areNotificationEnabled),
-    ),
-    onTimeChanged: (timeOfDay, context) =>
-        BlocProvider.of<NewHabitBloc>(context).add(
-      TimePickedEvent(timeOfDay: timeOfDay),
-    ),
-    onReminderTextChanged: (value, context) =>
-        BlocProvider.of<NewHabitBloc>(context).add(
-      ReminderTextChanged(reminderText: value),
-    ),
-  );
+  final _model = NewHabitWidgetModel();
 
   NewHabitScreen({Key? key}) : super(key: key);
 

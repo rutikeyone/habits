@@ -14,7 +14,7 @@ class UpdateCompletedDateRepositoryImpl extends UpdateDateRepository {
 
     final _updatedNotifications = habit.notifications;
 
-    if (_updatedNotifications != null) {
+    if (_updatedNotifications != null && _updatedNotifications.isNotEmpty) {
       _updatedNotifications.remove(_updatedNotifications
           .firstWhere((element) => element.date.day == date.day));
     }

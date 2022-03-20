@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 final light = ThemeData(
   primaryColorDark: const Color(0xff1B1B1B),
   primaryColorLight: const Color(0xff292929),
+  errorColor: const Color(0xffE76967),
   textTheme: const TextTheme(
     headline1: TextStyle(
       color: Color(0xffFFFFFF),

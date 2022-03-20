@@ -12,5 +12,7 @@
     "times_a_week_1" : "раз в неделю",
     "times_a_week_2" : "раза в неделю",
     "everyday" : "Каждый день",
-    "settings" : "Настройки"
+    "settings" : "Настройки",
+    "title_validator_message" : "Заголовок не должен оставаться пустым",
+    "reminder_validator_message" : "Текст напоминания не может быть пустым"
 }

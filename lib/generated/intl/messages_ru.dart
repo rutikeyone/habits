@@ -33,11 +33,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "reminder": MessageLookupByLibrary.simpleMessage("Напоминание"),
         "reminder_text":
             MessageLookupByLibrary.simpleMessage("Текст напоминания"),
+        "reminder_validator_message": MessageLookupByLibrary.simpleMessage(
+            "Текст напоминания не может быть пустым"),
         "settings": MessageLookupByLibrary.simpleMessage("Настройки"),
         "times_a_week":
             MessageLookupByLibrary.simpleMessage("Количество дней в неделю"),
         "times_a_week_1": MessageLookupByLibrary.simpleMessage("раз в неделю"),
         "times_a_week_2": MessageLookupByLibrary.simpleMessage("раза в неделю"),
-        "title": MessageLookupByLibrary.simpleMessage("Заголовок")
+        "title": MessageLookupByLibrary.simpleMessage("Заголовок"),
+        "title_validator_message": MessageLookupByLibrary.simpleMessage(
+            "Заголовок не должен оставаться пустым")
       };
 }

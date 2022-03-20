@@ -9,6 +9,7 @@ class HabitMapper {
   static Habit toHabit(HabitModel model) {
     return Habit(
       id: model.id,
+      countSelectedDays: model.countSelectedDays,
       notifications: model.notifications != null
           ? model.notifications!
               .map((e) => Notification(
@@ -43,6 +44,7 @@ class HabitMapper {
     return HabitModel(
       id: habit.id,
       title: habit.title,
+      countSelectedDays: habit.countSelectedDays,
       notifications: habit.notifications != null
           ? habit.notifications!
               .map(
@@ -91,6 +93,7 @@ class HabitMapper {
                     .toList()
                 : null,
             title: model.title,
+            countSelectedDays: model.countSelectedDays,
             unselectedColorValue: model.unselectedColorValue,
             selectedColorValue: model.selectedColorValue,
             timesAWeek: model.timesAWeek,

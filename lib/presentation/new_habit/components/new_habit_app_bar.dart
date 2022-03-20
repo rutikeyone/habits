@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:habits/domain/inherit/new_habit_widget_provider.dart';
 import 'package:habits/generated/l10n.dart';
-import 'package:habits/presentation/state/new_habit/new_habit_bloc.dart';
-import 'package:habits/presentation/state/new_habit/new_habit_event.dart';
 
 class NewHabitAppBar extends StatelessWidget {
   const NewHabitAppBar({
@@ -22,18 +19,18 @@ class NewHabitAppBar extends StatelessWidget {
               S.of(context).cancel,
               style: Theme.of(context).textTheme.headline3,
             ),
-            onTap: () =>
-                NewHabitWidgetProvider.of(context)!.onBackPressed(context),
+            onTap: () => NewHabitWidgetProvider.of(context) != null
+                ? NewHabitWidgetProvider.of(context)!.onBackPressed(context)
+                : {},
           ),
           GestureDetector(
             child: Text(
               S.of(context).done,
               style: Theme.of(context).textTheme.headline3,
             ),
-            onTap: () => NewHabitWidgetProvider.of(context)!
-                .formTitleKey
-                .currentState!
-                .validate(),
+            onTap: () => NewHabitWidgetProvider.of(context) != null
+                ? NewHabitWidgetProvider.of(context)!.onDonePressed(context)
+                : {},
           ),
         ],
       ),

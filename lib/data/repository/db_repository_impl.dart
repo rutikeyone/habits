@@ -55,10 +55,10 @@ class DbRepositoryImpl extends DbRepository {
         List<DateTime>? _selectedDays;
         List<Notification> _notifications = [];
 
-        if (element.selectedDays.isNotEmpty) {
+        if (element.countSelectedDays > 0) {
           _selectedDays = getIt
               .get<DateController>()
-              .getSelectedDays(_nextSevenDays, element.selectedDays.length);
+              .getSelectedDays(_nextSevenDays, element.countSelectedDays);
         }
 
         if (element.notifications != null) {

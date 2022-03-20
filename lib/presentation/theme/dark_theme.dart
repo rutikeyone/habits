@@ -6,6 +6,7 @@ final dark = ThemeData(
   inputDecorationTheme: const InputDecorationTheme(
     fillColor: Color(0xff343434),
   ),
+  errorColor: const Color(0xffE76967),
   textTheme: const TextTheme(
     headline1: TextStyle(
       color: Color(0xffFFFFFF),

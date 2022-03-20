@@ -12,5 +12,7 @@
     "times_a_week_1" : "times a week", 
     "times_a_week_2" : "times a week",
     "everyday" : "Everyday",
-    "settings" : "Settings"
+    "settings" : "Settings",
+    "title_validator_message" : "The title should not remain empty",
+    "reminder_validator_message" : "Reminder can't be empty"
 }

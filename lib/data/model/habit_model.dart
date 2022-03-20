@@ -4,6 +4,7 @@ import 'package:habits/data/model/notification_model.dart';
 class HabitModel {
   int? id;
   String title;
+  int countSelectedDays;
   int unselectedColorValue;
   int selectedColorValue;
   String? timesAWeek;
@@ -17,6 +18,7 @@ class HabitModel {
       {this.id,
       this.notifications,
       required this.title,
+      required this.countSelectedDays,
       required this.unselectedColorValue,
       required this.selectedColorValue,
       required this.timesAWeek,
@@ -28,6 +30,7 @@ class HabitModel {
   factory HabitModel.fromMap(Map<String, dynamic> json) {
     return HabitModel(
         id: json['id'],
+        countSelectedDays: json['countSelectedDays'],
         notifications: json['notifications'] != null
             ? (jsonDecode(json["notifications"]) as List)
                 .map((data) => NotificationModel.fromMap(data))
@@ -51,6 +54,7 @@ class HabitModel {
           ? jsonEncode(notifications!.map((e) => e.toMap()).toList())
           : null,
       'title': title,
+      'countSelectedDays': countSelectedDays,
       'unselectedColorValue': unselectedColorValue,
       'selectedColorValue': selectedColorValue,
       'timesAWeek': timesAWeek,

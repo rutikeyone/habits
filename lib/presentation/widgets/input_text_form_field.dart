@@ -6,12 +6,14 @@ class InputTextFormField extends StatelessWidget {
   final bool autofocus;
   final String hintText;
   final void Function(String) textChanged;
+  final String? Function(String? val, BuildContext context)? validator;
   const InputTextFormField({
     Key? key,
     required this.formKey,
     required this.autofocus,
     required this.hintText,
     required this.textChanged,
+    required this.validator,
   }) : super(key: key);
 
   @override
@@ -22,12 +24,13 @@ class InputTextFormField extends StatelessWidget {
         child: TextFormField(
           autofocus: autofocus,
           onChanged: textChanged,
-          validator: (value) {
-            if (value == null || value.isEmpty) {
-              return 'Please enter some text';
+          validator: (val) {
+            if (validator != null) {
+              return validator!(val, context);
             }
             return null;
           },
+          textAlign: TextAlign.start,
           style: Theme.of(context).textTheme.headline2,
           textAlignVertical: TextAlignVertical.center,
           decoration: InputDecoration(
@@ -44,11 +47,16 @@ class InputTextFormField extends StatelessWidget {
             errorBorder: OutlineInputBorder(
                 borderSide: BorderSide.none,
                 borderRadius: BorderRadius.circular(10)),
+            errorStyle: TextStyle(
+              color: Theme.of(context).errorColor,
+            ),
             disabledBorder: OutlineInputBorder(
                 borderSide: BorderSide.none,
                 borderRadius: BorderRadius.circular(10)),
             fillColor: Theme.of(context).inputDecorationTheme.fillColor,
             hintText: hintText,
+            focusedErrorBorder:
+                const OutlineInputBorder(borderSide: BorderSide.none),
             hintStyle: Theme.of(context).textTheme.headline3,
           ),
         ),

@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:habits/domain/model/new_habit_data.dart';
+import 'package:habits/generated/l10n.dart';
+import 'package:habits/presentation/state/new_habit/new_habit_bloc.dart';
+import 'package:habits/presentation/state/new_habit/new_habit_event.dart';
 import 'package:habits/presentation/theme/auxilary_color.dart';
 
 class NewHabitWidgetModel extends ChangeNotifier {
@@ -14,7 +19,10 @@ class NewHabitWidgetModel extends ChangeNotifier {
   String? _reminderText;
 
   String? get title => _title;
-  set title(String? val) => _title = val;
+  set title(String? val) {
+    formTitleKey.currentState?.validate();
+    _title = val;
+  }
 
   Color get unselectedColor => _unselectedColor;
   set unselectedColor(Color color) => _unselectedColor = color;
@@ -25,43 +33,82 @@ class NewHabitWidgetModel extends ChangeNotifier {
   int get frequencyCounter => _frequencyCounter;
   set frequencyCounter(int val) {
     _frequencyCounter = val;
+    if (val == 0) {
+      areNotificationEnabled = false;
+    }
     notifyListeners();
   }
 
   TimeOfDay get timeOfDay => _timeOfDay;
-  set timeOfDay(TimeOfDay val) => _timeOfDay = val;
-
-  bool get areNotificationEnabled => _areNotificationEnabled;
-  set areNotificationEnabled(bool val) {
-    _areNotificationEnabled = val;
+  set timeOfDay(TimeOfDay val) {
+    _timeOfDay = val;
     notifyListeners();
   }
 
+  bool get areNotificationEnabled => _areNotificationEnabled;
+  set areNotificationEnabled(bool val) {
+    if (frequencyCounter > 0) {
+      _areNotificationEnabled = val;
+      notifyListeners();
+    }
+
+    if (frequencyCounter == 0) {
+      _areNotificationEnabled = false;
+      notifyListeners();
+    }
+
+    formReminderKey.currentState?.validate();
+  }
+
   String? get reminderText => _reminderText;
-  set reminderText(String? val) => _reminderText = val;
+  set reminderText(String? val) {
+    if (areNotificationEnabled) {
+      formReminderKey.currentState?.validate();
+    }
+    _reminderText = val;
+  }
 
-  final void Function(BuildContext context) onBackPressed;
-  final void Function(BuildContext context) onDonePressed;
-//  final void Function(String value, BuildContext context) onTitleChanged;
-  final void Function({
-    required BuildContext context,
-    required Color unselectedColor,
-    required Color selectedColor,
-  }) onColorChanged;
-  final void Function(int value, BuildContext context) frequencyCounterChanged;
-  final void Function(bool areNotificationEnabled, BuildContext context)
-      onNotificationChanged;
-  final void Function(TimeOfDay timeOfDay, BuildContext context) onTimeChanged;
-  final void Function(String value, BuildContext context) onReminderTextChanged;
+  String? titleValidator(String? val, BuildContext context) {
+    if (val == null || val.isEmpty) {
+      return S.of(context).title_validator_message;
+    }
+    return null;
+  }
 
-  NewHabitWidgetModel({
-    required this.onBackPressed,
-    required this.onDonePressed,
-    //   required this.onTitleChanged,
-    required this.onColorChanged,
-    required this.frequencyCounterChanged,
-    required this.onNotificationChanged,
-    required this.onTimeChanged,
-    required this.onReminderTextChanged,
-  });
+  String? reminderValidator(String? val, BuildContext context) {
+    if (areNotificationEnabled && (val == null || val.isEmpty)) {
+      return S.of(context).reminder_validator_message;
+    }
+    return null;
+  }
+
+  Future<void> pickTime(BuildContext context) async {
+    if (areNotificationEnabled) {
+      final _newTime =
+          await showTimePicker(context: context, initialTime: _timeOfDay);
+      if (_newTime != null && _newTime != _timeOfDay) {
+        timeOfDay = _newTime;
+      }
+    }
+  }
+
+  void onBackPressed(BuildContext context) {
+    Navigator.of(context).pop();
+  }
+
+  void onDonePressed(BuildContext context) {
+    final _validateReminder = formTitleKey.currentState!.validate();
+    final _validateTitle = formReminderKey.currentState!.validate();
+    if (_validateTitle && _validateReminder) {
+      final NewHabitData data = NewHabitData(
+          title!,
+          unselectedColor,
+          selectedColor,
+          frequencyCounter,
+          timeOfDay,
+          areNotificationEnabled,
+          reminderText);
+      BlocProvider.of<NewHabitBloc>(context).add(AddEvent(context, data));
+    }
+  }
 }

@@ -189,6 +189,26 @@ class S {
       args: [],
     );
   }
+
+  /// `The title should not remain empty`
+  String get title_validator_message {
+    return Intl.message(
+      'The title should not remain empty',
+      name: 'title_validator_message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reminder can't be empty`
+  String get reminder_validator_message {
+    return Intl.message(
+      'Reminder can\'t be empty',
+      name: 'reminder_validator_message',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

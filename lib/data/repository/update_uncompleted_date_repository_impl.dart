@@ -15,10 +15,12 @@ class UpdateUncompletedDateRepositoryImpl extends UpdateDateRepository {
     final _updatedNotifications = habit.notifications;
 
     if (_updatedNotifications != null) {
-      _updatedNotifications.add(Notification(
-          date: date,
-          notice: _updatedNotifications.first.notice,
-          time: _updatedNotifications.first.time));
+      if (_updatedNotifications.isNotEmpty) {
+        _updatedNotifications.add(Notification(
+            date: date,
+            notice: _updatedNotifications.first.notice,
+            time: _updatedNotifications.first.time));
+      }
     }
 
     await getIt.get<DbController>().update(habit.copyWith(

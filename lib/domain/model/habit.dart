@@ -3,6 +3,7 @@ import 'package:habits/domain/model/notification.dart';
 class Habit {
   int? id;
   String title;
+  int countSelectedDays;
   int unselectedColorValue;
   int selectedColorValue;
   String? timesAWeek;
@@ -16,6 +17,7 @@ class Habit {
       {this.id,
       this.notifications,
       required this.title,
+      required this.countSelectedDays,
       required this.unselectedColorValue,
       required this.selectedColorValue,
       required this.timesAWeek,
@@ -30,6 +32,7 @@ class Habit {
       String? title,
       int? unselectedColorValue,
       int? selectedColorValue,
+      int? countSelectedDays,
       String? timesAWeek,
       List<DateTime>? days,
       List<DateTime>? selectedDays,
@@ -45,6 +48,7 @@ class Habit {
         weekDaysName: weekDaysName ?? this.weekDaysName,
         days: days ?? this.days,
         selectedDays: selectedDays ?? this.selectedDays,
+        countSelectedDays: countSelectedDays ?? this.countSelectedDays,
         completedDays: completedDays ?? this.completedDays);
     return _newElement;
   }

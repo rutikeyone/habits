@@ -22,6 +22,7 @@ class HabitDatabaseImpl implements HabitDatabase {
       CREATE TABLE habits (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         title TEXT NOT NULL,
+        countSelectedDays INTEGER NOT NULL,
         unselectedColorValue INTEGER NOT NULL,
         selectedColorValue INTEGER NOT NULL,
         timesAWeek TEXT,

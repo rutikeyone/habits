@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:habits/domain/inherit/new_habit_widget_provider.dart';
-import 'package:habits/presentation/state/new_habit/new_habit_bloc.dart';
-import 'package:habits/presentation/state/new_habit/new_habit_event.dart';
 import 'package:habits/presentation/theme/auxilary_color.dart';
 import 'package:habits/presentation/widgets/color_item.dart';
 

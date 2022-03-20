@@ -18,6 +18,7 @@ class TitleInputTextField extends StatelessWidget {
         textChanged: (value) => NewHabitWidgetProvider.of(context) != null
             ? NewHabitWidgetProvider.of(context)?.title = value
             : null,
+        validator: NewHabitWidgetProvider.of(context)?.titleValidator,
         hintText: S.of(context).title,
       ),
     );
