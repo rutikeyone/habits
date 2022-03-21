@@ -17,7 +17,7 @@ class MainBloc extends Bloc<MainEvent, MainState> {
           emit(LoadingState());
         }
 
-        if (event is onResume) {
+        if (event is OnResume) {
           emit(LoadingState());
         }
 
@@ -25,6 +25,9 @@ class MainBloc extends Bloc<MainEvent, MainState> {
           try {
             await getIt.get<DbController>().updateDates();
             final _habits = await getIt.get<DbController>().getAll();
+            if (event.compareTo != null) {
+              _habits.sort(event.compareTo);
+            }
             emit(LoadedState(
               habits: _habits,
             ));
@@ -87,6 +90,22 @@ class MainBloc extends Bloc<MainEvent, MainState> {
                     habit: event.habit, date: event.completedDate);
             emit(LoadingState());
           }
+        }
+
+        if (event is SortByTitle) {
+          emit(LoadingState(compareTo: (a, b) => a.title.compareTo(b.title)));
+        }
+
+        if (event is SortByFrequency) {
+          emit(LoadingState(
+              compareTo: (a, b) =>
+                  b.countSelectedDays.compareTo(a.countSelectedDays)));
+        }
+
+        if (event is SortByCompletedDays) {
+          emit(LoadingState(
+              compareTo: (a, b) =>
+                  b.completedDays.length.compareTo(a.completedDays.length)));
         }
 
         if (event is ErrorEvent) {

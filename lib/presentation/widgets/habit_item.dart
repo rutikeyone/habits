@@ -82,16 +82,14 @@ class HabitItem extends StatelessWidget {
                                     if (habit.selectedDays
                                         .contains(habit.days[index])) {
                                       MainWidgetProvider.of(context)
-                                          ?.model
-                                          .onSelectCompletedDay(
+                                          ?.onSelectCompletedDay(
                                               context: context,
                                               habit: habit,
                                               date: habit.days[index]);
                                     } else if (habit.completedDays
                                         .contains(habit.days[index])) {
                                       MainWidgetProvider.of(context)
-                                          ?.model
-                                          .onSelectUnCompletedDay(
+                                          ?.onSelectUncompletedDay(
                                               context: context,
                                               habit: habit,
                                               date: habit.days[index]);
@@ -109,7 +107,7 @@ class HabitItem extends StatelessWidget {
           ),
         ),
       ),
-      onTap: MainWidgetProvider.of(context)?.model.habitItemOnPressed,
+      onTap: MainWidgetProvider.of(context)?.habitItemOnPressed,
     );
   }
 }

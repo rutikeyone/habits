@@ -22,7 +22,12 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "by_completed_days":
+            MessageLookupByLibrary.simpleMessage("By completed days"),
+        "by_frequency": MessageLookupByLibrary.simpleMessage("By frequency"),
+        "by_title": MessageLookupByLibrary.simpleMessage("By title"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+        "dark_theme": MessageLookupByLibrary.simpleMessage("Dark Theme"),
         "done": MessageLookupByLibrary.simpleMessage("Done"),
         "everyday": MessageLookupByLibrary.simpleMessage("Everyday"),
         "frequency": MessageLookupByLibrary.simpleMessage("Frequency"),

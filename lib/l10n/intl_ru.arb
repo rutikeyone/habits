@@ -14,5 +14,9 @@
     "everyday" : "Каждый день",
     "settings" : "Настройки",
     "title_validator_message" : "Заголовок не должен оставаться пустым",
-    "reminder_validator_message" : "Текст напоминания не может быть пустым"
+    "reminder_validator_message" : "Текст напоминания не может быть пустым",
+    "dark_theme" : "Темная тема",
+    "by_title" : "По названию",
+    "by_frequency" : "По повторяемости",
+    "by_completed_days" : "По количеству выполненных дней"
 }

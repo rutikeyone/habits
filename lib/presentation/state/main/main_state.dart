@@ -12,7 +12,10 @@ abstract class MainState extends Equatable {
 
 class InitialState extends MainState {}
 
-class LoadingState extends MainState {}
+class LoadingState extends MainState {
+  int Function(Habit, Habit)? compareTo;
+  LoadingState({this.compareTo});
+}
 
 class LoadedState extends MainState {
   final List<Habit> habits;

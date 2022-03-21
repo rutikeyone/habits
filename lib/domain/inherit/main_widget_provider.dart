@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:habits/domain/model/main_widget_model.dart';
 
-class MainWidgetProvider extends InheritedWidget {
+class MainWidgetProvider extends InheritedNotifier<MainWidgetModel> {
   final MainWidgetModel model;
 
   const MainWidgetProvider({
@@ -15,7 +15,9 @@ class MainWidgetProvider extends InheritedWidget {
     return model != oldWidget.model;
   }
 
-  static MainWidgetProvider? of(BuildContext context) {
-    return context.dependOnInheritedWidgetOfExactType<MainWidgetProvider>();
+  static MainWidgetModel? of(BuildContext context) {
+    return context
+        .dependOnInheritedWidgetOfExactType<MainWidgetProvider>()
+        ?.model;
   }
 }

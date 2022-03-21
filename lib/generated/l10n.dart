@@ -209,6 +209,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Dark Theme`
+  String get dark_theme {
+    return Intl.message(
+      'Dark Theme',
+      name: 'dark_theme',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `By title`
+  String get by_title {
+    return Intl.message(
+      'By title',
+      name: 'by_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `By frequency`
+  String get by_frequency {
+    return Intl.message(
+      'By frequency',
+      name: 'by_frequency',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `By completed days`
+  String get by_completed_days {
+    return Intl.message(
+      'By completed days',
+      name: 'by_completed_days',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

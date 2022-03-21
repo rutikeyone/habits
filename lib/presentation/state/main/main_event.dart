@@ -12,7 +12,10 @@ class InitialEvent extends MainEvent {}
 
 class LoadingEvent extends MainEvent {}
 
-class LoadedEvent extends MainEvent {}
+class LoadedEvent extends MainEvent {
+  int Function(Habit, Habit)? compareTo;
+  LoadedEvent({this.compareTo});
+}
 
 class CompletedDate extends MainEvent {
   final Habit habit;
@@ -34,7 +37,13 @@ class UncompletedDate extends MainEvent {
   });
 }
 
-class onResume extends MainEvent {}
+class OnResume extends MainEvent {}
+
+class SortByTitle extends MainEvent {}
+
+class SortByFrequency extends MainEvent {}
+
+class SortByCompletedDays extends MainEvent {}
 
 class ErrorEvent extends MainEvent {
   final String error;

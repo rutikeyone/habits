@@ -35,7 +35,7 @@ class _MainLoadedViewState extends State<MainLoadedView>
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.resumed) {
-      BlocProvider.of<MainBloc>(context).add(onResume());
+      BlocProvider.of<MainBloc>(context).add(OnResume());
     }
   }
 

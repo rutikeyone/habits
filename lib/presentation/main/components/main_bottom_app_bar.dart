@@ -35,8 +35,7 @@ class MainBottomAppBar extends StatelessWidget {
             ],
           ),
         ),
-        onTap: () =>
-            MainWidgetProvider.of(context)?.model.newHabitOnPressed(context),
+        onTap: () => MainWidgetProvider.of(context)?.newHabitOnPressed(context),
       ),
     );
   }

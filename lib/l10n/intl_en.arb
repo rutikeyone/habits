@@ -14,5 +14,9 @@
     "everyday" : "Everyday",
     "settings" : "Settings",
     "title_validator_message" : "The title should not remain empty",
-    "reminder_validator_message" : "Reminder can't be empty"
+    "reminder_validator_message" : "Reminder can't be empty",
+    "dark_theme" : "Dark Theme",
+    "by_title" : "By title",
+    "by_frequency" : "By frequency",
+    "by_completed_days" : "By completed days"
 }

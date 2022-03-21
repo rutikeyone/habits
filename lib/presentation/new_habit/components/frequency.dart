@@ -12,7 +12,6 @@ class Frequency extends StatelessWidget {
             : 0) <
         7) {
       NewHabitWidgetProvider.of(context)?.frequencyCounter++;
-      ;
     }
   }
 
