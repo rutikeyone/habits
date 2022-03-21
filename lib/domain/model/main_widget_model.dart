@@ -7,7 +7,16 @@ import 'package:habits/presentation/state/main/main_bloc.dart';
 import 'package:habits/presentation/state/main/main_event.dart';
 
 class MainWidgetModel extends ChangeNotifier {
-  void habitItemOnPressed() {}
+  void habitItemOnPressed(BuildContext context, Habit habit) {
+    Navigator.of(context)
+        .pushNamed(getIt.get<Details>().route, arguments: habit)
+        .then(
+          (value) => BlocProvider.of<MainBloc>(context).add(
+            InitialEvent(),
+          ),
+        );
+    ;
+  }
 
   void onSelectCompletedDay({
     required BuildContext context,

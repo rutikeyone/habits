@@ -107,7 +107,8 @@ class HabitItem extends StatelessWidget {
           ),
         ),
       ),
-      onTap: MainWidgetProvider.of(context)?.habitItemOnPressed,
+      onTap: () =>
+          MainWidgetProvider.of(context)?.habitItemOnPressed(context, habit),
     );
   }
 }

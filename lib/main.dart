@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:habits/internal/locator.dart';
 import 'package:habits/internal/notification_di/notification_controller.dart';
+import 'package:habits/presentation/details/details_screen.dart';
 import 'package:habits/presentation/main/main_screen.dart';
 import 'package:habits/presentation/navigation/route.dart';
 import 'package:habits/presentation/new_habit/new_habit_screen.dart';
@@ -63,6 +64,7 @@ class MyApp extends StatelessWidget {
               getIt.get<Main>().route: (context) => MainScreen(),
               getIt.get<Settings>().route: (context) => SettingsScreen(),
               getIt.get<NewHabit>().route: (context) => NewHabitScreen(),
+              getIt.get<Details>().route: (context) => DetailsScreen(),
             },
           );
         },

@@ -57,4 +57,5 @@ Future<void> setup() async {
   getIt.registerLazySingleton<Main>(() => Main());
   getIt.registerLazySingleton<Settings>(() => Settings());
   getIt.registerLazySingleton<NewHabit>(() => NewHabit());
+  getIt.registerLazySingleton<Details>(() => Details());
 }
