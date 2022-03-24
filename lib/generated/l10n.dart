@@ -249,6 +249,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Reminder Off`
+  String get reminder_off {
+    return Intl.message(
+      'Reminder Off',
+      name: 'reminder_off',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reminder on`
+  String get reminder_on {
+    return Intl.message(
+      'Reminder on',
+      name: 'reminder_on',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

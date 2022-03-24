@@ -37,6 +37,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Дата и время уведомления"),
         "new_habits": MessageLookupByLibrary.simpleMessage("Добавить привычку"),
         "reminder": MessageLookupByLibrary.simpleMessage("Напоминание"),
+        "reminder_off":
+            MessageLookupByLibrary.simpleMessage("Напоминание выключено"),
+        "reminder_on":
+            MessageLookupByLibrary.simpleMessage("Напоминание включено"),
         "reminder_text":
             MessageLookupByLibrary.simpleMessage("Текст напоминания"),
         "reminder_validator_message": MessageLookupByLibrary.simpleMessage(

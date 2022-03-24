@@ -36,6 +36,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Just notification"),
         "new_habits": MessageLookupByLibrary.simpleMessage("New habit"),
         "reminder": MessageLookupByLibrary.simpleMessage("Reminder"),
+        "reminder_off": MessageLookupByLibrary.simpleMessage("Reminder Off"),
+        "reminder_on": MessageLookupByLibrary.simpleMessage("Reminder on"),
         "reminder_text": MessageLookupByLibrary.simpleMessage("Reminder text"),
         "reminder_validator_message":
             MessageLookupByLibrary.simpleMessage("Reminder can\'t be empty"),

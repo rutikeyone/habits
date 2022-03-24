@@ -18,5 +18,7 @@
     "dark_theme" : "Dark Theme",
     "by_title" : "By title",
     "by_frequency" : "By frequency",
-    "by_completed_days" : "By completed days"
+    "by_completed_days" : "By completed days",
+    "reminder_off" : "Reminder Off",
+    "reminder_on" : "Reminder on"
 }
