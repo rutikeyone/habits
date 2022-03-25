@@ -11,6 +11,7 @@ class HabitModel {
   List<String> weekDaysName;
   List<int> daysMilliSeconds;
   List<int> selectedDaysMilliSeconds;
+  List<int> totalDaysMilliSeconds;
   List<int> completedDaysMilliSeconds;
   List<NotificationModel>? notifications;
 
@@ -23,6 +24,7 @@ class HabitModel {
       required this.selectedColorValue,
       required this.timesAWeek,
       required this.weekDaysName,
+      required this.totalDaysMilliSeconds,
       required this.daysMilliSeconds,
       required this.selectedDaysMilliSeconds,
       required this.completedDaysMilliSeconds});
@@ -44,6 +46,8 @@ class HabitModel {
         daysMilliSeconds: jsonDecode(json['daysMilliSeconds']).cast<int>(),
         selectedDaysMilliSeconds:
             jsonDecode(json['selectedDaysMilliSeconds']).cast<int>(),
+        totalDaysMilliSeconds:
+            jsonDecode(json['totalDaysMilliSeconds']).cast<int>(),
         completedDaysMilliSeconds:
             jsonDecode(json['completedDaysMilliSeconds']).cast<int>());
   }
@@ -60,6 +64,7 @@ class HabitModel {
       'timesAWeek': timesAWeek,
       'weekDaysName': jsonEncode(weekDaysName),
       'daysMilliSeconds': jsonEncode(daysMilliSeconds),
+      'totalDaysMilliSeconds': jsonEncode(totalDaysMilliSeconds),
       'selectedDaysMilliSeconds': jsonEncode(selectedDaysMilliSeconds),
       'completedDaysMilliSeconds': jsonEncode(completedDaysMilliSeconds)
     };

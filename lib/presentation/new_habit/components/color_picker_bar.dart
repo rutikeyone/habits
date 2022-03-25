@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:habits/domain/inherit/new_habit_widget_provider.dart';
+import 'package:habits/presentation/inherit/new_habit_widget_provider.dart';
 import 'package:habits/presentation/theme/auxilary_color.dart';
 import 'package:habits/presentation/widgets/color_item.dart';
 

@@ -30,11 +30,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "cancel": MessageLookupByLibrary.simpleMessage("Назад"),
         "dark_theme": MessageLookupByLibrary.simpleMessage("Темная тема"),
         "done": MessageLookupByLibrary.simpleMessage("Добавить"),
+        "done_1": MessageLookupByLibrary.simpleMessage("выполнено"),
         "everyday": MessageLookupByLibrary.simpleMessage("Каждый день"),
         "frequency": MessageLookupByLibrary.simpleMessage("Повторяемость"),
         "habits": MessageLookupByLibrary.simpleMessage("Habits"),
         "just_notification":
             MessageLookupByLibrary.simpleMessage("Дата и время уведомления"),
+        "month": MessageLookupByLibrary.simpleMessage("месяц"),
         "new_habits": MessageLookupByLibrary.simpleMessage("Добавить привычку"),
         "reminder": MessageLookupByLibrary.simpleMessage("Напоминание"),
         "reminder_off":
@@ -46,12 +48,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "reminder_validator_message": MessageLookupByLibrary.simpleMessage(
             "Текст напоминания не может быть пустым"),
         "settings": MessageLookupByLibrary.simpleMessage("Настройки"),
+        "times": MessageLookupByLibrary.simpleMessage("раз"),
         "times_a_week":
             MessageLookupByLibrary.simpleMessage("Количество дней в неделю"),
         "times_a_week_1": MessageLookupByLibrary.simpleMessage("раз в неделю"),
         "times_a_week_2": MessageLookupByLibrary.simpleMessage("раза в неделю"),
         "title": MessageLookupByLibrary.simpleMessage("Заголовок"),
         "title_validator_message": MessageLookupByLibrary.simpleMessage(
-            "Заголовок не должен оставаться пустым")
+            "Заголовок не должен оставаться пустым"),
+        "total": MessageLookupByLibrary.simpleMessage("всего")
       };
 }

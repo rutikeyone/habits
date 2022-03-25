@@ -37,6 +37,9 @@ class HabitMapper {
       completedDays: model.completedDaysMilliSeconds
           .map((e) => DateTime.fromMillisecondsSinceEpoch(e))
           .toList(),
+      totalDays: model.totalDaysMilliSeconds
+          .map((e) => DateTime.fromMillisecondsSinceEpoch(e))
+          .toList(),
     );
   }
 
@@ -69,6 +72,8 @@ class HabitMapper {
           habit.selectedDays.map((e) => e.millisecondsSinceEpoch).toList(),
       completedDaysMilliSeconds:
           habit.completedDays.map((e) => e.millisecondsSinceEpoch).toList(),
+      totalDaysMilliSeconds:
+          habit.totalDays.map((e) => e.millisecondsSinceEpoch).toList(),
     );
   }
 
@@ -105,6 +110,9 @@ class HabitMapper {
                 .map((e) => DateTime.fromMillisecondsSinceEpoch(e))
                 .toList(),
             completedDays: model.completedDaysMilliSeconds
+                .map((e) => DateTime.fromMillisecondsSinceEpoch(e))
+                .toList(),
+            totalDays: model.totalDaysMilliSeconds
                 .map((e) => DateTime.fromMillisecondsSinceEpoch(e))
                 .toList(),
           ),

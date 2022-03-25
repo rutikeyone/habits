@@ -29,11 +29,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "dark_theme": MessageLookupByLibrary.simpleMessage("Dark Theme"),
         "done": MessageLookupByLibrary.simpleMessage("Done"),
+        "done_1": MessageLookupByLibrary.simpleMessage("done"),
         "everyday": MessageLookupByLibrary.simpleMessage("Everyday"),
         "frequency": MessageLookupByLibrary.simpleMessage("Frequency"),
         "habits": MessageLookupByLibrary.simpleMessage("Habits"),
         "just_notification":
             MessageLookupByLibrary.simpleMessage("Just notification"),
+        "month": MessageLookupByLibrary.simpleMessage("month"),
         "new_habits": MessageLookupByLibrary.simpleMessage("New habit"),
         "reminder": MessageLookupByLibrary.simpleMessage("Reminder"),
         "reminder_off": MessageLookupByLibrary.simpleMessage("Reminder Off"),
@@ -42,11 +44,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "reminder_validator_message":
             MessageLookupByLibrary.simpleMessage("Reminder can\'t be empty"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
+        "times": MessageLookupByLibrary.simpleMessage("times"),
         "times_a_week": MessageLookupByLibrary.simpleMessage("Times a week"),
         "times_a_week_1": MessageLookupByLibrary.simpleMessage("times a week"),
         "times_a_week_2": MessageLookupByLibrary.simpleMessage("times a week"),
         "title": MessageLookupByLibrary.simpleMessage("Title"),
         "title_validator_message": MessageLookupByLibrary.simpleMessage(
-            "The title should not remain empty")
+            "The title should not remain empty"),
+        "total": MessageLookupByLibrary.simpleMessage("total")
       };
 }

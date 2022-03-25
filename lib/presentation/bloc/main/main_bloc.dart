@@ -4,8 +4,8 @@ import 'package:habits/internal/locator.dart';
 import 'package:habits/internal/notification_di/notification_controller.dart';
 import 'package:habits/internal/update_date_di/update_completed_date_controller.dart';
 import 'package:habits/internal/update_date_di/update_uncompleted_date_controller.dart';
-import 'package:habits/presentation/state/main/main_event.dart';
-import 'package:habits/presentation/state/main/main_state.dart';
+import 'package:habits/presentation/bloc/main/main_event.dart';
+import 'package:habits/presentation/bloc/main/main_state.dart';
 
 class MainBloc extends Bloc<MainEvent, MainState> {
   MainBloc({

@@ -11,8 +11,8 @@ import 'package:habits/internal/db_di/db_controller.dart';
 import 'package:habits/internal/get_times_a_week_di/get_times_a_week_controller.dart';
 import 'package:habits/internal/locator.dart';
 import 'package:habits/internal/notification_di/notification_controller.dart';
-import 'package:habits/presentation/state/new_habit/new_habit_event.dart';
-import 'package:habits/presentation/state/new_habit/new_habit_state.dart';
+import 'package:habits/presentation/bloc/new_habit/new_habit_event.dart';
+import 'package:habits/presentation/bloc/new_habit/new_habit_state.dart';
 
 class NewHabitBloc extends Bloc<NewHabitEvent, NewHabitState> {
   NewHabitBloc({
@@ -84,6 +84,7 @@ class NewHabitBloc extends Bloc<NewHabitEvent, NewHabitState> {
             weekDaysName: _nextSevenDaysName ?? [],
             days: _nextSevenDays ?? [],
             selectedDays: _selectedDays ?? [],
+            totalDays: _selectedDays ?? [],
           );
 
           await getIt.get<DbController>().add(habit).whenComplete(

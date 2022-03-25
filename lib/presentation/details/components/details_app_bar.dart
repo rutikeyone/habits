@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:habits/domain/inherit/details_widget_provider.dart';
+import 'package:habits/presentation/inherit/details_widget_provider.dart';
 
 class DetailsAppBar extends StatelessWidget {
   final String title;

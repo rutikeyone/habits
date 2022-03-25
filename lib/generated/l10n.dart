@@ -269,6 +269,46 @@ class S {
       args: [],
     );
   }
+
+  /// `done`
+  String get done_1 {
+    return Intl.message(
+      'done',
+      name: 'done_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `times`
+  String get times {
+    return Intl.message(
+      'times',
+      name: 'times',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `total`
+  String get total {
+    return Intl.message(
+      'total',
+      name: 'total',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `month`
+  String get month {
+    return Intl.message(
+      'month',
+      name: 'month',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

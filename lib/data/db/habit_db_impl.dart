@@ -28,6 +28,7 @@ class HabitDatabaseImpl implements HabitDatabase {
         timesAWeek TEXT,
         weekDaysName TEXT,
         daysMilliSeconds TEXT,
+        totalDaysMilliSeconds TEXT,
         selectedDaysMilliSeconds TEXT,
         completedDaysMilliSeconds TEXT,
         notifications TEXT

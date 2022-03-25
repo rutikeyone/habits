@@ -29,6 +29,7 @@ dependencies:
   rxdart: ^0.27.3
   flutter_native_timezone: ^2.0.0
   focused_menu: ^1.0.5
+  percent_indicator: ^4.0.0
 
 dev_dependencies:
   flutter_test:

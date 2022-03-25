@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:habits/domain/model/details_widget_model.dart';
+
+import 'model/details_widget_model.dart';
 
 class DetailsWidgetProvider extends InheritedNotifier<DetailsWidgetModel> {
   final DetailsWidgetModel model;

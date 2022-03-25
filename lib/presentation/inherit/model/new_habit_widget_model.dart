@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:habits/domain/model/new_habit_data.dart';
 import 'package:habits/generated/l10n.dart';
-import 'package:habits/presentation/state/new_habit/new_habit_bloc.dart';
-import 'package:habits/presentation/state/new_habit/new_habit_event.dart';
+import 'package:habits/presentation/bloc/new_habit/new_habit_bloc.dart';
+import 'package:habits/presentation/bloc/new_habit/new_habit_event.dart';
 import 'package:habits/presentation/theme/auxilary_color.dart';
 
 class NewHabitWidgetModel extends ChangeNotifier {

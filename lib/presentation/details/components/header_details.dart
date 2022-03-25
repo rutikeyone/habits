@@ -21,7 +21,7 @@ class HeaderDetails extends StatelessWidget {
                 ? S.of(context).reminder_on
                 : S.of(context).reminder_off,
             icon: Icons.notifications,
-          )
+          ),
         ],
       ),
     );

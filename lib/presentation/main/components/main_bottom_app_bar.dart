@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:habits/domain/inherit/main_widget_provider.dart';
 import 'package:habits/generated/l10n.dart';
+import 'package:habits/presentation/inherit/main_widget_provider.dart';
 import 'package:habits/presentation/new_habit/new_habit_screen.dart';
-import 'package:habits/presentation/state/main/main_bloc.dart';
-import 'package:habits/presentation/state/main/main_event.dart';
+import 'package:habits/presentation/bloc/main/main_bloc.dart';
+import 'package:habits/presentation/bloc/main/main_event.dart';
 
 class MainBottomAppBar extends StatelessWidget {
   const MainBottomAppBar({Key? key}) : super(key: key);

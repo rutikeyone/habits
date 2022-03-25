@@ -20,5 +20,9 @@
     "by_frequency" : "By frequency",
     "by_completed_days" : "By completed days",
     "reminder_off" : "Reminder Off",
-    "reminder_on" : "Reminder on"
+    "reminder_on" : "Reminder on",
+    "done_1" : "done",
+    "times" : "times",
+    "total" : "total",
+    "month" : "month"
 }

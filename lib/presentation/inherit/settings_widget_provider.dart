@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:habits/domain/model/settings_widget_model.dart';
+
+import 'model/settings_widget_model.dart';
 
 class SettingsWidgetProvider extends InheritedNotifier<SettingsWidgetModel> {
   final SettingsWidgetModel model;

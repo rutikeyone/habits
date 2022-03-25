@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:habits/domain/model/new_habit_widget_model.dart';
+
+import 'model/new_habit_widget_model.dart';
 
 class NewHabitWidgetProvider extends InheritedNotifier<NewHabitWidgetModel> {
   final NewHabitWidgetModel model;

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:habits/domain/inherit/main_widget_provider.dart';
 import 'package:habits/domain/model/habit.dart';
-import 'package:habits/presentation/state/main/main_bloc.dart';
-import 'package:habits/presentation/state/main/main_event.dart';
+import 'package:habits/presentation/bloc/main/main_bloc.dart';
+import 'package:habits/presentation/bloc/main/main_event.dart';
+import 'package:habits/presentation/inherit/main_widget_provider.dart';
 import 'package:habits/presentation/theme/auxilary_color.dart';
 import 'date_of_the_month_item.dart';
 

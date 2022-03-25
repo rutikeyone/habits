@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:habits/domain/inherit/main_widget_provider.dart';
-import 'package:habits/domain/model/main_widget_model.dart';
+import 'package:habits/presentation/inherit/main_widget_provider.dart';
+import 'package:habits/presentation/inherit/model/main_widget_model.dart';
 import 'package:habits/presentation/main/view/main_error_view.dart';
 import 'package:habits/presentation/main/view/main_loaded_view.dart';
 import 'package:habits/presentation/main/view/main_loading_view.dart';
-import 'package:habits/presentation/state/main/main_bloc.dart';
-import 'package:habits/presentation/state/main/main_event.dart';
-import 'package:habits/presentation/state/main/main_state.dart';
+import 'package:habits/presentation/bloc/main/main_bloc.dart';
+import 'package:habits/presentation/bloc/main/main_event.dart';
+import 'package:habits/presentation/bloc/main/main_state.dart';
 
 class MainScreen extends StatelessWidget {
   final _model = MainWidgetModel();

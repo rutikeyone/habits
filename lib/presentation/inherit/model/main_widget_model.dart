@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:habits/domain/model/habit.dart';
 import 'package:habits/internal/locator.dart';
 import 'package:habits/presentation/navigation/route.dart';
-import 'package:habits/presentation/state/main/main_bloc.dart';
-import 'package:habits/presentation/state/main/main_event.dart';
+import 'package:habits/presentation/bloc/main/main_bloc.dart';
+import 'package:habits/presentation/bloc/main/main_event.dart';
 
 class MainWidgetModel extends ChangeNotifier {
   void habitItemOnPressed(BuildContext context, Habit habit) {
