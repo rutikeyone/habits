@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:habits/domain/model/habit.dart';
-import 'package:habits/presentation/main/components/main_app_bar.dart';
-import 'package:habits/presentation/main/components/main_bottom_app_bar.dart';
-import 'package:habits/presentation/bloc/main/main_bloc.dart';
-import 'package:habits/presentation/bloc/main/main_event.dart';
-import 'package:habits/presentation/widgets/habit_item.dart';
+import '../../../BLoC/bloc/main/main_bloc.dart';
+import '../../../BLoC/bloc/main/main_event.dart';
+import '../../../domain/model/habit.dart';
+import '../components/main_app_bar.dart';
+import '../components/main_bottom_app_bar.dart';
+import '../../widgets/habit_item.dart';
 
 class MainLoadedView extends StatefulWidget {
   final List<Habit> habits;

@@ -1,7 +1,7 @@
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:habits/domain/model/notice.dart';
-import 'package:habits/domain/repository/notification_repository.dart';
-import 'package:habits/internal/locator.dart';
+import '../../domain/model/notice.dart';
+import '../../domain/repository/notification_repository.dart';
+import '../locator.dart';
 
 class NotificationController {
   Future<void> init({bool iniScheluted = false}) async {

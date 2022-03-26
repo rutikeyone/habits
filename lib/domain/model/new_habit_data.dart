@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:habits/presentation/theme/auxilary_color.dart';
 
 class NewHabitData {
   String title;

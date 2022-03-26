@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:habits/domain/model/habit.dart';
+import '../../../domain/model/habit.dart';
 
 @immutable
 abstract class MainState extends Equatable {

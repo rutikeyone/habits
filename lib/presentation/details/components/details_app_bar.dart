@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:habits/presentation/inherit/details_widget_provider.dart';
 
 class DetailsAppBar extends StatelessWidget {
   final String title;
@@ -20,8 +19,7 @@ class DetailsAppBar extends StatelessWidget {
             iconSize: 26,
             color: Theme.of(context).textTheme.headline1!.color,
             icon: const Icon(Icons.arrow_back_ios),
-            onPressed: () =>
-                DetailsWidgetProvider.of(context)?.backOnPressed(context),
+            onPressed: () => Navigator.of(context).pop(),
           ),
           Text(
             title,

@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:habits/domain/model/habit.dart';
-import 'package:habits/internal/locator.dart';
-import 'package:habits/presentation/navigation/route.dart';
-import 'package:habits/presentation/bloc/main/main_bloc.dart';
-import 'package:habits/presentation/bloc/main/main_event.dart';
+import '../../../BLoC/bloc/main/main_bloc.dart';
+import '../../../BLoC/bloc/main/main_event.dart';
+import '../../../domain/model/habit.dart';
+import '../../../internal/locator.dart';
+import '../../navigation/route.dart';
 
 class MainWidgetModel extends ChangeNotifier {
   void habitItemOnPressed(BuildContext context, Habit habit) {

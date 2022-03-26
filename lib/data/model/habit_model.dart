@@ -1,5 +1,6 @@
 import 'dart:convert';
-import 'package:habits/data/model/notification_model.dart';
+
+import 'notification_model.dart';
 
 class HabitModel {
   int? id;

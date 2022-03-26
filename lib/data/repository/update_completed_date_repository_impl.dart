@@ -1,7 +1,7 @@
-import 'package:habits/domain/model/habit.dart';
-import 'package:habits/domain/repository/update_date_repository.dart';
-import 'package:habits/internal/db_di/db_controller.dart';
-import 'package:habits/internal/locator.dart';
+import '../../domain/model/habit.dart';
+import '../../domain/repository/update_date_repository.dart';
+import '../../internal/db_di/db_controller.dart';
+import '../../internal/locator.dart';
 
 class UpdateCompletedDateRepositoryImpl extends UpdateDateRepository {
   @override

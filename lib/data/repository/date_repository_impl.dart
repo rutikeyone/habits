@@ -1,5 +1,5 @@
 import 'dart:math';
-import 'package:habits/domain/repository/date_repository.dart';
+import '../../domain/repository/date_repository.dart';
 import 'package:intl/intl.dart';
 
 class DateRepositoryImpl extends DateRepository {

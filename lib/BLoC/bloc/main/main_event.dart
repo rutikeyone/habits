@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:habits/domain/model/habit.dart';
+import '../../../domain/model/habit.dart';
 
 class MainEvent extends Equatable {
   @override

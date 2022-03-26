@@ -1,5 +1,5 @@
-import 'package:habits/data/repository/update_uncompleted_date_repository_impl.dart';
-import 'package:habits/domain/model/habit.dart';
+import '../../data/repository/update_uncompleted_date_repository_impl.dart';
+import '../../domain/model/habit.dart';
 
 import '../locator.dart';
 

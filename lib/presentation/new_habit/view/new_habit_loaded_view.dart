@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:habits/presentation/new_habit/components/color_picker_bar.dart';
-import 'package:habits/presentation/new_habit/components/frequency.dart';
-import 'package:habits/presentation/new_habit/components/new_habit_app_bar.dart';
-import 'package:habits/presentation/new_habit/components/reminder.dart';
-import 'package:habits/presentation/new_habit/components/title_input_text_field.dart';
+
+import '../components/color_picker_bar.dart';
+import '../components/frequency.dart';
+import '../components/new_habit_app_bar.dart';
+import '../components/reminder.dart';
+import '../components/title_input_text_field.dart';
 
 class NewHabitLoadedView extends StatefulWidget {
   const NewHabitLoadedView({Key? key}) : super(key: key);

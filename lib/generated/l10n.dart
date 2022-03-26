@@ -281,10 +281,20 @@ class S {
   }
 
   /// `times`
-  String get times {
+  String get times_1 {
     return Intl.message(
       'times',
-      name: 'times',
+      name: 'times_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `times`
+  String get times_2 {
+    return Intl.message(
+      'times',
+      name: 'times_2',
       desc: '',
       args: [],
     );

@@ -1,4 +1,4 @@
-import 'package:habits/domain/model/notification.dart';
+import 'notification.dart';
 
 class Habit {
   int? id;

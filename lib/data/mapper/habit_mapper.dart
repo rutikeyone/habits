@@ -1,9 +1,9 @@
-import 'package:habits/data/model/habit_model.dart';
-import 'package:habits/data/model/notice_model.dart';
-import 'package:habits/data/model/notification_model.dart';
-import 'package:habits/domain/model/habit.dart';
-import 'package:habits/domain/model/notice.dart';
-import 'package:habits/domain/model/notification.dart';
+import '../model/habit_model.dart';
+import '../model/notice_model.dart';
+import '../model/notification_model.dart';
+import '../../domain/model/habit.dart';
+import '../../domain/model/notice.dart';
+import '../../domain/model/notification.dart';
 
 class HabitMapper {
   static Habit toHabit(HabitModel model) {

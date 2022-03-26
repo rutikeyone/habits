@@ -1,5 +1,5 @@
-import 'package:habits/data/db/habit_db.dart';
-import 'package:habits/data/model/habit_model.dart';
+import 'habit_db.dart';
+import '../model/habit_model.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';

@@ -1,4 +1,4 @@
-import 'package:habits/data/model/habit_model.dart';
+import '../model/habit_model.dart';
 
 abstract class HabitDatabase {
   Future<List<HabitModel>> getHabits();

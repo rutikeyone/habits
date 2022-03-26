@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:habits/generated/l10n.dart';
+import '../../../generated/l10n.dart';
 
 AppBar createSettingsAppBar(BuildContext context) {
   return AppBar(

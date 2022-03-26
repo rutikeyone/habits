@@ -48,7 +48,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "reminder_validator_message": MessageLookupByLibrary.simpleMessage(
             "Текст напоминания не может быть пустым"),
         "settings": MessageLookupByLibrary.simpleMessage("Настройки"),
-        "times": MessageLookupByLibrary.simpleMessage("раз"),
+        "times_1": MessageLookupByLibrary.simpleMessage("раз"),
+        "times_2": MessageLookupByLibrary.simpleMessage("раза"),
         "times_a_week":
             MessageLookupByLibrary.simpleMessage("Количество дней в неделю"),
         "times_a_week_1": MessageLookupByLibrary.simpleMessage("раз в неделю"),

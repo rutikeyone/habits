@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:habits/generated/l10n.dart';
-import 'package:habits/presentation/inherit/main_widget_provider.dart';
+
+import '../../../generated/l10n.dart';
+import '../../inherit/main_widget_provider.dart';
 
 class MainAppBar extends StatelessWidget {
   const MainAppBar({

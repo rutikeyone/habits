@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:habits/domain/repository/get_times_a_week_repository.dart';
-import 'package:habits/generated/l10n.dart';
+
+import '../../domain/repository/get_times_a_week_repository.dart';
+import '../../generated/l10n.dart';
 
 class GetTimesAWeekRepositoryImpl extends GetTimesAWeekRepository {
   @override

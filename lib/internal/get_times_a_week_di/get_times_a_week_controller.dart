@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:habits/domain/repository/get_times_a_week_repository.dart';
 
+import '../../domain/repository/get_times_a_week_repository.dart';
 import '../locator.dart';
 
 class GetTimesAWeekController {

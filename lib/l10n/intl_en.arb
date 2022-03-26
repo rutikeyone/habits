@@ -22,7 +22,8 @@
     "reminder_off" : "Reminder Off",
     "reminder_on" : "Reminder on",
     "done_1" : "done",
-    "times" : "times",
+    "times_1" : "times",
+    "times_2" : "times",
     "total" : "total",
     "month" : "month"
 }

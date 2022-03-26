@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:habits/domain/model/new_habit_data.dart';
+
+import '../../../domain/model/new_habit_data.dart';
 
 class NewHabitEvent extends Equatable {
   @override

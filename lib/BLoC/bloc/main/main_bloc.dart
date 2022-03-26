@@ -1,11 +1,12 @@
 import 'package:bloc/bloc.dart';
-import 'package:habits/internal/db_di/db_controller.dart';
 import 'package:habits/internal/locator.dart';
 import 'package:habits/internal/notification_di/notification_controller.dart';
 import 'package:habits/internal/update_date_di/update_completed_date_controller.dart';
 import 'package:habits/internal/update_date_di/update_uncompleted_date_controller.dart';
-import 'package:habits/presentation/bloc/main/main_event.dart';
-import 'package:habits/presentation/bloc/main/main_state.dart';
+import '../../../internal/db_di/db_controller.dart';
+
+import 'main_event.dart';
+import 'main_state.dart';
 
 class MainBloc extends Bloc<MainEvent, MainState> {
   MainBloc({

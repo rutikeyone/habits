@@ -1,6 +1,5 @@
-import 'package:habits/data/repository/update_completed_date_repository_impl.dart';
-import 'package:habits/domain/model/habit.dart';
-
+import '../../data/repository/update_completed_date_repository_impl.dart';
+import '../../domain/model/habit.dart';
 import '../locator.dart';
 
 class UpdateCompletedDateController {

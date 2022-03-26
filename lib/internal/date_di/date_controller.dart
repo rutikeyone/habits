@@ -1,5 +1,5 @@
-import 'package:habits/domain/repository/date_repository.dart';
-import 'package:habits/internal/locator.dart';
+import '../../domain/repository/date_repository.dart';
+import '../locator.dart';
 
 class DateController {
   List<DateTime> getNextSevenDays() {

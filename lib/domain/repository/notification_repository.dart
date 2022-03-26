@@ -1,5 +1,6 @@
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:habits/domain/model/notice.dart';
+
+import '../model/notice.dart';
 
 abstract class NotificationRepository {
   Future<void> init({bool iniScheluted = false});

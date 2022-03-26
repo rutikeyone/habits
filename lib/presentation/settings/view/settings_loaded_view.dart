@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:habits/presentation/settings/components/settings_app_bar.dart';
-import 'package:habits/presentation/settings/components/theme_switch.dart';
+import '../components/settings_app_bar.dart';
+import '../components/theme_switch.dart';
 
 class SettingsLoadedView extends StatelessWidget {
   const SettingsLoadedView({Key? key}) : super(key: key);

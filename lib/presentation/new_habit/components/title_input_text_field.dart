@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:habits/generated/l10n.dart';
-import 'package:habits/presentation/inherit/new_habit_widget_provider.dart';
-import 'package:habits/presentation/widgets/input_text_form_field.dart';
+import '../../../generated/l10n.dart';
+import '../../inherit/new_habit_widget_provider.dart';
+import '../../widgets/input_text_form_field.dart';
 
 class TitleInputTextField extends StatelessWidget {
   const TitleInputTextField({Key? key}) : super(key: key);

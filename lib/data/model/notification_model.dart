@@ -1,6 +1,8 @@
 import 'dart:convert';
+
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:habits/data/model/notice_model.dart';
+
+import 'notice_model.dart';
 
 class NotificationModel {
   NoticeModel notice;

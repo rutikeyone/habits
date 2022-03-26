@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:habits/domain/model/habit.dart';
-import 'package:habits/generated/l10n.dart';
-import 'package:habits/presentation/widgets/header_item.dart';
+
+import '../../../domain/model/habit.dart';
+import '../../../generated/l10n.dart';
+import '../../widgets/header_item.dart';
 
 class HeaderDetails extends StatelessWidget {
   final Habit habit;

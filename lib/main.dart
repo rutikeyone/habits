@@ -2,20 +2,21 @@ import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:habits/internal/locator.dart';
-import 'package:habits/internal/notification_di/notification_controller.dart';
-import 'package:habits/presentation/details/details_screen.dart';
-import 'package:habits/presentation/main/main_screen.dart';
-import 'package:habits/presentation/navigation/route.dart';
-import 'package:habits/presentation/new_habit/new_habit_screen.dart';
-import 'package:habits/presentation/settings/settings_screen.dart';
-import 'package:habits/presentation/bloc/main/main_bloc.dart';
-import 'package:habits/presentation/bloc/main/main_event.dart';
-import 'package:habits/presentation/bloc/main/main_state.dart';
-import 'package:habits/presentation/bloc/new_habit/new_habit_bloc.dart';
-import 'package:habits/presentation/bloc/new_habit/new_habit_state.dart';
-import 'package:habits/presentation/theme/dark_theme.dart';
-import 'package:habits/presentation/theme/light_theme.dart';
+import 'package:habits/BLoC/cubit/details/details_cubit.dart';
+import 'BLoC/bloc/main/main_bloc.dart';
+import 'BLoC/bloc/main/main_event.dart';
+import 'BLoC/bloc/main/main_state.dart';
+import 'BLoC/bloc/new_habit/new_habit_bloc.dart';
+import 'BLoC/bloc/new_habit/new_habit_state.dart';
+import 'internal/locator.dart';
+import 'internal/notification_di/notification_controller.dart';
+import 'presentation/details/details_screen.dart';
+import 'presentation/main/main_screen.dart';
+import 'presentation/navigation/route.dart';
+import 'presentation/new_habit/new_habit_screen.dart';
+import 'presentation/settings/settings_screen.dart';
+import 'presentation/theme/dark_theme.dart';
+import 'presentation/theme/light_theme.dart';
 import 'generated/l10n.dart';
 
 void main() async {
@@ -41,6 +42,10 @@ class MyApp extends StatelessWidget {
           create: (context) => NewHabitBloc(
             initialState: NewHabitEditState(),
           ),
+        ),
+        BlocProvider(
+          create: (context) => DetailsCubit(),
+          child: DetailsScreen(),
         )
       ],
       child: AdaptiveTheme(
