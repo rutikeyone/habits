@@ -30,6 +30,7 @@ class HabitItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Flexible(
+                    flex: 10,
                     child: SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
                       child: Text(
@@ -40,11 +41,19 @@ class HabitItem extends StatelessWidget {
                   ),
                   habit.selectedDays.isNotEmpty ||
                           habit.completedDays.isNotEmpty
+                      ? Flexible(flex: 1, child: Container())
+                      : Container(),
+                  habit.selectedDays.isNotEmpty ||
+                          habit.completedDays.isNotEmpty
                       ? Flexible(
-                          child: Text(
-                            habit.timesAWeek!,
-                            style: Theme.of(context).textTheme.headline3,
-                            overflow: TextOverflow.ellipsis,
+                          flex: 10,
+                          child: SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Text(
+                              habit.timesAWeek!,
+                              style: Theme.of(context).textTheme.headline3,
+                              overflow: TextOverflow.ellipsis,
+                            ),
                           ),
                         )
                       : Container(),

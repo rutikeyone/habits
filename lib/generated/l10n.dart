@@ -160,16 +160,6 @@ class S {
     );
   }
 
-  /// `times a week`
-  String get times_a_week_2 {
-    return Intl.message(
-      'times a week',
-      name: 'times_a_week_2',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Everyday`
   String get everyday {
     return Intl.message(
@@ -281,20 +271,10 @@ class S {
   }
 
   /// `times`
-  String get times_1 {
+  String get times {
     return Intl.message(
       'times',
-      name: 'times_1',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `times`
-  String get times_2 {
-    return Intl.message(
-      'times',
-      name: 'times_2',
+      name: 'times',
       desc: '',
       args: [],
     );

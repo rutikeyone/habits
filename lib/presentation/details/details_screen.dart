@@ -16,17 +16,21 @@ class DetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final Habit habit = ModalRoute.of(context)?.settings.arguments as Habit;
     final _now = DateTime.now();
-    final double _percent = habit.completedDays.length / habit.totalDays.length;
-    final int _percemtMonth = ((habit.completedDays
-                    .where((element) => element.month == _now.month)
-                    .toList()
-                    .length /
-                habit.totalDays
-                    .where((element) => element.month == _now.month)
-                    .toList()
-                    .length) *
-            100)
-        .toInt();
+    final double _percent = habit.totalDays.isNotEmpty
+        ? habit.completedDays.length / habit.totalDays.length
+        : 0;
+    final int _percemtMonth = habit.totalDays.isNotEmpty
+        ? ((habit.completedDays
+                        .where((element) => element.month == _now.month)
+                        .toList()
+                        .length /
+                    habit.totalDays
+                        .where((element) => element.month == _now.month)
+                        .toList()
+                        .length) *
+                100)
+            .toInt()
+        : 0;
 
     return SafeArea(
       child: BlocBuilder<DetailsCubit, DetailsState>(
@@ -72,9 +76,7 @@ class DetailsScreen extends StatelessWidget {
                             children: [
                               DetailsTextItem(
                                 bodyText: habit.totalDays.length.toString(),
-                                bottomText: context
-                                    .read<DetailsCubit>()
-                                    .getTimes(habit.totalDays.length, context),
+                                bottomText: S.of(context).times,
                               ),
                               const DetailsDiveder(),
                               DetailsTextItem(

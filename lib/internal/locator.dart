@@ -1,22 +1,16 @@
 import 'package:get_it/get_it.dart';
-import 'package:habits/data/repository/get_times_repository_impl.dart';
-import 'package:habits/domain/repository/get_times_repository.dart';
-
 import '../data/db/habit_db_impl.dart';
 import '../data/repository/date_repository_impl.dart';
 import '../data/repository/db_repository_impl.dart';
-import '../data/repository/get_times_a_week_repository_impl.dart';
 import '../data/repository/notification_repository_impl.dart';
 import '../data/repository/update_completed_date_repository_impl.dart';
 import '../data/repository/update_uncompleted_date_repository_impl.dart';
 import '../domain/repository/date_repository.dart';
 import '../domain/repository/db_repository.dart';
-import '../domain/repository/get_times_a_week_repository.dart';
 import '../domain/repository/notification_repository.dart';
 import '../presentation/navigation/route.dart';
 import 'date_di/date_controller.dart';
 import 'db_di/db_controller.dart';
-import 'get_times_a_week_di/get_times_a_week_controller.dart';
 import 'notification_di/notification_controller.dart';
 import 'update_date_di/update_completed_date_controller.dart';
 import 'update_date_di/update_uncompleted_date_controller.dart';
@@ -35,11 +29,6 @@ Future<void> setup() async {
 
   getIt.registerLazySingleton<DateRepository>(() => DateRepositoryImpl());
   getIt.registerLazySingleton<DateController>(() => DateController());
-
-  getIt.registerLazySingleton<GetTimesAWeekRepository>(
-      () => GetTimesAWeekRepositoryImpl());
-  getIt.registerLazySingleton<GetTimesAWeekController>(
-      () => GetTimesAWeekController());
 
   getIt.registerLazySingleton<UpdateCompletedDateRepositoryImpl>(
       () => UpdateCompletedDateRepositoryImpl());
@@ -60,7 +49,4 @@ Future<void> setup() async {
   getIt.registerLazySingleton<Settings>(() => Settings());
   getIt.registerLazySingleton<NewHabit>(() => NewHabit());
   getIt.registerLazySingleton<Details>(() => Details());
-
-  getIt.registerLazySingleton<GetTimesRepository>(
-      () => GetTimesRepositoryImpl());
 }

@@ -44,11 +44,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "reminder_validator_message":
             MessageLookupByLibrary.simpleMessage("Reminder can\'t be empty"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
-        "times_1": MessageLookupByLibrary.simpleMessage("times"),
-        "times_2": MessageLookupByLibrary.simpleMessage("times"),
+        "times": MessageLookupByLibrary.simpleMessage("times"),
         "times_a_week": MessageLookupByLibrary.simpleMessage("Times a week"),
         "times_a_week_1": MessageLookupByLibrary.simpleMessage("times a week"),
-        "times_a_week_2": MessageLookupByLibrary.simpleMessage("times a week"),
         "title": MessageLookupByLibrary.simpleMessage("Title"),
         "title_validator_message": MessageLookupByLibrary.simpleMessage(
             "The title should not remain empty"),

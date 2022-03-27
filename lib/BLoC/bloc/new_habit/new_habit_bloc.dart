@@ -3,12 +3,12 @@ import 'dart:math';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:habits/generated/l10n.dart';
 import '../../../domain/model/habit.dart';
 import '../../../domain/model/notice.dart';
 import '../../../domain/model/notification.dart' as model;
 import '../../../internal/date_di/date_controller.dart';
 import '../../../internal/db_di/db_controller.dart';
-import '../../../internal/get_times_a_week_di/get_times_a_week_controller.dart';
 import '../../../internal/locator.dart';
 import '../../../internal/notification_di/notification_controller.dart';
 import 'new_habit_event.dart';
@@ -78,9 +78,8 @@ class NewHabitBloc extends Bloc<NewHabitEvent, NewHabitState> {
             unselectedColorValue: event.data.unselectedColor.value,
             selectedColorValue: event.data.selectedColor.value,
             completedDays: [],
-            timesAWeek: getIt.get<GetTimesAWeekController>().getTimesAWeek(
-                frequencyCounter: event.data.frequencyCounter,
-                context: event.context),
+            timesAWeek:
+                "${event.data.frequencyCounter} ${S.of(event.context).times_a_week_1}",
             weekDaysName: _nextSevenDaysName ?? [],
             days: _nextSevenDays ?? [],
             selectedDays: _selectedDays ?? [],

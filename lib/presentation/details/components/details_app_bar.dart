@@ -21,9 +21,17 @@ class DetailsAppBar extends StatelessWidget {
             icon: const Icon(Icons.arrow_back_ios),
             onPressed: () => Navigator.of(context).pop(),
           ),
-          Text(
-            title,
-            style: Theme.of(context).textTheme.headline1,
+          Expanded(
+            child: Container(
+              alignment: Alignment.center,
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Text(
+                  title,
+                  style: Theme.of(context).textTheme.headline1,
+                ),
+              ),
+            ),
           ),
           IconButton(
               iconSize: 26,
