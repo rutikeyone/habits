@@ -53,12 +53,14 @@ class DbRepositoryImpl extends DbRepository {
         List<String> _nextSevenDaysName =
             getIt.get<DateController>().getNextSevenDaysName(_nextSevenDays);
         List<DateTime>? _selectedDays;
+        List<DateTime> _newTotalDays = element.totalDays;
         List<Notification> _notifications = [];
 
         if (element.countSelectedDays > 0) {
           _selectedDays = getIt
               .get<DateController>()
               .getSelectedDays(_nextSevenDays, element.countSelectedDays);
+          _newTotalDays.addAll(_selectedDays);
         }
 
         if (element.notifications != null) {
@@ -90,6 +92,7 @@ class DbRepositoryImpl extends DbRepository {
 
         final _newHabit = element.copyWith(
           days: _nextSevenDays,
+          totalDays: _newTotalDays,
           weekDaysName: _nextSevenDaysName,
           selectedDays: _selectedDays,
           notifications: _notifications,

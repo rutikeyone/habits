@@ -22,6 +22,7 @@ import 'generated/l10n.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await setup();
+  await precachePictures();
   await getIt.get<NotificationController>().init();
   runApp(const MyApp());
 }

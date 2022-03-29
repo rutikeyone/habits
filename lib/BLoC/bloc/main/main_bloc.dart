@@ -44,7 +44,7 @@ class MainBloc extends Bloc<MainEvent, MainState> {
         if (event is CompletedDate) {
           final DateTime _todayDay = DateTime.now();
 
-          if (_todayDay.difference(event.completedDate).inHours > 0) {
+          if (_todayDay.difference(event.completedDate).inMinutes >= 0) {
             if (event.habit.notifications != null) {
               if (event.habit.notifications!.isNotEmpty) {
                 final _notification = event.habit.notifications?.firstWhere(
@@ -69,7 +69,7 @@ class MainBloc extends Bloc<MainEvent, MainState> {
 
         if (event is UncompletedDate) {
           final DateTime _todayDay = DateTime.now();
-          if (_todayDay.difference(event.completedDate).inHours > 0) {
+          if (_todayDay.difference(event.completedDate).inMinutes >= 0) {
             if (event.habit.notifications != null) {
               if (event.habit.notifications!.isNotEmpty) {
                 final _notification = event.habit.notifications?.first;

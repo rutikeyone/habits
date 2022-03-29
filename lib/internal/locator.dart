@@ -1,3 +1,4 @@
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get_it/get_it.dart';
 import '../data/db/habit_db_impl.dart';
 import '../data/repository/date_repository_impl.dart';
@@ -49,4 +50,19 @@ Future<void> setup() async {
   getIt.registerLazySingleton<Settings>(() => Settings());
   getIt.registerLazySingleton<NewHabit>(() => NewHabit());
   getIt.registerLazySingleton<Details>(() => Details());
+}
+
+Future<void> precachePictures() async {
+  await Future.wait([
+    precachePicture(
+      ExactAssetPicture(
+          SvgPicture.svgStringDecoderBuilder, 'assets/icons/add.svg'),
+      null,
+    ),
+    precachePicture(
+      ExactAssetPicture(
+          SvgPicture.svgStringDecoderBuilder, 'assets/icons/gear.svg'),
+      null,
+    ),
+  ]);
 }

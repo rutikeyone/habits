@@ -42,16 +42,10 @@ class Habit {
       List<DateTime>? selectedDays,
       List<String>? weekDaysName,
       List<DateTime>? completedDays}) {
-    final _newTotalDays = this.totalDays;
-
-    if (selectedDays != null) {
-      _newTotalDays.addAll(selectedDays);
-    }
-
     final _newElement = Habit(
         id: this.id,
         notifications: notifications,
-        totalDays: _newTotalDays,
+        totalDays: totalDays ?? this.totalDays,
         title: title ?? this.title,
         unselectedColorValue: unselectedColorValue ?? this.unselectedColorValue,
         selectedColorValue: selectedColorValue ?? this.selectedColorValue,
