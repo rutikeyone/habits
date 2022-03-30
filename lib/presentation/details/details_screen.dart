@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:habits/BLoC/cubit/details/details_cubit.dart';
+import 'package:habits/presentation/widgets/chartByCurrentYear/detail_line_chart_by_year.dart';
 import '../../domain/model/habit.dart';
 import '../../generated/l10n.dart';
 import 'components/details_app_bar.dart';
@@ -36,71 +37,91 @@ class DetailsScreen extends StatelessWidget {
       child: BlocBuilder<DetailsCubit, DetailsState>(
         builder: (context, state) => Scaffold(
           backgroundColor: Theme.of(context).primaryColorDark,
-          body: Column(
-            children: [
-              DetailsAppBar(
-                title: habit.title,
-              ),
-              const SizedBox(height: 10),
-              HeaderDetails(habit: habit),
-              const SizedBox(height: 20),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25),
-                child: Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).primaryColorLight,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 12, horizontal: 16),
-                    child: SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          CircularPercentIndicator(
-                            percent: _percent,
-                            lineWidth: 5.0,
-                            radius: 30.0,
-                            center: Text(
-                              _percent.toStringAsFixed(1),
-                              overflow: TextOverflow.ellipsis,
-                              style: Theme.of(context).textTheme.headline2,
-                            ),
-                            progressColor: Theme.of(context).indicatorColor,
-                          ),
-                          const SizedBox(width: 20),
-                          Row(
-                            children: [
-                              DetailsTextItem(
-                                bodyText: habit.totalDays.length.toString(),
-                                bottomText: S.of(context).times,
+          body: SingleChildScrollView(
+            child: Column(
+              children: [
+                DetailsAppBar(
+                  title: habit.title,
+                ),
+                const SizedBox(height: 10),
+                HeaderDetails(habit: habit),
+                const SizedBox(height: 20),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25),
+                  child: Container(
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).primaryColorLight,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 12, horizontal: 16),
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            CircularPercentIndicator(
+                              percent: _percent,
+                              lineWidth: 5.0,
+                              radius: 30.0,
+                              center: Text(
+                                _percent.toStringAsFixed(1),
+                                overflow: TextOverflow.ellipsis,
+                                style: Theme.of(context).textTheme.headline2,
                               ),
-                              const DetailsDiveder(),
-                              DetailsTextItem(
-                                  bodyText:
-                                      habit.completedDays.length.toString(),
-                                  bottomText: S.of(context).done_1),
-                              const DetailsDiveder(),
-                              DetailsTextItem(
-                                  bodyText: _percemtMonth.toString() + "%",
-                                  bottomText: S.of(context).month),
-                              const DetailsDiveder(),
-                              DetailsTextItem(
-                                  bodyText:
-                                      (_percent * 100).toStringAsFixed(0) + "%",
-                                  bottomText: S.of(context).total),
-                            ],
-                          ),
-                        ],
+                              progressColor: Theme.of(context).indicatorColor,
+                            ),
+                            const SizedBox(width: 20),
+                            Row(
+                              children: [
+                                DetailsTextItem(
+                                  bodyText: habit.totalDays.length.toString(),
+                                  bottomText: S.of(context).times,
+                                ),
+                                const DetailsDiveder(),
+                                DetailsTextItem(
+                                    bodyText:
+                                        habit.completedDays.length.toString(),
+                                    bottomText: S.of(context).done_1),
+                                const DetailsDiveder(),
+                                DetailsTextItem(
+                                    bodyText: _percemtMonth.toString() + "%",
+                                    bottomText: S.of(context).month),
+                                const DetailsDiveder(),
+                                DetailsTextItem(
+                                    bodyText:
+                                        (_percent * 100).toStringAsFixed(0) +
+                                            "%",
+                                    bottomText: S.of(context).total),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-            ],
+                const SizedBox(height: 20),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.all(
+                        Radius.circular(18),
+                      ),
+                      color: Theme.of(context).primaryColorLight,
+                    ),
+                    child: DetailLineChartByCurrentYear(
+                      context: context,
+                      habit: habit,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 20),
+              ],
+            ),
           ),
         ),
       ),

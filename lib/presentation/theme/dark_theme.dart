@@ -4,6 +4,7 @@ final dark = ThemeData(
   primaryColorDark: const Color(0xff1B1B1B),
   primaryColorLight: const Color(0xff292929),
   dividerColor: const Color(0xff343434),
+  canvasColor: const Color(0xff37434d),
   inputDecorationTheme: const InputDecorationTheme(
     fillColor: Color(0xff343434),
   ),
