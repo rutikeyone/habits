@@ -1,17 +1,15 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:habits/domain/extensions/int_extension.dart';
-import 'package:habits/domain/model/habit.dart';
 
-import '../left_title_widgets.dart';
-import 'the_current_year_bottom_title.dart';
+import 'package:habits/presentation/widgets/left_title_widgets.dart';
 
-LineChartData theCurrentYearData(
+import 'chart_bottom_title.dart';
+
+LineChartData chartData(
     {required BuildContext context,
     required double daysInMonth,
     required List<Color> gradientColors,
-    required Habit habit}) {
-  final _spots = _getFlSpotsByMonth(habit);
+    required List<FlSpot> spots}) {
   return LineChartData(
     gridData: FlGridData(
       show: true,
@@ -44,8 +42,8 @@ LineChartData theCurrentYearData(
           showTitles: true,
           reservedSize: 30,
           interval: 1,
-          getTitlesWidget: (val, meta) => TheCurrentYearBottomTitle(
-              value: val, meta: meta, context: context),
+          getTitlesWidget: (val, meta) =>
+              ChartBottomTitle(value: val, meta: meta, context: context),
         ),
       ),
       leftTitles: AxisTitles(
@@ -67,7 +65,7 @@ LineChartData theCurrentYearData(
     maxY: 100,
     lineBarsData: [
       LineChartBarData(
-        spots: _spots,
+        spots: spots,
         isCurved: true,
         gradient: LinearGradient(
           colors: gradientColors,
@@ -91,26 +89,4 @@ LineChartData theCurrentYearData(
       ),
     ],
   );
-}
-
-List<FlSpot> _getFlSpotsByMonth(Habit habit) {
-  final List<FlSpot> _spots = (1.to(12, step: 1)).map((val) {
-    final List<DateTime>? completedDaysByMonth =
-        habit.completedDays.where((e) => e.month == val).toList();
-    final List<DateTime>? totalDaysByMonth =
-        habit.totalDays.where((e) => e.month == val).toList();
-
-    return FlSpot(
-      val.toDouble(),
-      completedDaysByMonth != null &&
-              totalDaysByMonth != null &&
-              completedDaysByMonth.isNotEmpty &&
-              totalDaysByMonth.isNotEmpty
-          ? double.parse(
-              ((completedDaysByMonth.length / totalDaysByMonth.length) * 100)
-                  .toStringAsFixed(2))
-          : 0,
-    );
-  }).toList();
-  return _spots;
 }

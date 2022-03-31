@@ -1,11 +1,11 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
-class TheCurrentYearBottomTitle extends StatelessWidget {
+class ChartBottomTitle extends StatelessWidget {
   final double value;
   final TitleMeta meta;
   final BuildContext context;
-  const TheCurrentYearBottomTitle({
+  const ChartBottomTitle({
     Key? key,
     required this.value,
     required this.meta,

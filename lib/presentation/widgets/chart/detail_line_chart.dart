@@ -1,16 +1,16 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:habits/domain/model/habit.dart';
-import 'the_current_year_data.dart';
+import 'the_chart_data.dart';
 
-class DetailLineChartTheCurrentYear extends StatelessWidget {
+class DetailLineChart extends StatelessWidget {
   final BuildContext context;
-  final Habit habit;
+  final List<FlSpot> spots;
   late final List<Color> gradientColors;
-  DetailLineChartTheCurrentYear({
+  DetailLineChart({
     Key? key,
     required this.context,
-    required this.habit,
+    required this.spots,
   }) : super(key: key) {
     gradientColors = [
       Theme.of(context).errorColor,
@@ -29,11 +29,12 @@ class DetailLineChartTheCurrentYear extends StatelessWidget {
               padding: const EdgeInsets.only(
                   right: 15.0, left: 12.0, top: 24, bottom: 12),
               child: LineChart(
-                theCurrentYearData(
-                    habit: habit,
-                    context: context,
-                    daysInMonth: 12,
-                    gradientColors: gradientColors),
+                chartData(
+                  context: context,
+                  daysInMonth: 12,
+                  gradientColors: gradientColors,
+                  spots: spots,
+                ),
               ),
             ),
           ),

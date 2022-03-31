@@ -1,5 +1,9 @@
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get_it/get_it.dart';
+import 'package:habits/data/repository/get_chart_data_for_the_current_year_repository.dart';
+import 'package:habits/data/repository/get_chart_data_for_the_past_three_years.dart';
+import 'package:habits/data/repository/get_chart_data_last_year.dart';
+import 'package:habits/internal/chart_data_di/chart_data_controller.dart';
 import '../data/db/habit_db_impl.dart';
 import '../data/repository/date_repository_impl.dart';
 import '../data/repository/db_repository_impl.dart';
@@ -50,6 +54,14 @@ Future<void> setup() async {
   getIt.registerLazySingleton<Settings>(() => Settings());
   getIt.registerLazySingleton<NewHabit>(() => NewHabit());
   getIt.registerLazySingleton<Details>(() => Details());
+
+  getIt.registerLazySingleton<GetChartDataLastYearRepository>(
+      () => GetChartDataLastYearRepository());
+  getIt.registerLazySingleton<GetChartDataForTheCurrentYearRepository>(
+      () => GetChartDataForTheCurrentYearRepository());
+  getIt.registerLazySingleton<GetChartDataForThePastThreeYears>(
+      () => GetChartDataForThePastThreeYears());
+  getIt.registerLazySingleton<ChartDataController>(() => ChartDataController());
 }
 
 Future<void> precachePictures() async {

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:habits/BLoC/cubit/details/details_cubit.dart';
+import 'package:habits/domain/enums/details_enums.dart';
 import 'BLoC/bloc/main/main_bloc.dart';
 import 'BLoC/bloc/main/main_event.dart';
 import 'BLoC/bloc/main/main_state.dart';
@@ -45,8 +46,8 @@ class MyApp extends StatelessWidget {
           ),
         ),
         BlocProvider(
-          create: (context) => DetailsCubit(),
-          child: DetailsScreen(),
+          create: (context) =>
+              DetailsCubit(DetailsViewState(StatisticsType.theCurrentYear)),
         )
       ],
       child: AdaptiveTheme(

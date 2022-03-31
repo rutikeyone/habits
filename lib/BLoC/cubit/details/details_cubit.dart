@@ -1,13 +1,33 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:fl_chart/fl_chart.dart';
 import 'package:habits/domain/enums/details_enums.dart';
+import 'package:habits/domain/model/habit.dart';
+import 'package:habits/internal/chart_data_di/chart_data_controller.dart';
+import 'package:habits/internal/locator.dart';
 
 part 'details_state.dart';
 
-class DetailsCubit extends Cubit<DetailsView> {
-  DetailsCubit() : super(const DetailsView(StatisticsType.theCurrentYear));
+class DetailsCubit extends Cubit<DetailsState> {
+  DetailsCubit(DetailsState initialState) : super(initialState);
 
   void updateTypeStatistics(StatisticsType type) {
-    emit(DetailsView(type));
+    emit(DetailsViewState(type));
+  }
+
+  List<FlSpot> getFlSpotsDataForTheCurrentYear(Habit habit) {
+    return getIt
+        .get<ChartDataController>()
+        .getFlSpotsDataForTheCurrentYear(habit);
+  }
+
+  List<FlSpot> getFlSpotsDataLastYear(Habit habit) {
+    return getIt.get<ChartDataController>().getFlSpotsDataLastYear(habit);
+  }
+
+  List<FlSpot> getFlSpotsDataForThePastThreeYears(Habit habit) {
+    return getIt
+        .get<ChartDataController>()
+        .getFlSpotsDataForThePastThreeYears(habit);
   }
 }

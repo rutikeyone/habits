@@ -11,7 +11,10 @@ class DropDownStatisticsButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final DetailsViewState? _viewState =
+        context.read<DetailsCubit>().state as DetailsViewState;
     return Flexible(
+      flex: 10,
       child: DropdownButtonHideUnderline(
         child: DropdownButton2(
           customButton: Container(
@@ -29,9 +32,14 @@ class DropDownStatisticsButton extends StatelessWidget {
                       statisticsItemsData.entries
                           .firstWhere((element) =>
                               element.value ==
-                              context.read<DetailsCubit>().state.typeStatistics)
+                              (_viewState != null
+                                  ? _viewState.typeStatistics
+                                  : StatisticsType.theCurrentYear))
                           .key,
-                      style: Theme.of(context).textTheme.headline2,
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline2!
+                          .copyWith(fontSize: 16),
                     ),
                     Icon(
                       Icons.arrow_drop_down_outlined,
@@ -50,7 +58,10 @@ class DropDownStatisticsButton extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       child: Text(
                         item.key,
-                        style: Theme.of(context).textTheme.headline2,
+                        style: Theme.of(context)
+                            .textTheme
+                            .headline2!
+                            .copyWith(fontSize: 16),
                       ),
                     ),
                   ))
