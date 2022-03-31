@@ -1,10 +1,9 @@
 part of 'details_cubit.dart';
 
-abstract class DetailsState extends Equatable {
-  const DetailsState();
-
+class DetailsView extends Equatable {
+  final StatisticsType typeStatistics;
   @override
-  List<Object> get props => [];
-}
+  List<Object> get props => [typeStatistics];
 
-class DetailsView extends DetailsState {}
+  const DetailsView(this.typeStatistics);
+}

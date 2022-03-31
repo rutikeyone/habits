@@ -1,14 +1,12 @@
-import 'dart:math';
-
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:habits/domain/extensions/int_extension.dart';
 import 'package:habits/domain/model/habit.dart';
 
 import '../left_title_widgets.dart';
-import 'by_current_year_bottom_title.dart';
+import 'the_current_year_bottom_title.dart';
 
-LineChartData byCurrentYearData(
+LineChartData theCurrentYearData(
     {required BuildContext context,
     required double daysInMonth,
     required List<Color> gradientColors,
@@ -46,7 +44,7 @@ LineChartData byCurrentYearData(
           showTitles: true,
           reservedSize: 30,
           interval: 1,
-          getTitlesWidget: (val, meta) => ByCurrentYearBottomTitle(
+          getTitlesWidget: (val, meta) => TheCurrentYearBottomTitle(
               value: val, meta: meta, context: context),
         ),
       ),

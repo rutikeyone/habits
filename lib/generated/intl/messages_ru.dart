@@ -32,12 +32,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "done": MessageLookupByLibrary.simpleMessage("Добавить"),
         "done_1": MessageLookupByLibrary.simpleMessage("выполнено"),
         "everyday": MessageLookupByLibrary.simpleMessage("Каждый день"),
+        "for_the_current_year":
+            MessageLookupByLibrary.simpleMessage("За текущий год"),
         "frequency": MessageLookupByLibrary.simpleMessage("Повторяемость"),
         "habits": MessageLookupByLibrary.simpleMessage("Habits"),
         "just_notification":
             MessageLookupByLibrary.simpleMessage("Дата и время уведомления"),
+        "last_year": MessageLookupByLibrary.simpleMessage("За прошлый год"),
         "month": MessageLookupByLibrary.simpleMessage("месяц"),
         "new_habits": MessageLookupByLibrary.simpleMessage("Добавить привычку"),
+        "over_the_past_three_years":
+            MessageLookupByLibrary.simpleMessage("За прошлые три года"),
         "reminder": MessageLookupByLibrary.simpleMessage("Напоминание"),
         "reminder_off":
             MessageLookupByLibrary.simpleMessage("Напоминание выключено"),
@@ -48,6 +53,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "reminder_validator_message": MessageLookupByLibrary.simpleMessage(
             "Текст напоминания не может быть пустым"),
         "settings": MessageLookupByLibrary.simpleMessage("Настройки"),
+        "statistics": MessageLookupByLibrary.simpleMessage("Статистика"),
         "times": MessageLookupByLibrary.simpleMessage("раз(а)"),
         "times_a_week":
             MessageLookupByLibrary.simpleMessage("Количество дней в неделю"),

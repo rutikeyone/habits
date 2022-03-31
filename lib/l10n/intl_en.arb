@@ -23,5 +23,9 @@
     "done_1" : "done",
     "times" : "times",
     "total" : "total",
-    "month" : "month"
+    "month" : "month",
+    "statistics" : "Statistics",
+    "for_the_current_year" : "For the current year",
+    "last_year" : "Last year",
+    "over_the_past_three_years" : "Over the past three years"
 }

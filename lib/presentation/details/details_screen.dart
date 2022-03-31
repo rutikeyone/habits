@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:habits/BLoC/cubit/details/details_cubit.dart';
-import 'package:habits/presentation/widgets/chartByCurrentYear/detail_line_chart_by_year.dart';
+import 'package:habits/domain/enums/details_enums.dart';
+import 'package:habits/presentation/widgets/chartTheCurrentYear/detail_line_chart_the_year.dart';
+import 'package:habits/presentation/widgets/drop_down_statistics_button.dart';
 import '../../domain/model/habit.dart';
 import '../../generated/l10n.dart';
 import 'components/details_app_bar.dart';
@@ -32,9 +34,14 @@ class DetailsScreen extends StatelessWidget {
                 100)
             .toInt()
         : 0;
+    final Map<String, StatisticsType> statisticsItemsData = {
+      S.of(context).for_the_current_year: StatisticsType.theCurrentYear,
+      S.of(context).last_year: StatisticsType.theLastYear,
+      S.of(context).over_the_past_three_years: StatisticsType.theLastThreeYear,
+    };
 
     return SafeArea(
-      child: BlocBuilder<DetailsCubit, DetailsState>(
+      child: BlocBuilder<DetailsCubit, DetailsView>(
         builder: (context, state) => Scaffold(
           backgroundColor: Theme.of(context).primaryColorDark,
           body: SingleChildScrollView(
@@ -113,9 +120,32 @@ class DetailsScreen extends StatelessWidget {
                       ),
                       color: Theme.of(context).primaryColorLight,
                     ),
-                    child: DetailLineChartByCurrentYear(
-                      context: context,
-                      habit: habit,
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              top: 15, right: 15, left: 12),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Flexible(
+                                child: SingleChildScrollView(
+                                  scrollDirection: Axis.horizontal,
+                                  child: Text(
+                                    S.of(context).statistics,
+                                    style:
+                                        Theme.of(context).textTheme.headline1,
+                                  ),
+                                ),
+                              ),
+                              DropDownStatisticsButton(
+                                statisticsItemsData: statisticsItemsData,
+                              ),
+                            ],
+                          ),
+                        ),
+                        getLineChartWithStatisticsType(context, habit),
+                      ],
                     ),
                   ),
                 ),
@@ -126,5 +156,19 @@ class DetailsScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+Widget getLineChartWithStatisticsType(BuildContext context, Habit habit) {
+  switch (context.read<DetailsCubit>().state.typeStatistics) {
+    case StatisticsType.theCurrentYear:
+      return DetailLineChartTheCurrentYear(
+        context: context,
+        habit: habit,
+      );
+    case StatisticsType.theLastYear:
+      return Container();
+    case StatisticsType.theLastThreeYear:
+      return Container();
   }
 }

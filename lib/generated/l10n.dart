@@ -299,6 +299,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Statistics`
+  String get statistics {
+    return Intl.message(
+      'Statistics',
+      name: 'statistics',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `For the current year`
+  String get for_the_current_year {
+    return Intl.message(
+      'For the current year',
+      name: 'for_the_current_year',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Last year`
+  String get last_year {
+    return Intl.message(
+      'Last year',
+      name: 'last_year',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Over the past three years`
+  String get over_the_past_three_years {
+    return Intl.message(
+      'Over the past three years',
+      name: 'over_the_past_three_years',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -31,12 +31,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "done": MessageLookupByLibrary.simpleMessage("Done"),
         "done_1": MessageLookupByLibrary.simpleMessage("done"),
         "everyday": MessageLookupByLibrary.simpleMessage("Everyday"),
+        "for_the_current_year":
+            MessageLookupByLibrary.simpleMessage("For the current year"),
         "frequency": MessageLookupByLibrary.simpleMessage("Frequency"),
         "habits": MessageLookupByLibrary.simpleMessage("Habits"),
         "just_notification":
             MessageLookupByLibrary.simpleMessage("Just notification"),
+        "last_year": MessageLookupByLibrary.simpleMessage("Last year"),
         "month": MessageLookupByLibrary.simpleMessage("month"),
         "new_habits": MessageLookupByLibrary.simpleMessage("New habit"),
+        "over_the_past_three_years":
+            MessageLookupByLibrary.simpleMessage("Over the past three years"),
         "reminder": MessageLookupByLibrary.simpleMessage("Reminder"),
         "reminder_off": MessageLookupByLibrary.simpleMessage("Reminder Off"),
         "reminder_on": MessageLookupByLibrary.simpleMessage("Reminder on"),
@@ -44,6 +49,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "reminder_validator_message":
             MessageLookupByLibrary.simpleMessage("Reminder can\'t be empty"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
+        "statistics": MessageLookupByLibrary.simpleMessage("Statistics"),
         "times": MessageLookupByLibrary.simpleMessage("times"),
         "times_a_week": MessageLookupByLibrary.simpleMessage("Times a week"),
         "times_a_week_1": MessageLookupByLibrary.simpleMessage("times a week"),
