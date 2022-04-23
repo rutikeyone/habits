@@ -27,5 +27,7 @@
     "statistics" : "Статистика",
     "for_the_current_year" : "За текущий год",
     "last_year" : "За прошлый год",
-    "over_the_past_three_years" : "За прошлые три года"
+    "over_the_past_three_years" : "За прошлые три года",
+    "sort" : "Сортировать",
+    "chart" : "График"
 }

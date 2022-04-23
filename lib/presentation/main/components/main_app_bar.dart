@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:habits/presentation/main/components/showSortDialog.dart';
 
 import '../../../generated/l10n.dart';
 import '../../inherit/main_widget_provider.dart';
@@ -17,45 +19,28 @@ class MainAppBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          PopupMenuButton(
-            offset: const Offset(0, 50),
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(
-                Radius.circular(10),
-              ),
-            ),
-            iconSize: 26,
-            color: Theme.of(context).inputDecorationTheme.fillColor,
-            icon: FaIcon(
+          IconButton(
+            icon: Icon(
               FontAwesomeIcons.list,
+              size: 26,
               color: Theme.of(context).textTheme.headline1!.color,
             ),
-            itemBuilder: (context) => [
-              PopupMenuItem(
-                child: Text(
-                  S.of(context).by_title,
-                  style: Theme.of(context).textTheme.headline2,
-                ),
-                onTap: () =>
-                    MainWidgetProvider.of(context)?.sortByTitle(context),
-              ),
-              PopupMenuItem(
-                onTap: () =>
-                    MainWidgetProvider.of(context)?.sortByFrequency(context),
-                child: Text(
-                  S.of(context).by_frequency,
-                  style: Theme.of(context).textTheme.headline2,
-                ),
-              ),
-              PopupMenuItem(
-                onTap: () => MainWidgetProvider.of(context)
-                    ?.sortByCompletedDays(context),
-                child: Text(
-                  S.of(context).by_completed_days,
-                  style: Theme.of(context).textTheme.headline2,
-                ),
-              ),
-            ],
+            onPressed: () => showSortDialog(
+              context: context,
+              sortByTitleOnPressed: () {
+                MainWidgetProvider.of(context)?.sortByTitle(context);
+                Navigator.of(context).pop();
+              },
+              sortByFrequencyOnPressed: () {
+                MainWidgetProvider.of(context)?.sortByFrequency(context);
+                Navigator.of(context).pop();
+              },
+              sortByCompletedDaysOnPressed: () {
+                MainWidgetProvider.of(context)?.sortByCompletedDays(context);
+                Navigator.of(context).pop();
+              },
+            ),
+            color: Theme.of(context).textTheme.headline1!.color,
           ),
           Text(
             S.of(context).habits,

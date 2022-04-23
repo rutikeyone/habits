@@ -27,6 +27,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "by_frequency": MessageLookupByLibrary.simpleMessage("By frequency"),
         "by_title": MessageLookupByLibrary.simpleMessage("By title"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+        "chart": MessageLookupByLibrary.simpleMessage("Chart"),
         "dark_theme": MessageLookupByLibrary.simpleMessage("Dark Theme"),
         "done": MessageLookupByLibrary.simpleMessage("Done"),
         "done_1": MessageLookupByLibrary.simpleMessage("done"),
@@ -49,6 +50,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "reminder_validator_message":
             MessageLookupByLibrary.simpleMessage("Reminder can\'t be empty"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
+        "sort": MessageLookupByLibrary.simpleMessage("Sort"),
         "statistics": MessageLookupByLibrary.simpleMessage("Statistics"),
         "times": MessageLookupByLibrary.simpleMessage("times"),
         "times_a_week": MessageLookupByLibrary.simpleMessage("Times a week"),

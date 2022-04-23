@@ -27,5 +27,7 @@
     "statistics" : "Statistics",
     "for_the_current_year" : "For the current year",
     "last_year" : "Last year",
-    "over_the_past_three_years" : "Over the past three years"
+    "over_the_past_three_years" : "Over the past three years",
+    "sort" : "Sort",
+    "chart" : "Chart"
 }

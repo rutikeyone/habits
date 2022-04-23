@@ -339,6 +339,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Sort`
+  String get sort {
+    return Intl.message(
+      'Sort',
+      name: 'sort',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Chart`
+  String get chart {
+    return Intl.message(
+      'Chart',
+      name: 'chart',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

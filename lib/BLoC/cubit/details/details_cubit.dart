@@ -9,9 +9,11 @@ import 'package:habits/internal/locator.dart';
 part 'details_state.dart';
 
 class DetailsCubit extends Cubit<DetailsState> {
+  StatisticsType statisticsType = StatisticsType.theCurrentYear;
   DetailsCubit(DetailsState initialState) : super(initialState);
 
   void updateTypeStatistics(StatisticsType type) {
+    statisticsType = type;
     emit(DetailsViewState(type));
   }
 

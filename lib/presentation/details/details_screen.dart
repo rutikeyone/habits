@@ -1,9 +1,14 @@
+import 'dart:math';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:habits/BLoC/cubit/details/details_cubit.dart';
 import 'package:habits/domain/enums/details_enums.dart';
 import 'package:habits/presentation/widgets/chart/detail_line_chart.dart';
 import 'package:habits/presentation/widgets/drop_down_statistics_button.dart';
+import 'package:habits/presentation/widgets/show_cupertino_dialog.dart'
+    as cupertinoDialog;
 import '../../domain/model/habit.dart';
 import '../../generated/l10n.dart';
 import 'components/details_app_bar.dart';
@@ -143,8 +148,71 @@ class DetailsScreen extends StatelessWidget {
                                   ),
                                 ),
                                 const Flexible(flex: 1, child: SizedBox()),
-                                DropDownStatisticsButton(
-                                  statisticsItemsData: statisticsItemsData,
+                                Flexible(
+                                  flex: 10,
+                                  child: SizedBox(
+                                    height: 45,
+                                    child: ElevatedButton(
+                                      onPressed: () =>
+                                          cupertinoDialog.showCupertinoDialog(
+                                        context: context,
+                                        title: Text(S.of(context).chart),
+                                        items: statisticsItemsData.entries
+                                            .map(
+                                              (e) => CupertinoDialogAction(
+                                                child: Padding(
+                                                  padding: const EdgeInsets
+                                                          .symmetric(
+                                                      horizontal: 10),
+                                                  child: Text(
+                                                    e.key,
+                                                  ),
+                                                ),
+                                                onPressed: () {
+                                                  context
+                                                      .read<DetailsCubit>()
+                                                      .updateTypeStatistics(
+                                                        e.value,
+                                                      );
+                                                  Navigator.pop(context);
+                                                },
+                                              ),
+                                            )
+                                            .toList(),
+                                      ),
+                                      style: ButtonStyle(
+                                        shape: MaterialStateProperty.all<
+                                                RoundedRectangleBorder>(
+                                            RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        )),
+                                        backgroundColor:
+                                            MaterialStateProperty.all<Color>(
+                                                Theme.of(context).dividerColor),
+                                      ),
+                                      child: SingleChildScrollView(
+                                        scrollDirection: Axis.horizontal,
+                                        child: Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 10),
+                                          child: Text(
+                                            statisticsItemsData.entries
+                                                .firstWhere((element) =>
+                                                    element.value ==
+                                                    context
+                                                        .watch<DetailsCubit>()
+                                                        .statisticsType)
+                                                .key,
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .headline2
+                                                ?.copyWith(fontSize: 16),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
                                 ),
                               ],
                             ),
@@ -155,7 +223,6 @@ class DetailsScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 20),
                 ],
               ),
             ),

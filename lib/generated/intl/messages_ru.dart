@@ -28,6 +28,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("По повторяемости"),
         "by_title": MessageLookupByLibrary.simpleMessage("По названию"),
         "cancel": MessageLookupByLibrary.simpleMessage("Назад"),
+        "chart": MessageLookupByLibrary.simpleMessage("График"),
         "dark_theme": MessageLookupByLibrary.simpleMessage("Темная тема"),
         "done": MessageLookupByLibrary.simpleMessage("Добавить"),
         "done_1": MessageLookupByLibrary.simpleMessage("выполнено"),
@@ -53,6 +54,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "reminder_validator_message": MessageLookupByLibrary.simpleMessage(
             "Текст напоминания не может быть пустым"),
         "settings": MessageLookupByLibrary.simpleMessage("Настройки"),
+        "sort": MessageLookupByLibrary.simpleMessage("Сортировать"),
         "statistics": MessageLookupByLibrary.simpleMessage("Статистика"),
         "times": MessageLookupByLibrary.simpleMessage("раз(а)"),
         "times_a_week":
