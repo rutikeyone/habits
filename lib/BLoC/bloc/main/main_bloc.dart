@@ -42,19 +42,15 @@ class MainBloc extends Bloc<MainEvent, MainState> {
         }
 
         if (event is CompletedDate) {
-          final DateTime _todayDay = DateTime.now();
+          if (event.habit.notifications != null) {
+            if (event.habit.notifications!.isNotEmpty) {
+              final _notification = event.habit.notifications?.firstWhere(
+                  (element) => element.date.day == event.completedDate.day);
 
-          if (_todayDay.difference(event.completedDate).inMinutes >= 0) {
-            if (event.habit.notifications != null) {
-              if (event.habit.notifications!.isNotEmpty) {
-                final _notification = event.habit.notifications?.firstWhere(
-                    (element) => element.date.day == event.completedDate.day);
-
-                if (_notification != null) {
-                  await getIt
-                      .get<NotificationController>()
-                      .cancelById(_notification.notice.id);
-                }
+              if (_notification != null) {
+                await getIt
+                    .get<NotificationController>()
+                    .cancelById(_notification.notice.id);
               }
             }
 
@@ -63,25 +59,24 @@ class MainBloc extends Bloc<MainEvent, MainState> {
                 .updateCompletedDateController(
                     habit: event.habit, date: event.completedDate);
 
-            emit(LoadingState());
+            final _habits = await getIt.get<DbController>().getAll();
+
+            emit(LoadedState(habits: _habits));
           }
         }
 
         if (event is UncompletedDate) {
-          final DateTime _todayDay = DateTime.now();
-          if (_todayDay.difference(event.completedDate).inMinutes >= 0) {
-            if (event.habit.notifications != null) {
-              if (event.habit.notifications!.isNotEmpty) {
-                final _notification = event.habit.notifications?.first;
+          if (event.habit.notifications != null) {
+            if (event.habit.notifications!.isNotEmpty) {
+              final _notification = event.habit.notifications?.first;
 
-                if (_notification != null) {
-                  await getIt
-                      .get<NotificationController>()
-                      .showScheduledNotification(
-                          notice: _notification.notice,
-                          time: _notification.time,
-                          day: event.completedDate);
-                }
+              if (_notification != null) {
+                await getIt
+                    .get<NotificationController>()
+                    .showScheduledNotification(
+                        notice: _notification.notice,
+                        time: _notification.time,
+                        day: event.completedDate);
               }
             }
 
@@ -89,7 +84,9 @@ class MainBloc extends Bloc<MainEvent, MainState> {
                 .get<UpdateUncompletedDateController>()
                 .updateUncompletedDateController(
                     habit: event.habit, date: event.completedDate);
-            emit(LoadingState());
+            final _habits = await getIt.get<DbController>().getAll();
+
+            emit(LoadedState(habits: _habits));
           }
         }
 

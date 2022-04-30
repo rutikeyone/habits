@@ -32,6 +32,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "dark_theme": MessageLookupByLibrary.simpleMessage("Темная тема"),
         "done": MessageLookupByLibrary.simpleMessage("Добавить"),
         "done_1": MessageLookupByLibrary.simpleMessage("выполнено"),
+        "done_2": MessageLookupByLibrary.simpleMessage("Выполнено"),
         "everyday": MessageLookupByLibrary.simpleMessage("Каждый день"),
         "for_the_current_year":
             MessageLookupByLibrary.simpleMessage("За текущий год"),
@@ -42,6 +43,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "last_year": MessageLookupByLibrary.simpleMessage("За прошлый год"),
         "month": MessageLookupByLibrary.simpleMessage("месяц"),
         "new_habits": MessageLookupByLibrary.simpleMessage("Добавить привычку"),
+        "not_completed": MessageLookupByLibrary.simpleMessage("Не выполнено"),
         "over_the_past_three_years":
             MessageLookupByLibrary.simpleMessage("За прошлые три года"),
         "reminder": MessageLookupByLibrary.simpleMessage("Напоминание"),

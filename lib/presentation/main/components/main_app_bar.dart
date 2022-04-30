@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:habits/presentation/main/components/showSortDialog.dart';
+import 'package:habits/presentation/main/components/show_sort_dialog.dart';
 
 import '../../../generated/l10n.dart';
 import '../../inherit/main_widget_provider.dart';

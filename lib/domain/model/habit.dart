@@ -1,3 +1,6 @@
+import 'package:equatable/equatable.dart';
+import 'package:flutter/foundation.dart';
+
 import 'notification.dart';
 
 class Habit {
@@ -56,5 +59,24 @@ class Habit {
         countSelectedDays: countSelectedDays ?? this.countSelectedDays,
         completedDays: completedDays ?? this.completedDays);
     return _newElement;
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+
+    return other is Habit &&
+        other.id == id &&
+        other.title == title &&
+        other.countSelectedDays == countSelectedDays &&
+        other.unselectedColorValue == unselectedColorValue &&
+        other.selectedColorValue == selectedColorValue &&
+        other.timesAWeek == timesAWeek &&
+        listEquals(other.days, days) &&
+        listEquals(other.selectedDays, selectedDays) &&
+        listEquals(other.weekDaysName, weekDaysName) &&
+        listEquals(other.totalDays, totalDays) &&
+        listEquals(other.completedDays, completedDays) &&
+        listEquals(other.notifications, notifications);
   }
 }

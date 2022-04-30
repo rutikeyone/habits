@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../domain/model/habit.dart';
 import '../inherit/main_widget_provider.dart';
 import '../theme/auxilary_color.dart';
@@ -7,10 +6,14 @@ import 'date_of_the_month_item.dart';
 
 class HabitItem extends StatelessWidget {
   final Habit habit;
+  final void Function() habitItemOnPressed;
+  final void Function(int index) dayOfMonthOnPressed;
 
   const HabitItem({
     Key? key,
     required this.habit,
+    required this.habitItemOnPressed,
+    required this.dayOfMonthOnPressed,
   }) : super(key: key);
 
   @override
@@ -85,23 +88,7 @@ class HabitItem extends StatelessWidget {
                                           : baseHabitItemColor,
                                   dayWeekName: habit.weekDaysName[index],
                                   dayWeek: habit.days[index],
-                                  onTap: () {
-                                    if (habit.selectedDays
-                                        .contains(habit.days[index])) {
-                                      MainWidgetProvider.of(context)
-                                          ?.onSelectCompletedDay(
-                                              context: context,
-                                              habit: habit,
-                                              date: habit.days[index]);
-                                    } else if (habit.completedDays
-                                        .contains(habit.days[index])) {
-                                      MainWidgetProvider.of(context)
-                                          ?.onSelectUncompletedDay(
-                                              context: context,
-                                              habit: habit,
-                                              date: habit.days[index]);
-                                    }
-                                  },
+                                  onTap: () => dayOfMonthOnPressed(index),
                                 ),
                               ),
                             ),
@@ -114,8 +101,7 @@ class HabitItem extends StatelessWidget {
           ),
         ),
       ),
-      onTap: () =>
-          MainWidgetProvider.of(context)?.habitItemOnPressed(context, habit),
+      onTap: habitItemOnPressed,
     );
   }
 }

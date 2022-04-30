@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:habits/presentation/inherit/main_widget_provider.dart';
 import '../../../BLoC/bloc/main/main_bloc.dart';
 import '../../../BLoC/bloc/main/main_event.dart';
 import '../../../domain/model/habit.dart';
@@ -57,6 +58,13 @@ class _MainLoadedViewState extends State<MainLoadedView>
                         vertical: 10, horizontal: 25),
                     child: HabitItem(
                       habit: widget.habits[index],
+                      habitItemOnPressed: () => MainWidgetProvider.of(context)
+                          ?.habitItemOnPressed(context, widget.habits[index]),
+                      dayOfMonthOnPressed: (int value) {
+                        final habit = widget.habits[index];
+                        MainWidgetProvider.of(context)?.onSelectDay(
+                            habit: habit, context: context, index: value);
+                      },
                     ),
                   ),
                 ],
