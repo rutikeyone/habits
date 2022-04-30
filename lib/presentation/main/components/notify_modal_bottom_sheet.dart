@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 Widget showNotifyModalBottomSheet({
   required BuildContext context,
@@ -27,10 +26,7 @@ Widget showNotifyModalBottomSheet({
                         Text(
                           title,
                           textAlign: TextAlign.center,
-                          style: Theme.of(context)
-                              .textTheme
-                              .headline1
-                              ?.copyWith(fontSize: 28),
+                          style: Theme.of(context).textTheme.headline1,
                         ),
                         Container(
                           width: 36,

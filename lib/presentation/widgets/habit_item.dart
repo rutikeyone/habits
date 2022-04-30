@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../domain/model/habit.dart';
-import '../inherit/main_widget_provider.dart';
+import 'package:habits/core/domain/model/habit.dart';
+import 'package:habits/generated/l10n.dart';
+import 'package:intl/intl.dart';
+
 import '../theme/auxilary_color.dart';
 import 'date_of_the_month_item.dart';
 
@@ -8,12 +10,14 @@ class HabitItem extends StatelessWidget {
   final Habit habit;
   final void Function() habitItemOnPressed;
   final void Function(int index) dayOfMonthOnPressed;
+  final DateFormat formatter;
 
   const HabitItem({
     Key? key,
     required this.habit,
     required this.habitItemOnPressed,
     required this.dayOfMonthOnPressed,
+    required this.formatter,
   }) : super(key: key);
 
   @override
@@ -53,7 +57,9 @@ class HabitItem extends StatelessWidget {
                           child: SingleChildScrollView(
                             scrollDirection: Axis.horizontal,
                             child: Text(
-                              habit.timesAWeek!,
+                              habit.timesAWeek.toString() +
+                                  " " +
+                                  S.of(context).times_a_week_1,
                               style: Theme.of(context).textTheme.headline3,
                               overflow: TextOverflow.ellipsis,
                             ),
@@ -86,7 +92,8 @@ class HabitItem extends StatelessWidget {
                                               .contains(habit.days[index])
                                           ? Color(habit.unselectedColorValue)
                                           : baseHabitItemColor,
-                                  dayWeekName: habit.weekDaysName[index],
+                                  dayWeekName:
+                                      formatter.format(habit.days[index]),
                                   dayWeek: habit.days[index],
                                   onTap: () => dayOfMonthOnPressed(index),
                                 ),

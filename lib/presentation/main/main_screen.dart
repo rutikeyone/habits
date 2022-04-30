@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../BLoC/bloc/main/main_bloc.dart';
-import '../../BLoC/bloc/main/main_event.dart';
-import '../../BLoC/bloc/main/main_state.dart';
-import '../inherit/main_widget_provider.dart';
-import '../inherit/model/main_widget_model.dart';
+import 'package:habits/core/BLoC/bloc/main/main_bloc.dart';
+import 'package:habits/core/BLoC/bloc/main/main_event.dart';
+import 'package:habits/core/BLoC/bloc/main/main_state.dart';
+import 'package:habits/core/inherit/main_widget_provider.dart';
+import 'package:habits/core/inherit/model/main_widget_model.dart';
+import 'package:intl/intl.dart';
 import 'view/main_error_view.dart';
 import 'view/main_loaded_view.dart';
 import 'view/main_loading_view.dart';
@@ -33,6 +34,7 @@ class MainScreen extends StatelessWidget {
 
             if (state is LoadedState) {
               return MainLoadedView(
+                formatter: DateFormat('EEE'),
                 habits: state.habits,
               );
             }

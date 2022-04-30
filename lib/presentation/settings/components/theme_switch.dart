@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:habits/core/inherit/settings_widget_provider.dart';
+
 import '../../../generated/l10n.dart';
-import '../../inherit/settings_widget_provider.dart';
 
 class ThemeSwitch extends StatelessWidget {
   const ThemeSwitch({Key? key}) : super(key: key);

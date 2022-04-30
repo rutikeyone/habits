@@ -1,15 +1,12 @@
-import 'dart:math';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:habits/BLoC/cubit/details/details_cubit.dart';
-import 'package:habits/domain/enums/details_enums.dart';
-import 'package:habits/presentation/widgets/chart/detail_line_chart.dart';
-import 'package:habits/presentation/widgets/drop_down_statistics_button.dart';
+import 'package:habits/core/BLoC/cubit/details/details_cubit.dart';
+import 'package:habits/core/domain/enums/details_enums.dart';
+import 'package:habits/core/domain/model/habit.dart';
+import '../widgets/chart/detail_line_chart.dart';
 import 'package:habits/presentation/widgets/show_cupertino_dialog.dart'
     as cupertinoDialog;
-import '../../domain/model/habit.dart';
 import '../../generated/l10n.dart';
 import 'components/details_app_bar.dart';
 import 'components/header_details.dart';

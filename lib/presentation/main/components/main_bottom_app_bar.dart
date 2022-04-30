@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:habits/core/inherit/main_widget_provider.dart';
 import '../../../generated/l10n.dart';
-import '../../inherit/main_widget_provider.dart';
 import '../../new_habit/new_habit_screen.dart';
 
 class MainBottomAppBar extends StatelessWidget {
