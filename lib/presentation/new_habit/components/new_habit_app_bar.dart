@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:habits/core/inherit/new_habit_widget_provider.dart';
 
 import '../../../generated/l10n.dart';
-import '../../inherit/new_habit_widget_provider.dart';
 
 class NewHabitAppBar extends StatelessWidget {
   const NewHabitAppBar({

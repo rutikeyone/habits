@@ -1,7 +1,7 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
-import 'package:habits/BLoC/cubit/details/details_cubit.dart';
-import 'package:habits/domain/enums/details_enums.dart';
+import 'package:habits/core/BLoC/cubit/details/details_cubit.dart';
+import 'package:habits/core/domain/enums/details_enums.dart';
 import 'package:provider/src/provider.dart';
 
 class DropDownStatisticsButton extends StatelessWidget {

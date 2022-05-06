@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:habits/core/inherit/new_habit_widget_provider.dart';
 import '../../../generated/l10n.dart';
-import '../../inherit/new_habit_widget_provider.dart';
 
 class Frequency extends StatelessWidget {
   const Frequency({Key? key}) : super(key: key);

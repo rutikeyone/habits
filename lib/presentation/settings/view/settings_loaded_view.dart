@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import '../components/settings_app_bar.dart';
 import '../components/theme_switch.dart';
 

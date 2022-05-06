@@ -2,15 +2,17 @@ import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:habits/BLoC/cubit/details/details_cubit.dart';
-import 'package:habits/domain/enums/details_enums.dart';
-import 'BLoC/bloc/main/main_bloc.dart';
-import 'BLoC/bloc/main/main_event.dart';
-import 'BLoC/bloc/main/main_state.dart';
-import 'BLoC/bloc/new_habit/new_habit_bloc.dart';
-import 'BLoC/bloc/new_habit/new_habit_state.dart';
-import 'internal/locator.dart';
-import 'internal/notification_di/notification_controller.dart';
+
+import 'core/BLoC/bloc/main/main_bloc.dart';
+import 'core/BLoC/bloc/main/main_event.dart';
+import 'core/BLoC/bloc/main/main_state.dart';
+import 'core/BLoC/bloc/new_habit/new_habit_bloc.dart';
+import 'core/BLoC/bloc/new_habit/new_habit_state.dart';
+import 'core/BLoC/cubit/details/details_cubit.dart';
+import 'core/domain/enums/details_enums.dart';
+import 'core/internal/locator.dart';
+import 'core/internal/notification_di/notification_controller.dart';
+import 'generated/l10n.dart';
 import 'presentation/details/details_screen.dart';
 import 'presentation/main/main_screen.dart';
 import 'presentation/navigation/route.dart';
@@ -18,7 +20,6 @@ import 'presentation/new_habit/new_habit_screen.dart';
 import 'presentation/settings/settings_screen.dart';
 import 'presentation/theme/dark_theme.dart';
 import 'presentation/theme/light_theme.dart';
-import 'generated/l10n.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

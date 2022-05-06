@@ -359,6 +359,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Done`
+  String get done_2 {
+    return Intl.message(
+      'Done',
+      name: 'done_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Not completed`
+  String get not_completed {
+    return Intl.message(
+      'Not completed',
+      name: 'not_completed',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

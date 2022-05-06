@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../../domain/model/habit.dart';
+import 'package:habits/core/domain/model/habit.dart';
 import '../../../generated/l10n.dart';
 import '../../widgets/header_item.dart';
 
@@ -15,7 +14,11 @@ class HeaderDetails extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          HeaderItem(text: habit.timesAWeek!, icon: Icons.repeat),
+          HeaderItem(
+              text: habit.timesAWeek.toString() +
+                  " " +
+                  S.of(context).times_a_week_1,
+              icon: Icons.repeat),
           const SizedBox(width: 15),
           HeaderItem(
             text: habit.notifications!.isNotEmpty

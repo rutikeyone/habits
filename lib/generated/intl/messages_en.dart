@@ -31,6 +31,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "dark_theme": MessageLookupByLibrary.simpleMessage("Dark Theme"),
         "done": MessageLookupByLibrary.simpleMessage("Done"),
         "done_1": MessageLookupByLibrary.simpleMessage("done"),
+        "done_2": MessageLookupByLibrary.simpleMessage("Done"),
         "everyday": MessageLookupByLibrary.simpleMessage("Everyday"),
         "for_the_current_year":
             MessageLookupByLibrary.simpleMessage("For the current year"),
@@ -41,6 +42,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "last_year": MessageLookupByLibrary.simpleMessage("Last year"),
         "month": MessageLookupByLibrary.simpleMessage("month"),
         "new_habits": MessageLookupByLibrary.simpleMessage("New habit"),
+        "not_completed": MessageLookupByLibrary.simpleMessage("Not completed"),
         "over_the_past_three_years":
             MessageLookupByLibrary.simpleMessage("Over the past three years"),
         "reminder": MessageLookupByLibrary.simpleMessage("Reminder"),

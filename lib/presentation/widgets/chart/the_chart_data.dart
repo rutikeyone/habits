@@ -1,8 +1,7 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
-import 'package:habits/presentation/widgets/left_title_widgets.dart';
-
+import '../left_title_widgets.dart';
 import 'chart_bottom_title.dart';
 
 LineChartData chartData(

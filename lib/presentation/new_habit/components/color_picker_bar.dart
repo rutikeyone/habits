@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:habits/core/inherit/new_habit_widget_provider.dart';
 
-import '../../inherit/new_habit_widget_provider.dart';
 import '../../theme/auxilary_color.dart';
 import '../../widgets/color_item.dart';
 
