@@ -5,19 +5,18 @@ The Habits mobile app allows you to add a new habit and track progress, with the
 ## Screenshots
 
 <p align="center">
-<img src="https://github.com/RuTiKeyOne/Weather/blob/main/doc/screenshots/1.png" width="250"/>
-<img src="https://github.com/RuTiKeyOne/Weather/blob/main/doc/screenshots/2.png" width="250"/>
-<img src="https://github.com/RuTiKeyOne/Weather/blob/main/doc/screenshots/3.png" width="250"/>
+<img src="https://github.com/RuTiKeyOne/Habits/blob/master/doc/screenshots/1.png" width="225"/>
+<img src="https://github.com/RuTiKeyOne/Habits/blob/master/doc/screenshots/2.png" width="225"/>
+<img src="https://github.com/RuTiKeyOne/Habits/blob/master/doc/screenshots/3.png" width="225"/>
 </p>
 
 <p align="center">
-<img src="https://github.com/RuTiKeyOne/Weather/blob/main/doc/screenshots/4.png" width="250"/>
-<img src="https://github.com/RuTiKeyOne/Weather/blob/main/doc/screenshots/5.png" width="250"/>
-<img src="https://github.com/RuTiKeyOne/Weather/blob/main/doc/screenshots/6.png" width="250"/>
+<img src="https://github.com/RuTiKeyOne/Habits/blob/master/doc/screenshots/4.png" width="225"/>
+<img src="https://github.com/RuTiKeyOne/Habits/blob/master/doc/screenshots/5.png" width="225"/>
 </p>
 
 ## Video
-[![Watch the video](https://github.com/RuTiKeyOne/Weather/blob/main/doc/screenshots/videoscreenshot.PNG)](https://www.youtube.com/watch?v=g_YWoz0y5jk)
+[![Watch the video](https://github.com/RuTiKeyOne/Habits/blob/master/doc/screenshots/videoscreenshots.PNG)](https://www.youtube.com/watch?v=PVrXNUc4lbE)
 
 
 ## What functionality does the application provide to the user?
