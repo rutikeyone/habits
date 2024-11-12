@@ -5,6 +5,11 @@
 The Habits mobile app allows you to add a new habit and track progress, with the ability to sort and view the details of the habit.
 
 ## Technologies used
+* `Dart`;
+* `Flutter`;
+* `Bloc`;
+* `RxDart`;
+* `Sqflite`.
 
 ## Features
 * `View all habits`;
